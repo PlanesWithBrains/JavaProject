@@ -106,8 +106,10 @@ public class JsonWork {
 	}
 
 	static ClientData Deserialize(String json){
-		JsonReader reader = new JsonReader(new StringReader(json));
+		StringReader json_stream = new StringReader(json);
+		JsonReader reader = new JsonReader(json_stream);
 		reader.setLenient(true);
+
 
 		return new Gson().fromJson(reader, ClientData.class);
 	}

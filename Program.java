@@ -1,4 +1,4 @@
-//
+/*Саша*/
 import java.io.*;
 import java.lang.*;
 import java.util.logging.*;
@@ -127,10 +127,12 @@ while(true) {
 		case "1": break;
 		case "2":
 			do {
-				//System.out.println(GetData.Download("127.0.0.1", 1998).toString());
-				lclient=GetData.Download("127.0.0.1", 1998);
+				//System.out.println(GetData.Download("127.0.0.1", 8005).toString());
+				lclient=GetData.Download("127.0.0.1", 8005);
 				ArrayList<ClientData> list_client = new ArrayList<ClientData>();
 
+				if(lclient == null)
+				    break;
 				if (clients.containsKey(lclient.uniqKey)){ //проверка на условие встречался ли ключ ранее
 					//я очень не уверен в get ключа, TODO check it
 					clients.get(lclient.uniqKey).add(lclient);
@@ -138,13 +140,14 @@ while(true) {
 				else {
 					list_client.add(lclient);
 					clients.put(lclient.uniqKey, list_client);
-
-					//("тут должен быть ключ",ArrayList"Объект класса ClientData");
 				}
 
 
 			}
 			while (GetData.Next());
+			for (int i=0;i<clients.size();i++){
+			    System.out.println(clients.values().toArray()[i]);
+            }
 			break;
 		/*если свойство debug содержит true, то тогда меняем его на false, иначе меняем false на true*/
 		case "3": property.setProperty("debug", property.getProperty("debug").equals("true") ? "false" : "true");
@@ -153,23 +156,27 @@ while(true) {
 		case "4": property.setProperty("autotest", property.getProperty("autotest").equals("true") ? "false" : "true");
 			break;
 	}
+
+    SaveConfig(property, loggingUser);
 }
 		
 	}
 	
 	/*пишем в лог сообщение о закрытии программы и закрываем ее*/
 	public static void Exit(Properties property,User user) {
-		property.setProperty("current_user",user.name);
-		try {
-			property.store(new FileOutputStream("config.ini"), null);
-		}
-		catch (Exception e){
-			log.log(Level.INFO,"Config file could not be saved");
-		}
-		log.info("Program closed");
+        SaveConfig(property, user);
+        log.info("Program closed");
 		System.exit(0);
 	}
-	
+	public static void SaveConfig(Properties property,User user){
+        property.setProperty("current_user",user.name);
+        try {
+            property.store(new FileOutputStream("config.ini"), null);
+        }
+        catch (Exception e){
+            log.log(Level.INFO,"Config file could not be saved");
+        }
+    }
 	/* Функция проверяет на соответствие введенные пользователем данные
 	 * и возвращает доступную ему привелегию*/
 	public static Priveledge Verify(User user, Properties property) {

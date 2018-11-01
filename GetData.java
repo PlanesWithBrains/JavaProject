@@ -46,6 +46,8 @@ public class GetData {
         try {
             byte[] json = new byte[connect2Server.getReceiveBufferSize()];
             istream.read(json);
+            if(json[0] == 0)
+                return null;
             clientSerialized = new String(json, Charset.forName("UTF-8"));
         }
         catch (Exception e){

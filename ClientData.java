@@ -64,6 +64,16 @@ class Address{
 				" Country: " + country +
 				" City: " + city;
 	}
+	public boolean equals(Address to_compare){
+		if(to_compare == null)
+			return false;
+		if(	this.region.equals(to_compare.region) &&
+			this.country.equals(to_compare.country) &&
+			this.city.equals(to_compare.city))
+			return true;
+		else
+			return false;
+	}
 }
 
 public class ClientData {
@@ -104,4 +114,17 @@ public class ClientData {
 				" Count of modules: " + modules.size() +
 				" Address: " + addr.toString();
 	}
+
+	public boolean equals(ClientData to_compare){
+
+		if(	this.addr.equals(to_compare.addr) &&
+			this.uniqKey == to_compare.uniqKey &&
+			this.fullUsage.equals(to_compare.fullUsage) &&
+			this.modules == to_compare.modules &&
+			this.clientIp.equals(to_compare.clientIp))
+			return  true;
+		else
+			return false;
+	}
+
 }
