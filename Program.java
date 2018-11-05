@@ -1,12 +1,15 @@
 /*Саша*/
 import java.io.*;
 import java.lang.*;
+import java.lang.reflect.Array;
 import java.util.logging.*;
 import java.io.*;
 import java.util.Properties;
 import java.util.Scanner;
 import java.util.*;
-
+import org.knowm.xchart.QuickChart;
+import org.knowm.xchart.SwingWrapper;
+import org.knowm.xchart.XYChart;
 
 
 enum Priveledge{user,root,wrong_pass}
@@ -126,14 +129,24 @@ public class Program {
 					new DataCollection<HashMap<Long,ArrayList<ClientData>>>(new HashMap<Long,ArrayList<ClientData>>());
 
 			/*Лист для времени работы с коллекцией*/
-			ArrayList<long[]> elapsed_times = new ArrayList<long[]>();
-
+			ArrayList<Double> elapsed_times = new ArrayList<Double>();
+            ArrayList<Double> elements = new ArrayList<Double>();
 			ClientData lclient;	//копия объекта ClientData для записи в коллекцию
 			switch (input){
 				case "0": log.log(Level.INFO, "Program shutdown"); Exit(property,loggingUser);
 				case "1": break;
 				case "2":
 					int count = 0;
+
+                    long[] elapsed;
+                    // Create Chart
+                    final XYChart chart = QuickChart.getChart("График времени обращения к коллекции",  "Кол-во элементов", "Время","время", new double[]{0}, new double[]{0});
+
+                    // Show it
+                    final SwingWrapper<XYChart> sw = new SwingWrapper<XYChart>(chart);
+                    sw.displayChart();
+
+
 					do {
 						lclient = GetData.Download("127.0.0.1", 8005);
 
@@ -141,17 +154,23 @@ public class Program {
 							break;
 						if (gen_collection.collection.containsKey(lclient.uniqKey)){ //проверка на условие встречался ли ключ ранее
 
-							gen_collection.GetAndAdd(lclient.uniqKey,lclient);
+							elapsed = gen_collection.GetAndAdd(lclient.uniqKey,lclient);
 						}
 						else {
 							ArrayList<ClientData> to_add = new ArrayList<ClientData>();
 							to_add.add(lclient);
-							gen_collection.Add(lclient.uniqKey, to_add);
+							elapsed = gen_collection.Add(lclient.uniqKey, to_add);
 						}
 
-						if(count % 100 == 0)
-							gen_collection.Remove(gen_collection.collection.values().toArray()[0]);
+						if(count % 1000 == 0)
+							elapsed = gen_collection.Remove(gen_collection.collection.keySet().toArray()[0]);
 						count++;
+
+                        elapsed_times.add(Double.parseDouble(Long.toString( elapsed[0])) + Double.parseDouble(Long.toString( elapsed[1]))/1000.0);
+                        elements.add(Double.parseDouble(Integer.toString(gen_collection.collection.size())));
+
+                        chart.updateXYSeries("время", elements, elapsed_times, null);
+                        sw.repaintChart();
 
 					}
 					while (GetData.Next());
