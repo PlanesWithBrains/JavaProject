@@ -9,13 +9,14 @@ import java.util.*;
 import java.util.logging.*;
 
 public class GetData {
-    static Logger log = Logger.getLogger(GetData.class.getName());
+    static LoggingMachine log;
 
     static  Socket connect2Server;
     static  boolean connectionEstablished = false;
     static ClientData Download(String IP, int port){
         Inet4Address inetAddr;
         if(!connectionEstablished) {
+            log = new LoggingMachine(GetData.class);
             try {
                 inetAddr = (Inet4Address) Inet4Address.getByName(IP);
             } catch (Exception e) {
@@ -26,7 +27,7 @@ public class GetData {
             try {
                 connect2Server = new Socket(inetAddr, port);
             } catch (Exception e) {
-                log.log(Level.INFO, "Connection to" + IP + " failed");
+                log.log(Level.INFO, "Connection to " + IP + " failed");
                 return null;
             }
             connectionEstablished = true;
@@ -46,8 +47,6 @@ public class GetData {
         try {
             byte[] json = new byte[connect2Server.getReceiveBufferSize()];
             istream.read(json);
-            if(json[0] == 0)
-                return null;
             clientSerialized = new String(json, Charset.forName("UTF-8"));
         }
         catch (Exception e){

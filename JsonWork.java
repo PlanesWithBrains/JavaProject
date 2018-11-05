@@ -30,7 +30,6 @@ public class JsonWork {
 											Duration.ofHours(Math.abs(rand.nextLong())%512),
 											GenerateModules(),
 											GenerateAddress());
-		
 		return client;
 	}
 
@@ -69,7 +68,6 @@ public class JsonWork {
 		return modules;
 	}
 
-
 	private static Address GenerateAddress() {
 		
 		Random rand = new Random();
@@ -106,10 +104,8 @@ public class JsonWork {
 	}
 
 	static ClientData Deserialize(String json){
-		StringReader json_stream = new StringReader(json);
-		JsonReader reader = new JsonReader(json_stream);
+		JsonReader reader = new JsonReader(new StringReader(json));
 		reader.setLenient(true);
-
 
 		return new Gson().fromJson(reader, ClientData.class);
 	}
