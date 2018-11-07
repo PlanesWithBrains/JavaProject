@@ -1,4 +1,5 @@
 /*Саша*/
+import java.awt.*;
 import java.io.*;
 import java.lang.*;
 import java.lang.reflect.Array;
@@ -7,9 +8,11 @@ import java.io.*;
 import java.util.Properties;
 import java.util.Scanner;
 import java.util.*;
-import org.knowm.xchart.QuickChart;
-import org.knowm.xchart.SwingWrapper;
-import org.knowm.xchart.XYChart;
+import org.knowm.xchart.*;
+import org.knowm.xchart.style.Styler;
+import com.google.gson.Gson;
+
+import static org.knowm.xchart.XYSeries.XYSeriesRenderStyle.Scatter;
 
 
 enum Priveledge{user,root,wrong_pass}
@@ -23,6 +26,12 @@ class User{
 public class Program {
 
 	static Logger log = Logger.getLogger(Program.class.getName());
+	static XYChart chart;
+    static XYChart chart_zoomed;
+	static SwingWrapper<XYChart> sw;
+	static ArrayList<XYChart> graphics = new ArrayList<XYChart>();
+	static boolean update_chart = false;
+
 	public static void main(String[] args) {
 		LoggingMachine log = new LoggingMachine(Program.class);
 		/*пишем в лог о запуске программы*/
@@ -128,6 +137,11 @@ public class Program {
 			DataCollection<HashMap<Long,ArrayList<ClientData>>> gen_collection =
 					new DataCollection<HashMap<Long,ArrayList<ClientData>>>(new HashMap<Long,ArrayList<ClientData>>());
 
+			//LinkedList
+			/*DataCollection<LinkedList<ArrayList<ClientData>>> gen_collection =
+					new DataCollection<LinkedList<ArrayList<ClientData>>>(new LinkedList<ArrayList<ClientData>>());
+			*/
+
 			/*Лист для времени работы с коллекцией*/
 			ArrayList<Double> elapsed_times = new ArrayList<Double>();
             ArrayList<Double> elements = new ArrayList<Double>();
@@ -139,14 +153,7 @@ public class Program {
 					int count = 0;
 
                     long[] elapsed;
-                    // Create Chart
-                    final XYChart chart = QuickChart.getChart("График времени обращения к коллекции",  "Кол-во элементов", "Время","время", new double[]{0}, new double[]{0});
-
-                    // Show it
-                    final SwingWrapper<XYChart> sw = new SwingWrapper<XYChart>(chart);
-                    sw.displayChart();
-
-
+					double avg = 0;
 					do {
 						lclient = GetData.Download("127.0.0.1", 8005);
 
@@ -162,18 +169,23 @@ public class Program {
 							elapsed = gen_collection.Add(lclient.uniqKey, to_add);
 						}
 
-						if(count % 1000 == 0)
+						if(count % 5000 == 1)
 							elapsed = gen_collection.Remove(gen_collection.collection.keySet().toArray()[0]);
 						count++;
 
-                        elapsed_times.add(Double.parseDouble(Long.toString( elapsed[0])) + Double.parseDouble(Long.toString( elapsed[1]))/1000.0);
-                        elements.add(Double.parseDouble(Integer.toString(gen_collection.collection.size())));
+						//if(count % 100 == 1) {
+							elapsed_times.add(Double.valueOf((double)elapsed[0]) + Double.valueOf((double)elapsed[1]) / 1000.0);
+							elements.add(Double.valueOf((double)gen_collection.collection.size()));
+						//}
 
-                        chart.updateXYSeries("время", elements, elapsed_times, null);
-                        sw.repaintChart();
+						/*обновляем каждый раз среднее*/
+						avg = (avg * (elapsed_times.size() - 1) + elapsed_times.get(elapsed_times.size() - 1))/elapsed_times.size();
 
-					}
-					while (GetData.Next());
+                        if(count % 500 == 1) {
+							UpdateChart(elements,elapsed_times, avg,gen_collection.collection.getClass());
+						}
+
+					}while (GetData.Next());
 					for (int i = 0;i < gen_collection.collection.size();i++){
 						System.out.println(gen_collection.collection.values().toArray()[i].toString());
 					}
@@ -189,6 +201,50 @@ public class Program {
 			SaveConfig(property, loggingUser);
 		}
 
+	}
+
+	static XYChart GetInstanceOfChart(){
+        chart = QuickChart.getChart( "График времени обращения к коллекции",
+                "Кол-во элементов",
+                "Время", "время", new double[]{0}, new double[]{0});
+
+        XYSeries average_series = chart.addSeries("среднее",new double[]{0});
+
+        average_series.setFillColor(new Color(255,0,0,40));
+        average_series.setMarkerColor(new Color(255,0,0,100));
+
+        chart.getStyler().setDefaultSeriesRenderStyle(XYSeries.XYSeriesRenderStyle.StepArea);
+        chart.getStyler().setChartTitleVisible(true);
+        chart.getStyler().setLegendPosition(Styler.LegendPosition.OutsideS);
+        chart.getStyler().setMarkerSize(1);
+        return chart;
+    }
+	static void UpdateChart(ArrayList<Double> elements, ArrayList<Double> elapsed_times, double avg, Class type_of_collection){
+		if(!update_chart) {
+			graphics.add(GetInstanceOfChart());
+            graphics.add(GetInstanceOfChart());
+			sw = new SwingWrapper<XYChart>(graphics);
+			sw.displayChartMatrix();
+			update_chart = true;
+		}
+		else{
+			ArrayList<Double> avg_line = new ArrayList<Double>();
+			for(int i = 0; i < elements.size(); i++)
+				avg_line.add(Double.valueOf(avg));
+
+
+			((XYChart) graphics.toArray()[1]).updateXYSeries("время", elements, elapsed_times, null);
+			((XYChart) graphics.toArray()[1]).updateXYSeries("среднее", elements, avg_line, null);
+
+
+			((XYChart) graphics.toArray()[0]).updateXYSeries("время", elements.subList(elements.size()-101,elements.size()-1),
+																				elapsed_times.subList(elapsed_times.size()-101,elapsed_times.size()-1),
+																				null);
+			((XYChart) graphics.toArray()[0]).updateXYSeries("среднее", elements.subList(elements.size()-101,elements.size()-1), avg_line.subList(0,100), null);
+
+			sw.repaintChart(0);
+			sw.repaintChart(1);
+		}
 	}
 
 	/*пишем в лог сообщение о закрытии программы и закрываем ее*/
