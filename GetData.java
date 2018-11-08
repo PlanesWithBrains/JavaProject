@@ -16,7 +16,7 @@ public class GetData {
     static ClientData Download(String IP, int port){
         Inet4Address inetAddr;
         if(!connectionEstablished) {
-            log = new LoggingMachine(GetData.class);
+            log = new LoggingMachine(GetData.class, true);
             try {
                 inetAddr = (Inet4Address) Inet4Address.getByName(IP);
             } catch (Exception e) {

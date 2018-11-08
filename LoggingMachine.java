@@ -8,26 +8,33 @@ public class LoggingMachine {
     /*  Log - Стандартный логгер
     *   textLog - Строка, повсторяющая сообщения логгера - она выведется в файл
     *   fs - Файловый поток
-    *   number_of_entries - Кол-во вызовов, и, соответственно, сообщений*/
+    *   number_of_entries - Кол-во вызовов, и, соответственно, сообщений
+    *   make_log - включает/выключает логгирование*/
     Logger Log;
     StringBuilder textLog;
     FileOutputStream fs;
     long number_of_entries;
+    static boolean make_log;
 
     /*Обертка над стандартным логом*/
     void log(Level lvl, String message){
-        Log.log(lvl, message);
-        number_of_entries++;
+        if(make_log) {
+            Log.log(lvl, message);
+            number_of_entries++;
+        }
     }
 
     /*Обертка над стандартным логом*/
     void info(String message){
-        Log.info(message);
+        if(make_log)
+            Log.info(message);
     }
 
     /*Конструктор принемает тип класса, для которого будет производиться логгирование
     * (именно тип - информация о полях, методах, вложенных классах и тп)*/
-    LoggingMachine(Type Class){
+    LoggingMachine(Type Class, boolean do_logging){
+        make_log = do_logging;
+
         Log = Logger.getLogger(Class.getTypeName());
         StringBuilder textLog = new StringBuilder();
 
@@ -39,12 +46,14 @@ public class LoggingMachine {
 
             @Override
             public void publish(LogRecord logRecord) {
-                textLog.append(logRecord.getLevel());
-                textLog.append('\t');
-                textLog.append(new Date(logRecord.getMillis()).toString());
-                textLog.append('\t');
-                textLog.append(logRecord.getMessage());
-                textLog.append(System.getProperty("line.separator"));
+                if(make_log) {
+                    textLog.append(logRecord.getLevel());
+                    textLog.append('\t');
+                    textLog.append(new Date(logRecord.getMillis()).toString());
+                    textLog.append('\t');
+                    textLog.append(logRecord.getMessage());
+                    textLog.append(System.getProperty("line.separator"));
+                }
             }
 
             @Override
@@ -55,8 +64,10 @@ public class LoggingMachine {
             @Override
             public void close() throws SecurityException {
                 try{
-                    fs = new FileOutputStream(Class.getTypeName() + "_log" + ".txt",true);
-                    fs.write(textLog.toString().getBytes());
+                    if(make_log) {
+                        fs = new FileOutputStream(Class.getTypeName() + "_log" + ".txt", true);
+                        fs.write(textLog.toString().getBytes());
+                    }
                 }
                 catch(Exception e){
                     log(Level.SEVERE, "Writing log file failed");
@@ -66,6 +77,10 @@ public class LoggingMachine {
 
         /*Подключаем хэндлер к стандартному логгеру*/
         Log.addHandler(textLog_handle);
+    }
+
+    static void revertChanges(){
+        make_log = false;
     }
 
 }

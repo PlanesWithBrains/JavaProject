@@ -33,7 +33,7 @@ public class Program {
 	static boolean update_chart = false;
 
 	public static void main(String[] args) {
-		LoggingMachine log = new LoggingMachine(Program.class);
+		LoggingMachine log = new LoggingMachine(Program.class, true);
 		/*пишем в лог о запуске программы*/
 		log.info("Program launched");
 
@@ -46,13 +46,15 @@ public class Program {
 			configFile = new FileInputStream("config.ini");
 			property.load(configFile);
 		} catch (FileNotFoundException e) {
-			log.log(Level.INFO,"File not found");
+			log.log(Level.INFO,"Config file not found");
 		}
 		catch(IOException e) {
 			log.log(Level.INFO,"IO exception while loading property");
 
 		}
 
+		if(property.getProperty("log").equals("false"))
+			log.revertChanges();
 
 		log.info("Loading last user");
 		/*получаем из конфга им€ последнего залогиненного юзера*/
@@ -191,7 +193,9 @@ public class Program {
 					}
 					break;
 				/*если свойство debug содержит true, то тогда мен€ем его на false, иначе мен€ем false на true*/
-				case "3": property.setProperty("debug", property.getProperty("debug").equals("true") ? "false" : "true");
+				case "3": 	property.setProperty("debug", property.getProperty("debug").equals("true") ? "false" : "true");
+							property.setProperty("log", property.getProperty("log").equals("true") ? "false" : "true");
+							log.revertChanges();
 					break;
 				/*если свойство autotest содержит true, то тогда мен€ем его на false, иначе мен€ем false на true*/
 				case "4": property.setProperty("autotest", property.getProperty("autotest").equals("true") ? "false" : "true");
