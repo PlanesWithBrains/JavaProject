@@ -1,0 +1,9 @@
+{"uniqKey":5111808197835501471,
+"fullUsage":{"seconds":36000,"nanos":0},
+"modules":[
+{"module":"7L8G\u003d","moduleUsage":{"seconds":219600,"nanos":0},"peopleCnt":2},
+{"module":"0Rdd\u003d","moduleUsage":{"seconds":111600,"nanos":0},"peopleCnt":1},
+{"module":"FOosB","moduleUsage":{"seconds":187200,"nanos":0},"peopleCnt":81},
+{"module":"\u003e?pWq","moduleUsage":{"seconds":97200,"nanos":0},"peopleCnt":83},
+{"module":"gRYdA","moduleUsage":{"seconds":28800,"nanos":0},"peopleCnt":75}],
+"addr":{"region":"GER","city":"Ahrensburg","country":"Germany"}}

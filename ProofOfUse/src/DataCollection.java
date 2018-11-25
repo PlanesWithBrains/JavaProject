@@ -18,7 +18,7 @@ public class DataCollection<T> {
     DataCollection(T outer_collection){
         collection = outer_collection;
         collection_class = outer_collection.getClass();
-        log = new LoggingMachine(DataCollection.class ,true);
+        log = new LoggingMachine(DataCollection.class);
     }
 
     public long[] Add(Object... arg){
