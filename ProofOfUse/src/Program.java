@@ -47,7 +47,14 @@ public class Program {
 		}
 
 		if(property.getProperty("log").equals("false"))
-			log.revertChanges();
+			log.make_log = false;
+		else
+		    log.make_log = true;
+
+		if(property.getProperty("autotest").equals("false"))
+			GetData.VerifyingData = false;
+		else
+			GetData.VerifyingData = true;
 
 		log.info("Loading last user");
 		/*получаем из конфга имя последнего залогиненного юзера*/
@@ -139,7 +146,8 @@ public class Program {
 
 					double avg = 0;
 					//чтение данных с сервера с этого момента происходит в отдельном потоке
-					Runnable recieve_data = () -> {
+					//Runnable recieve_data = () -> {
+						boolean[] result_of_conversation;
 						do {
 							ClientData lclient = GetData.Download("127.0.0.1", 8005);
 
@@ -153,22 +161,22 @@ public class Program {
 								to_add.add(lclient);
 								gen_collection.Add(lclient.uniqKey, to_add);
 							}
+							result_of_conversation = GetData.Next();
+							if(result_of_conversation[1])
+								System.err.println("Object " + lclient.hashCode() + " recieved correctly");
+						} while (result_of_conversation[0]);
+					//};
+					//new Thread(recieve_data).run();
 
-						} while (GetData.Next());
-					};
-					new Thread(recieve_data).run();
 
-					for (int i = 0;i < gen_collection.collection.size();i++){
-						System.out.println(gen_collection.collection.values().toArray()[i].toString());
-					}
-					break;
 				/*если свойство debug содержит true, то тогда меняем его на false, иначе меняем false на true*/
 				case "3": 	property.setProperty("debug", property.getProperty("debug").equals("true") ? "false" : "true");
 							property.setProperty("log", property.getProperty("log").equals("true") ? "false" : "true");
-							log.revertChanges();
+							log.make_log = property.getProperty("log").equals("true");
 					break;
 				/*если свойство autotest содержит true, то тогда меняем его на false, иначе меняем false на true*/
 				case "4": property.setProperty("autotest", property.getProperty("autotest").equals("true") ? "false" : "true");
+						  GetData.VerifyingData = property.getProperty("autotest").equals("true");
 					break;
 			}
 
