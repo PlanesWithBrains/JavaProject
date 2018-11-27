@@ -1,14 +1,12 @@
 import java.time.Duration;
-import javafx.util.Pair;
 
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Statistic {
     ArrayList<ClientData> client;
     HashSet<Module> modules = new HashSet<Module>();
-    Object[] pairUser,pairTime; // pairUser - для функции SortingByUsers, pairTime - TimePerModule
+    Pairs[] pairUser,pairTime,pairTU; // pairUser - для функции SortingByUsers, pairTime - TimePerModule, pairTU - Time per Users
 
     Statistic(ArrayList<ClientData> client){
         this.client = client;
@@ -20,7 +18,7 @@ public class Statistic {
         }
     }
     void SortingByUsers(){// для графика (кол-во человек(у)/ по каждому модулю (х)
-        this.pairUser = new Object[modules.size()];
+        this.pairUser = new Pairs[modules.size()];
         for(int i=0;i<modules.size();i++){
             int count=0;
             for(int j=0;j<client.size();j++){
@@ -32,7 +30,7 @@ public class Statistic {
         }
     }
     void TimePerModule(){// время использования каждого модуля
-        this.pairTime = new Object[modules.size()];
+        this.pairTime = new Pairs[modules.size()];
         for(int i=0;i<modules.size();i++){
             Duration time = null;
             for(int j=0;j<client.size();j++){
@@ -47,12 +45,14 @@ public class Statistic {
     }
     void TimePerUsers(){//функция предполагает вызов двух предыдущих
         for(int i=0;i<modules.size();i++){
-            for(int j=0;j<modules.size();j++)
-            if(pairTime[i].equals(pairUser[j])){
-
+            Duration avr = null;
+            for(int j=0;j<modules.size();j++) {
+                if (pairTime[i].equals(pairUser[j])) {
+                    avr = pairTime[i].div((long) pairUser[i]._2);
+                }
             }
+          pairTU[i] = new Pairs<String,Duration>(((Module)modules.toArray()[i]).module,avr);
         }
-
     }
 }
 
