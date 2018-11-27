@@ -19,8 +19,11 @@ public class LoggingMachine {
     /*Обертка над стандартным логом*/
     void log(Level lvl, String message){
         if(make_log) {
-            Log.log(lvl, message);
-            number_of_entries++;
+            Runnable async_log = () -> {
+                Log.log(lvl, message);
+                number_of_entries++;
+            };
+            new Thread(async_log).start();
         }
     }
 
@@ -32,8 +35,7 @@ public class LoggingMachine {
 
     /*Конструктор принемает тип класса, для которого будет производиться логгирование
     * (именно тип - информация о полях, методах, вложенных классах и тп)*/
-    LoggingMachine(Type Class, boolean do_logging){
-        make_log = do_logging;
+    LoggingMachine(Type Class){
 
         Log = Logger.getLogger(Class.getTypeName());
         StringBuilder textLog = new StringBuilder();
@@ -53,6 +55,7 @@ public class LoggingMachine {
                     textLog.append('\t');
                     textLog.append(logRecord.getMessage());
                     textLog.append(System.getProperty("line.separator"));
+                    textLog.append("%%splitme");
                 }
             }
 
@@ -65,8 +68,11 @@ public class LoggingMachine {
             public void close() throws SecurityException {
                 try{
                     if(make_log) {
+                        String[] LogArray = textLog.toString().split("%%splitme");
+                        Arrays.sort(LogArray);
                         fs = new FileOutputStream(Class.getTypeName() + "_log" + ".txt", true);
-                        fs.write(textLog.toString().getBytes());
+                        for(String line : LogArray)
+                        fs.write(line.getBytes());
                     }
                 }
                 catch(Exception e){
@@ -80,7 +86,7 @@ public class LoggingMachine {
     }
 
     static void revertChanges(){
-        make_log = false;
+        make_log = !make_log;
     }
 
 }
