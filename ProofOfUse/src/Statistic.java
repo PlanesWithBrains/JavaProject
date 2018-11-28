@@ -2,11 +2,12 @@ import java.time.Duration;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-
+//Controller
 public class Statistic {
     ArrayList<ClientData> client;
     HashSet<Module> modules = new HashSet<Module>();
-    Pairs[] pairUser,pairTime,pairTU; // pairUser - для функции SortingByUsers, pairTime - TimePerModule, pairTU - Time per Users
+    HashSet<String> address = new HashSet<>();
+    Pairs[] pairUser,pairTime,pairTU,pairAdress; // pairUser - для функции SortingByUsers, pairTime - TimePerModule, pairTU - Time per Users
 
     Statistic(ArrayList<ClientData> client){
         this.client = client;
@@ -52,6 +53,19 @@ public class Statistic {
                 }
             }
           pairTU[i] = new Pairs<String,Duration>(((Module)modules.toArray()[i]).module,avr);
+        }
+    }
+    void UsersPerCities() {
+        for (int i = 0; i < client.size(); i++) {
+            address.add(client.get(i).addr.city);//cоздаем хэшсет с уникальными городами(имеется ввиду отбрасываем повторения)
+        }
+        for (int i = 0;i < address.size();i++){
+            int count = 0;
+            for(int j = 0; j < client.size(); j++){
+                if(address.toArray()[i].equals(client.get(j).addr.city))count++;
+            }
+            pairAdress[i] = new Pairs<String,Integer>((String)address.toArray()[i],count);//пара хранится в формате город/кол-во юзеров
+            // для графика можно ипользовать только 3-4 наиболее популярных города
         }
     }
 }
