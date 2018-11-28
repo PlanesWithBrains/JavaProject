@@ -52,7 +52,7 @@ public class Server {
     public static void main(String[] args) {
         VerifyingData = true;
         ServerStart(8005);
-        for(int i = 0; i < 990; i++) {
+        for(int i = 0; i < 5; i++) {
             String json = SendJson();
 
             log.log(Level.INFO, "Sent json number " + i + " " + json.substring(0,json.indexOf("}")) + " ...");

@@ -1,0 +1,1 @@
+INFO	Wed Nov 28 22:26:01 MSK 2018	Config file could not be saved
