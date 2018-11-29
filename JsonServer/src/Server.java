@@ -4,6 +4,7 @@ import com.sun.security.ntlm.Client;
 import java.io.InputStream;
 import java.net.*;
 import java.lang.*;
+import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.*;
 import java.util.logging.*;
@@ -48,32 +49,43 @@ public class Server {
         }
         return jsonClient;
     }
-
-    public static void main(String[] args) {
-        VerifyingData = true;
-        ServerStart(8005);
-        for(int i = 0; i < 990; i++) {
-            String json = SendJson();
-
-            log.log(Level.INFO, "Sent json number " + i + " " + json.substring(0,json.indexOf("}")) + " ...");
-
-            try {
-                while (connection.getInputStream().read() != 1) ;
-
-                if(VerifyingData) {
-                    log.log(Level.INFO, "Hash " + json.hashCode());
-                    connection.getOutputStream().write(json.hashCode());
-                }
-            }
-            catch (Exception e){
-                log.log(Level.INFO, "Error occured during waiting");
-                return;
-            }
-        }
+    static void ServerClose(){
+        try {
+            server.close();
+        } catch (Exception e) {}
+    }
+    static void WriteTerminator(){
         try {
             connection.getOutputStream().write(0);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {}
+    }
+
+    public static void main(String[] args) {
+        while (true) {
+            ServerStart(8005);
+
+            for (int i = 0; i < 100; i++) {
+                String json = SendJson();
+
+                log.log(Level.INFO, "Sent json number " + i + " " + json.substring(0, json.indexOf("}")) + " ...");
+
+                try {
+                    while (connection.getInputStream().read() != 1) ;
+
+                    if (VerifyingData && i % 2 == 0) {
+                        byte[] hash = ByteBuffer.allocate(4).putInt(json.hashCode()).array();
+
+                        log.log(Level.INFO, "Hash " + json.hashCode());
+                        connection.getOutputStream().write(hash);
+                    }
+                } catch (Exception e) {
+                    log.log(Level.INFO, "Error occured during waiting");
+                    return;
+                }
+            }
+            WriteTerminator();
+            ServerClose();
+
         }
     }
 }
