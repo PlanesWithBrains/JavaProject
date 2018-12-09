@@ -82,7 +82,7 @@ public class ClientData {
 			   ArrayList<Module> Modules,
 			   Address Addr){
 		try {
-			Inet4Address	clientIp = (Inet4Address) Inet4Address.getByName(Host);
+			clientIp = (Inet4Address) Inet4Address.getByName(Host);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

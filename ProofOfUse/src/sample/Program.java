@@ -1,22 +1,19 @@
 package sample;
 /*Саша*/
-import java.io.*;
-import java.lang.*;
-import java.time.Duration;
-import java.util.*;
-import java.util.logging.*;
-
-import com.sun.jndi.dns.DnsUrl;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+import org.knowm.xchart.CategoryChart;
+import org.knowm.xchart.CategoryChartBuilder;
 import org.knowm.xchart.SwingWrapper;
-import org.knowm.xchart.*;
-import org.knowm.xchart.style.Theme;
+
+import java.io.*;
+import java.net.URL;
+import java.time.Duration;
+import java.util.*;
+import java.util.logging.Level;
 
 
 public class Program extends Application {
@@ -145,6 +142,8 @@ public class Program extends Application {
 
 				if (lclient == null)
 					break;
+
+				ClientTrustworthy(lclient);
 				if (gen_collection.collection.containsKey(lclient.uniqKey)) { //???????? ?? ??????? ?????????? ?? ???? ?????
 
 					gen_collection.GetAndAdd(lclient.uniqKey, lclient);
@@ -203,5 +202,28 @@ public class Program extends Application {
 		alert.setContentText("Данная функция находится в разработке :)");
 
 		alert.showAndWait();*/
+	}
+	public static void ClientTrustworthy(ClientData client){
+		try{
+			URL geoip_api_addr = new URL("http://ip-api.com/json/" + client.clientIp.getHostAddress() + "?lang=en");
+			BufferedReader  output = new BufferedReader(new InputStreamReader(geoip_api_addr.openStream()));
+			String data = output.readLine();
+			if(data.contains("fail"))
+				return;
+			if(data.contains(client.addr.city))
+				client.trusted = true;
+			client.ActualLocation = "https://static-maps.yandex.ru/1.x/?ll=#lonlat#&z=#zoom#&size=450,450&z=13&l=map&pt=#lonlat#";
+			String 	lon = data.substring(data.indexOf("\"lon\":") + "\"lon\":".length());
+					lon = lon.substring(0,lon.indexOf(','));
+			String 	lat = data.substring(data.indexOf("\"lat\":") + "\"lat\":".length());
+					lat = lat.substring(0,lat.indexOf(','));
+			String lonlat = lon + "," + lat;
+			client.ActualLocation = client.ActualLocation.replaceAll("#lonlat#",lonlat);
+			client.ActualLocation = client.ActualLocation.replaceAll("#zoom#","10");
+		}
+		catch (Exception e){
+			e.printStackTrace();
+		}
+
 	}
 }

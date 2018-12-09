@@ -71,7 +71,8 @@ public class ClientData {
 	Duration		fullUsage;		//длительность использования программы
 	ArrayList<Module>	modules;	//лист модулей, которые используют пользователи
 	Address			addr;			//адрес клиента 
-	
+	boolean			trusted = false;
+	String			ActualLocation;
 	ClientData(){
 		Inet4Address	clientIp = (Inet4Address) Inet4Address.getLoopbackAddress();		
 		long			uniqKey  = -1;			
