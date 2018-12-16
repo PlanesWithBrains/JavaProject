@@ -1,9 +1,8 @@
-/*Саша*/
+package sample;/*Саша*/
 import java.net.*;
 import java.time.*;
 import java.lang.*;
 import java.util.*;
-import com.google.gson.*;
 
 class Module{
 	String			module;			//название модуля
@@ -59,6 +58,11 @@ class Address{
 		city	 = City;
 		district = District;
 	}
+	public String toString() {
+		return  "Region: " + region +
+				" Country: " + country +
+				" City: " + city;
+	}
 }
 
 public class ClientData {
@@ -67,7 +71,8 @@ public class ClientData {
 	Duration		fullUsage;		//длительность использования программы
 	ArrayList<Module>	modules;	//лист модулей, которые используют пользователи
 	Address			addr;			//адрес клиента 
-	
+	boolean			trusted = false;
+	String			ActualLocation;
 	ClientData(){
 		Inet4Address	clientIp = (Inet4Address) Inet4Address.getLoopbackAddress();		
 		long			uniqKey  = -1;			
@@ -82,7 +87,7 @@ public class ClientData {
 			   ArrayList<Module> Modules,
 			   Address Addr){
 		try {
-			clientIp = (Inet4Address) Inet4Address.getByName(Host);
+			Inet4Address	clientIp = (Inet4Address) Inet4Address.getByName(Host);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -92,4 +97,16 @@ public class ClientData {
 		modules	 = Modules;		
 		addr	 = Addr;			 
 	}
+
+	public String toString() {
+		return  "UniqKey: " + this.uniqKey +
+				" FullUsage: " + fullUsage.toString() +
+				" Count of modules: " + modules.size() +
+				" Address: " + addr.toString();
+	}
+
+	public int hashCode(){
+		return (int)(uniqKey % Integer.MAX_VALUE);
+	}
+	public long getUniqKey(){return uniqKey;}
 }
