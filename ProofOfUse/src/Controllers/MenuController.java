@@ -1,10 +1,16 @@
 package Controllers;
 
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+import sample.Program;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import sample.Program;
 
 
 public class MenuController {
@@ -33,11 +39,28 @@ public class MenuController {
             btnAutotest.setVisible(false);
             btnDebug.setVisible(false);
         }
+        btnJson.setVisible(false);
+
+
         btnJson.setOnAction(event -> {
-            Program.recieveJson();
+            //Program.recieveJson();
         });
         btnStatistic.setOnAction(event -> {
-            Program.watchStatisticInfo();
+            //Program.watchStatisticInfo();
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("../FXML/statistic.fxml")); //загружаем fxml нового окна
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println(e.getMessage());
+            }
+
+            Scene scene = new Scene(root); //выставляем его размеры
+            Stage stage = new Stage(); //хуйня чисто для scene builder
+            stage.setTitle("Statistic"); //название окна
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.showAndWait();
         });
         btnDebug.setOnAction(event -> {
             //case 3

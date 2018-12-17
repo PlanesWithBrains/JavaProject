@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.StatisticController">
+   <children>
+      <TabPane layoutX="43.0" layoutY="80.0" prefHeight="560.0" prefWidth="1194.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab fx:id="tabCountUsersModuls" text="Кол-во пользователей в модулях">
+               <content>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+          <Tab fx:id="tabCountUsersCountry" text="Кол-во людей по городам" />
+          <Tab fx:id="tabAvgTimeModuls" text="Среднее время модуля на человека" />
+            <Tab fx:id="tabTimeModuls" text="Время, проведенное в модулях" />
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
