@@ -200,62 +200,66 @@
     <session id="2028262351">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="2" />
+          <entry key="class" value="3" />
           <entry key="fxml" value="1" />
-          <entry key="java" value="8" />
+          <entry key="java" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="2" />
-          <entry key="JAVA" value="8" />
+          <entry key="CLASS" value="3" />
+          <entry key="JAVA" value="9" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="779" />
+          <entry key="class" value="12" />
+          <entry key="java" value="1364" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="779" />
+          <entry key="CLASS" value="12" />
+          <entry key="JAVA" value="1364" />
         </counts>
       </usages-collector>
     </session>
-    <session id="1105364790">
+    <session id="-660338304">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="4" />
+          <entry key="java" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="4" />
+          <entry key="JAVA" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2534" />
+          <entry key="java" value="587" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2534" />
+          <entry key="JAVA" value="587" />
         </counts>
       </usages-collector>
     </session>
@@ -293,7 +297,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/DataCollection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
+            <state relative-caret-position="930">
               <caret line="64" column="79" selection-start-line="64" selection-start-column="79" selection-end-line="64" selection-end-column="79" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -319,25 +323,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="809">
-              <caret line="196" selection-start-line="196" selection-end-line="196" />
+            <state relative-caret-position="1740">
+              <caret line="248" column="30" selection-start-line="248" selection-start-column="30" selection-end-line="248" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#GetInstanceOfChart#0;class#Program#0" />
+                <element signature="method#start#0;class#Program#0" />
                 <element signature="method#main#0;class#Program#0" />
                 <element signature="method#loadLog#0;class#Program#0" />
                 <element signature="method#Exit#0;class#Program#0" />
                 <element signature="method#SaveConfig#0;class#Program#0" />
+                <element signature="method#recieveJson#0;class#Program#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Pairs.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -345,37 +342,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Statistic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="124" column="35" selection-start-line="124" selection-start-column="35" selection-end-line="124" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#SortStatisticPairsInt#0;class#Statistic#0" />
-                <element signature="method#NumberofModules#0;class#Statistic#0" />
-                <element signature="method#TimePerModule#0;class#Statistic#0" />
-                <element signature="method#TimePerUsers#0;class#Statistic#0" />
-                <element signature="method#UsersPerCities#0;class#Statistic#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/LoggingMachine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="882">
-              <caret line="87" selection-start-line="87" selection-end-line="87" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="331">
+              <caret line="182" column="19" lean-forward="true" selection-start-line="182" selection-start-column="19" selection-end-line="182" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -452,10 +420,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="28" />
     <option name="width" value="1280" />
-    <option name="height" value="706" />
+    <option name="height" value="703" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -463,39 +431,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
-              <item name="FXML" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
@@ -538,8 +480,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -610,13 +552,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="3" y="25" width="1280" height="703" extended-state="6" />
+    <frame x="0" y="28" width="1280" height="703" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.11631664" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.1187399" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
@@ -625,8 +567,8 @@
       <window_info anchor="bottom" id="Messages" order="2" weight="0.23700887" />
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.3286334" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.4978678" weight="0.20458265" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.3282636" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.4978678" weight="0.27756655" />
       <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49840087" weight="0.37135616" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -673,6 +615,18 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/sample/Program.java</url>
+          <line>252</line>
+          <properties />
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
@@ -737,8 +691,8 @@
     <entry file="jar://E:/gson-2.8.5.jar!/com/google/gson/reflect/TypeToken.class" />
     <entry file="jar://E:/gson-2.8.5.jar!/com/google/gson/Gson.class" />
     <entry file="file://$PROJECT_DIR$/../Program.java" />
-    <entry file="jar://$USER_HOME$/Downloads/xchart-3.5.2.jar!/org/knowm/xchart/BubbleChart.class" />
-    <entry file="jar://$USER_HOME$/Downloads/xchart-3.5.2.jar!/org/knowm/xchart/XYChart.class" />
+    <entry file="jar://$PROJECT_DIR$/../../xchart-3.5.2.jar!/org/knowm/xchart/BubbleChart.class" />
+    <entry file="jar://$PROJECT_DIR$/../../xchart-3.5.2.jar!/org/knowm/xchart/XYChart.class" />
     <entry file="jar://E:/gson-2.8.5.jar!/com/google/gson/stream/JsonWriter.class" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/jre/lib/rt.jar!/java/lang/Runnable.class" />
     <entry file="file://$PROJECT_DIR$/src/sample/config.ini" />
@@ -771,21 +725,45 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FXML/menu.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="14" selection-start-line="9" selection-start-column="6" selection-end-line="13" selection-end-column="14" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+        </state>
+      </provider>
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/rt.jar!/com/apple/eawt/_AppEventHandler.class" />
+    <entry file="file://$PROJECT_DIR$/src/sample/Pairs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/LoggingMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FXML/start.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/out/production/ProofOfUse/Controllers/StartController.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -798,9 +776,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/out/production/ProofOfUse/FXML/menu.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/ProofOfUse/sample/Program.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/com/sun/javafx/tk/Toolkit.java" />
     <entry file="file://$PROJECT_DIR$/src/Controllers/MenuController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -825,12 +811,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/DataCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="64" column="79" selection-start-line="64" selection-start-column="79" selection-end-line="64" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#GetAndAdd#0;class#DataCollection#0" />
+            <element signature="method#Remove#0;class#DataCollection#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/GetData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="78" column="26" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="26" />
           <folding>
             <element signature="method#Download#0;class#GetData#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1740">
+          <caret line="248" column="30" selection-start-line="248" selection-start-column="30" selection-end-line="248" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#GetInstanceOfChart#0;class#Program#0" />
+            <element signature="method#start#0;class#Program#0" />
+            <element signature="method#main#0;class#Program#0" />
+            <element signature="method#loadLog#0;class#Program#0" />
+            <element signature="method#Exit#0;class#Program#0" />
+            <element signature="method#SaveConfig#0;class#Program#0" />
+            <element signature="method#recieveJson#0;class#Program#0" />
           </folding>
         </state>
       </provider>
@@ -845,69 +860,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DataCollection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="64" column="79" selection-start-line="64" selection-start-column="79" selection-end-line="64" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GetAndAdd#0;class#DataCollection#0" />
-            <element signature="method#Remove#0;class#DataCollection#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/LoggingMachine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="809">
-          <caret line="196" selection-start-line="196" selection-end-line="196" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GetInstanceOfChart#0;class#Program#0" />
-            <element signature="method#main#0;class#Program#0" />
-            <element signature="method#loadLog#0;class#Program#0" />
-            <element signature="method#Exit#0;class#Program#0" />
-            <element signature="method#SaveConfig#0;class#Program#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Pairs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Statistic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="124" column="35" selection-start-line="124" selection-start-column="35" selection-end-line="124" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#SortStatisticPairsInt#0;class#Statistic#0" />
-            <element signature="method#NumberofModules#0;class#Statistic#0" />
-            <element signature="method#TimePerModule#0;class#Statistic#0" />
-            <element signature="method#TimePerUsers#0;class#Statistic#0" />
-            <element signature="method#UsersPerCities#0;class#Statistic#0" />
-          </folding>
+        <state relative-caret-position="331">
+          <caret line="182" column="19" lean-forward="true" selection-start-line="182" selection-start-column="19" selection-end-line="182" selection-end-column="19" />
         </state>
       </provider>
     </entry>

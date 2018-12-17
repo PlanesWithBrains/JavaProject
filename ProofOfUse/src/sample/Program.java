@@ -1,19 +1,31 @@
 package sample;
 /*Саша*/
+
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
-import org.knowm.xchart.CategoryChart;
-import org.knowm.xchart.CategoryChartBuilder;
-import org.knowm.xchart.SwingWrapper;
 
 import java.io.*;
 import java.net.URL;
 import java.time.Duration;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Properties;
 import java.util.logging.Level;
+
+/*
+import org.knowm.xchart.CategoryChart;
+import org.knowm.xchart.CategoryChartBuilder;
+import org.knowm.xchart.SwingWrapper;*/
+
 
 
 public class Program extends Application {
@@ -23,38 +35,40 @@ public class Program extends Application {
 	public static Properties property;
 	public static User loggingUser;
 
-	static CategoryChart chart;
-	static SwingWrapper<CategoryChart> sw;
-	//static ArrayList<XYChart> graphics = new ArrayList<XYChart>();
-
-	static CategoryChart GetInstanceOfChart(String x_axis,
+	static BarChart<String,Number> GetInstanceOfChart(String x_axis,
 									  String y_axis,
 									  String c_title,
 									  Pairs[] arr_pair){
-		chart = new CategoryChartBuilder().xAxisTitle(x_axis).yAxisTitle(y_axis).title(c_title).build();
+		CategoryAxis xAxis = new CategoryAxis();
+		NumberAxis yAxis = new NumberAxis();
+		BarChart<String,Number> chart = new BarChart<String, Number>(xAxis,yAxis);
+		chart.setTitle(c_title);
+		xAxis.setLabel(x_axis);
+		yAxis.setLabel(y_axis);
+
+		XYChart.Series series = new XYChart.Series();
+		series.setName(c_title);
 
 		ArrayList<Integer> x = new ArrayList<>();
 		int i = 0;
 		for(Pairs pair : arr_pair)
 			try {
 				if(pair._2 instanceof Integer)
-					chart.addSeries((String) pair._1,
-						Arrays.asList(new Integer[]{Integer.valueOf(i++)}),
-						Arrays.asList(new Integer[]{(Integer) pair._2}));
+					series.getData().add(
+							new XYChart.Data((String)pair._1,
+							(Integer) pair._2));
+
 
 				if(pair._2 instanceof Duration)
-					chart.addSeries((String) pair._1,
-							Arrays.asList(new Integer[]{Integer.valueOf(i++)}),
-							Arrays.asList(new Integer[]{(int)((Duration) pair._2).toHours()}));
+					series.getData().add(
+							new XYChart.Data((String) pair._1,
+							(int)((Duration) pair._2).toHours()));
 			}
 			catch (Exception e){
 				e.printStackTrace();
 		}
 
-		//chart.getStyler().setDefaultSeriesRenderStyle(CategoryChar);
-
-		chart.getStyler().setChartTitleVisible(true);
-		chart.getStyler().setMarkerSize(4);
+		chart.getData().add(series);
 
 		return chart;
 	}
@@ -174,27 +188,65 @@ public class Program extends Application {
 	}
 	public static void watchStatisticInfo(){
 
-		CategoryChart module_user=  GetInstanceOfChart("Названия модулей",
+		BarChart<String,Number> module_user=  GetInstanceOfChart("Названия модулей",
 												"Кол-во пользователей",
 												"Кол-во пользователей в модулях",
 												Statistic.pairUser);
-		CategoryChart module_time =  GetInstanceOfChart("",
+		BarChart<String,Number> module_time =  GetInstanceOfChart("",
 				"Часы",
 				"Кол-во времени, проведенного в модулях",
 				Statistic.pairTime);
-		CategoryChart module_tu =  GetInstanceOfChart("",
+		BarChart<String,Number> module_tu =  GetInstanceOfChart("",
 				"Часы",
 				"Среднее время использования модуля на человека",
 				Statistic.pairTU);
-		CategoryChart module_addr =  GetInstanceOfChart("",
+		BarChart<String,Number> module_addr =  GetInstanceOfChart("",
 				"Кол-во пользователей",
 				"Кол-во людей по городам",
 				Statistic.pairAdress);
-		new Thread(() -> {new SwingWrapper<CategoryChart>(module_user).displayChart();}).start();
-		new Thread(() -> {new SwingWrapper<CategoryChart>(module_time).displayChart();}).start();
-		new Thread(() -> {new SwingWrapper<CategoryChart>(module_tu).displayChart();}).start();
-		new Thread(() -> {new SwingWrapper<CategoryChart>(module_addr).displayChart();}).start();
+		new Thread(() ->{
+			Platform.runLater(() -> {
+					Scene scene = new Scene(module_user, 800, 600);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.show();}
+				);
+		}).start();
 
+		new Thread(() ->{
+				Platform.runLater(() -> {
+					Scene scene = new Scene(module_time, 800, 600);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.show();}
+				);
+			}).start();
+
+		new Thread(() ->{
+			Platform.runLater(() -> {
+					Scene scene = new Scene(module_tu, 800, 600);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.show();}
+				);
+			}).start();
+
+		new Thread(() ->{
+			Platform.runLater(() -> {
+					Scene scene = new Scene(module_addr, 800, 600);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.show();}
+				);
+			}).start();
+
+		/*
+		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		alert.setTitle("Watch statistic info");
+		alert.setHeaderText(null);
+		alert.setContentText("Данная функция находится в разработке :)");
+
+		alert.showAndWait();*/
 	}
 	public static void ClientTrustworthy(ClientData client){
 		try{

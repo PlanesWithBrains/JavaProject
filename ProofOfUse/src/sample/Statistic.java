@@ -115,16 +115,20 @@ public class Statistic {
     void RangeSelection(Object a,Object b,Pairs obj[]){// a - нижняя граница, b - верхняя, Pairs - тот график для которого
         // Что это и как это юзать:
         // Функция отбора по диапазону, как прикрутить в гуй вам лучше знать
-        // если нету верхней или нижней границы кидать на вход параметра null
+        // если нету верхней или нижней границы кидать на вход параметра null (с дюрейшен на вводе придется по ебаться(скорее всего по формату конструктора))
         // функция перезаписывает исходный массив с отобранными элементами
         // Моя идея реализации в гуе(но это может быть неосуществимый бред):
-        // Сделать кнопку(?) на каждом окне графика xchart'a
+        // Сделать кнопку(?) на каждом окне графика xchart'a(теперь уже Саша переписал графики в javafx)
         // после ее нажатия появляется окошко для ввода диапазонов, если ничего не введенно в консоль (один из параметров)
         // вернуть на его место null, если не введены оба - вывести сообщение об ошибке.
         // Соответственно на каком из графиков была ткнута кнопка, то массив задающий этот график поступает сюда на вход
+        // (по поводу массивов какой-куда кидать - пиши мне)
         // ФУНКЦИЯ НЕ ПРОВЕРЯЛАСЬ (за неимением таковой возможности)
+        // (Ввод Duration'a можно реализовать(?) так как у нас сделано со временем в КПО)
+        // пример того как ее можно вызвать: строка 71 данного файла(имеется в виду туда прописать вызов, с необходимыми дюрейшенами)
+        boolean flag = true;
         Pairs<Object,Object>[] Obj = new Pairs[0];// временный массив
-        if (a == null){
+        if (a == null && b!= null){
             if (obj[0]._2 instanceof Integer && b instanceof Integer){
                 for(int i=0;i<obj.length;i++){
                     if((int)obj[i]._2 < (int)b)
@@ -140,7 +144,7 @@ public class Statistic {
             if (!(b instanceof Duration || b instanceof Integer ))
                 System.out.println("ошибка соответствия типов (b)");
         }
-        if (b == null) {
+        if (b == null && a!=null) {
             if (obj[0]._2 instanceof Integer && a instanceof Integer) {
                 for (int i = 0; i < obj.length; i++) {
                     if ((int) obj[i]._2 > (int) a)
@@ -172,9 +176,15 @@ public class Statistic {
             if(!(a instanceof Duration || a instanceof Integer ) && !(b instanceof Duration || b instanceof Integer))
                 System.out.println("ошибка соответствия типов(a && b)");
         }
-        Arrays.fill(obj,null);// очищяем исходный массив
-        for(int i = 0; i < Obj.length; i++){
-            obj[i] = Obj[i];
+        if (a == null && b == null){
+            System.out.println("Не правильное считывание данных (оба null)");
+            flag = false;
+        }
+        if (flag) {
+            Arrays.fill(obj, null);// очищяем исходный массив
+            for (int i = 0; i < Obj.length; i++) {
+                obj[i] = Obj[i];
+            }
         }
     }
 }
