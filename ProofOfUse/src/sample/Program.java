@@ -9,6 +9,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -61,8 +62,8 @@ public class Program extends Application {
 			}
 			catch (Exception e){
 				e.printStackTrace();
+				StatisticController.addConsoleLog(e.getMessage() + "\n");
 		}
-
 		chart.getData().add(series);
 
 		return chart;
@@ -75,6 +76,7 @@ public class Program extends Application {
 		stage.setTitle("JAVA DEMO"); //название окна
 		stage.setScene(scene);
 		stage.setResizable(false);
+        stage.getIcons().add(new Image(Program.class.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
 		stage.show(); //запускаем окно
 	}
 	@Override

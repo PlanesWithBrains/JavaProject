@@ -15,7 +15,7 @@ public class Statistic {
     public static Pairs[] pairTU;
     public static Pairs[] pairAdress; // pairUser - для функции SortingByUsers, pairTime - TimePerModule, pairTU - Time per Users
 
-    Statistic(ArrayList<ClientData> client){
+    public Statistic(ArrayList<ClientData> client){
         this.client = client;
         NumberofModules();
         SortingByUsers();

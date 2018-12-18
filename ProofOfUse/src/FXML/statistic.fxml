@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
@@ -9,29 +10,29 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #c6cbf1;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.StatisticController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="1280.0" snapToPixel="false" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.StatisticController">
    <children>
-      <MenuButton fx:id="mbtnMenu" layoutX="86.0" layoutY="9.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: #e0e0e0; -fx-border-color: #000000; -fx-border-radius: 6; -fx-background-radius: 6;" text="МЕНЮ">
+      <SplitPane dividerPositions="0.9537414965986395" layoutX="25.0" layoutY="52.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="789.0" prefWidth="1280.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <MenuItem fx:id="btnImportFile" mnemonicParsing="false" text="Импорт файла данных" />
-            <MenuItem fx:id="btnImportServer" mnemonicParsing="false" text="Импорт по сети" />
-          <MenuItem fx:id="btnInfo" mnemonicParsing="false" text="О разработчиках" />
-          <MenuItem fx:id="btnDebug" mnemonicParsing="false" text="Debug" />
-          <MenuItem fx:id="btnAutotest" mnemonicParsing="false" text="Autotest" />
-        </items>
-      </MenuButton>
-      <SplitPane dividerPositions="0.9333333333333333" layoutX="25.0" layoutY="52.0" orientation="VERTICAL" prefHeight="737.0" prefWidth="1230.0">
-        <items>
-            <TabPane prefHeight="359.0" prefWidth="1235.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="tabPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="698.0" prefWidth="1228.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="1080.0" tabMaxWidth="1920.0">
               <tabs>
                   <Tab fx:id="tabCountUsersModuls" text="Кол-во пользователей в модулях">
                      <content>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0" />
+                        <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" />
                      </content>
                   </Tab>
-                <Tab fx:id="tabCountUsersCountry" text="Кол-во людей по городам" />
-                <Tab fx:id="tabAvgTimeModuls" text="Среднее время модуля на человека" />
-                  <Tab fx:id="tabTimeModuls" text="Время, проведенное в модулях" />
+                <Tab fx:id="tabCountUsersCountry" text="Кол-во людей по городам">
+                     <content>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" />
+                     </content></Tab>
+                <Tab fx:id="tabAvgTimeModuls" text="Среднее время модуля на человека">
+                     <content>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" />
+                     </content></Tab>
+                  <Tab fx:id="tabTimeModuls" text="Время, проведенное в модулях">
+                     <content>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" />
+                     </content></Tab>
               </tabs>
             </TabPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: TRANSPARENT;">
@@ -40,6 +41,18 @@
                </children>
             </AnchorPane>
         </items>
+         <padding>
+            <Insets top="45.0" />
+         </padding>
       </SplitPane>
+      <MenuButton fx:id="mbtnMenu" layoutX="86.0" layoutY="9.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: #b5b5b5; -fx-border-radius: 4;" text="MENU">
+        <items>
+          <MenuItem fx:id="btnImportFile" mnemonicParsing="false" text="Импорт файла данных" />
+            <MenuItem fx:id="btnImportServer" mnemonicParsing="false" text="Импорт по сети" />
+          <MenuItem fx:id="btnInfo" mnemonicParsing="false" text="О разработчиках" />
+          <MenuItem fx:id="btnDebug" mnemonicParsing="false" text="Debug" />
+          <MenuItem fx:id="btnAutotest" mnemonicParsing="false" text="Autotest" />
+        </items>
+      </MenuButton>
    </children>
 </AnchorPane>

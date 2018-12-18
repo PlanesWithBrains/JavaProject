@@ -6,14 +6,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import sample.ClientData;
 import sample.Program;
 import sample.Statistic;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import static sample.Program.GetInstanceOfChart;
@@ -64,6 +69,9 @@ public class StatisticController {
     private Tab tabTimeModuls;
 
     @FXML
+    private TabPane tabPane;
+
+    @FXML
     private  TextArea txtLogArea;
 
     @FXML
@@ -80,12 +88,14 @@ public class StatisticController {
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());
+                StatisticController.addConsoleLog(e.getMessage() + "\n");
             }
             Scene scene = new Scene(root); //выставляем его размеры
             Stage stage = new Stage(); //хуйня чисто для scene builder
             stage.setTitle("Import file from server"); //название окна
             stage.setScene(scene);
             stage.setResizable(false);
+            stage.getIcons().add(new Image(Program.class.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
             stage.showAndWait();
             refreshStat();
         });
@@ -100,12 +110,24 @@ public class StatisticController {
             }
             catch (Exception exp){ //если MAC os
                 System.out.println((char)27 + "[32m"+exp.getMessage());
-                StatisticController.addConsoleLog(exp.getMessage());
+                StatisticController.addConsoleLog(exp.getMessage() + "\n");
             }
 
             File f = fc.showOpenDialog(null);
             if (f!= null){
-                //ВОТ ЗДЕСЬ НУЖНА ФУНКЦИЯ ДЕССЕРИАЛИЗАТОРА
+                StatisticController.addConsoleLog("#load file: " + f.getAbsolutePath() + "\n");
+                String contents = "";
+                try {
+                    contents = new String(Files.readAllBytes(Paths.get(f.getAbsolutePath())));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                ArrayList<ClientData> temp = Program.LoadFile(contents);
+                for(ClientData clients : temp){
+                    StatisticController.addConsoleLog(clients.toString() + "\n");
+                }
+                Statistic stat = new Statistic(temp);
+                refreshStat();
             }
         });
         btnDebug.setOnAction(event -> {
@@ -122,13 +144,14 @@ public class StatisticController {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information of developers");
             alert.setHeaderText("DEVELOPERS:");
-            alert.setContentText("Alexander Umanski\t  readysloth@protonmail.com \nSolovev Dmitry\t  chrome266@gmail.com\nAnton Ablamski\t  ablamskiy98@gmail.com");
-           /* Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image(this.getClass().getResource("login.png").toString()));*/
+            alert.setContentText("Alexander Umansky\t  readysloth@protonmail.com \nSolovev Dmitry\t  chrome266@gmail.com\nAnton Ablamsky\t  ablamskiy98@gmail.com");
+           Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(Program.class.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
             alert.showAndWait();
         });
     }
-
+    static void refreshLog(){
+    }
     void refreshStat(){
         module_time = GetInstanceOfChart("",
                 "Hours",
