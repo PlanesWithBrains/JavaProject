@@ -29,21 +29,9 @@
                         <ScrollPane prefHeight="200.0" prefWidth="200.0" />
                      </content>
                   </Tab>
-                <Tab fx:id="tabCountUsersCountry" text="Кол-во людей по городам">
-                     <content>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0" />
-                     </content>
-                  </Tab>
-                <Tab fx:id="tabAvgTimeModuls" text="Среднее время модуля на человека">
-                     <content>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0" />
-                     </content>
-                  </Tab>
-                  <Tab fx:id="tabTimeModuls" text="Время, проведенное в модулях">
-                     <content>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0" />
-                     </content>
-                  </Tab>
+                <Tab fx:id="tabCountUsersCountry" text="Кол-во людей по городам" />
+                <Tab fx:id="tabAvgTimeModuls" text="Среднее время модуля на человека" />
+                  <Tab fx:id="tabTimeModuls" text="Время, проведенное в модулях" />
               </tabs>
             </TabPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: TRANSPARENT;">
