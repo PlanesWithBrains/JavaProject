@@ -1,6 +1,6 @@
 package sample;
-/*Саша*/
 
+import Controllers.StatisticController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,10 +20,6 @@ import java.util.HashMap;
 import java.util.Properties;
 import java.util.logging.Level;
 
-/*
-import org.knowm.xchart.CategoryChart;
-import org.knowm.xchart.CategoryChartBuilder;
-import org.knowm.xchart.SwingWrapper;*/
 
 
 
@@ -147,12 +143,12 @@ public class Program extends Application {
 	}
 	/* Функция проверяет на соответствие введенные пользователем данные
 	 * и возвращает доступную ему привелегию*/
-	public static void recieveJson(){
+	public static void recieveJson(String IP, int Port){
 		Runnable recieve_data = () -> {
 
 			boolean[] result_of_conversation;
 			do {
-				ClientData lclient = GetData.Download("127.0.0.1", 8010);
+				ClientData lclient = GetData.Download(IP, Port);
 
 				if (lclient == null)
 					break;
@@ -174,7 +170,9 @@ public class Program extends Application {
 		new Thread(recieve_data).run();
 
 		for (int i = 0;i < Program.gen_collection.getCollection().size();i++){
-			System.out.println(Program.gen_collection.getCollection().values().toArray()[i].toString());
+			String log = Program.gen_collection.getCollection().values().toArray()[i].toString() + "\n";
+			System.out.println(log);
+			StatisticController.addConsoleLog(log);
 		}
 
 		Collection<ArrayList<ClientData>> temp_map = gen_collection.collection.values();

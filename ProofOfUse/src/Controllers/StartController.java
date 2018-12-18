@@ -21,6 +21,7 @@ import java.util.logging.Level;
 
 public class StartController {
     public static boolean flagNewUser = true;
+
     @FXML
     private ResourceBundle resources;
 
@@ -99,16 +100,16 @@ public class StartController {
 
     public static LoggingMachine login(Window window, Class clases) {
         User.Priveledge priv = Verify(Program.loggingUser, Program.property);
-        Program.recieveJson();
+        //Program.recieveJson();
         if (priv != User.Priveledge.wrong_pass && priv != User.Priveledge.wrong_login) window.hide();
         switch (priv) {
             case user: {
-                MenuController.setFlagUser(true);
+                StatisticController.setFlagUser(true);
                 loadStatistic("MENU USER", clases);
                 break;
             }
             case root: {
-                MenuController.setFlagUser(false);
+                StatisticController.setFlagUser(false);
                 loadStatistic("MENU ADMIN", clases);
                 break;
             }
@@ -166,11 +167,17 @@ public class StartController {
             e.printStackTrace();
             System.out.println(e.getMessage());
         }
-        Scene scene1 = new Scene(root); //выставляем его размеры
-        Stage stage1 = new Stage(); //хуйня чисто для scene builder
-        stage1.setTitle(title); //название окна
-        stage1.setScene(scene1);
-        stage1.setResizable(false);
-        stage1.show();
+        Scene scene = new Scene(root); //выставляем его размеры
+        Stage stage = new Stage(); //хуйня чисто для scene builder
+        stage.setTitle(title); //название окна
+        stage.setScene(scene);
+        //stage.setResizable(false);
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                Program.SaveConfig(Program.property, Program.loggingUser);
+            }
+        });
+        stage.show();
     }
 }

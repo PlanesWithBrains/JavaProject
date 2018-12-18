@@ -15,301 +15,13 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ProofOfUse$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1541607204182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-988430447">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="12" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.14" value="1" />
-          <entry key="project.open.time.27" value="1" />
-          <entry key="project.open.time.29" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.30" value="1" />
-          <entry key="project.open.time.33" value="1" />
-          <entry key="project.open.time.34" value="1" />
-          <entry key="project.open.time.39" value="2" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="13" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="class" value="12" />
-          <entry key="ini" value="6" />
-          <entry key="java" value="21" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CLASS" value="12" />
-          <entry key="JAVA" value="21" />
-          <entry key="PLAIN_TEXT" value="6" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="class" value="5" />
-          <entry key="ini" value="19" />
-          <entry key="java" value="13048" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="CLASS" value="5" />
-          <entry key="JAVA" value="13048" />
-          <entry key="PLAIN_TEXT" value="19" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="-2028402764">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="3" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="ini" value="1" />
-          <entry key="java" value="5" />
-          <entry key="txt" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="5" />
-          <entry key="PLAIN_TEXT" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="1640" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="1640" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="-609653438">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="ini" value="1" />
-          <entry key="java" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="5" />
-          <entry key="PLAIN_TEXT" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="822" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="822" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="219901810">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="4" />
-          <entry key="fxml" value="9" />
-          <entry key="java" value="2897" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="2897" />
-          <entry key="PLAIN_TEXT" value="4" />
-          <entry key="XML" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="fxml" value="8" />
-          <entry key="ini" value="3" />
-          <entry key="java" value="12" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="12" />
-          <entry key="PLAIN_TEXT" value="3" />
-          <entry key="XML" value="8" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="-504476841">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="class" value="1" />
-          <entry key="java" value="6" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="6" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="1835" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="1835" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="2028262351">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="3" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="class" value="3" />
-          <entry key="fxml" value="1" />
-          <entry key="java" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CLASS" value="3" />
-          <entry key="JAVA" value="9" />
-          <entry key="XML" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="class" value="12" />
-          <entry key="java" value="1364" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="CLASS" value="12" />
-          <entry key="JAVA" value="1364" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="-660338304">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="java" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="587" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="587" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="-495932387">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="fxml" value="4" />
-          <entry key="ini" value="1" />
-          <entry key="java" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="9" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="XML" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="fxml" value="17" />
-          <entry key="ini" value="4" />
-          <entry key="java" value="1162" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="1162" />
-          <entry key="PLAIN_TEXT" value="4" />
-          <entry key="XML" value="17" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="66" selection-start-line="66" selection-end-line="66" />
+            <state relative-caret-position="425">
+              <caret line="70" column="8" selection-start-line="70" selection-start-column="8" selection-end-line="73" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -317,30 +29,48 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="136" column="52" lean-forward="true" selection-start-line="136" selection-start-column="52" selection-end-line="136" selection-end-column="52" />
+            <state relative-caret-position="-906">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FXML/start.fxml">
+        <entry file="file://$PROJECT_DIR$/src/sample/Pairs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
+            <state relative-caret-position="156">
+              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
             </state>
           </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Statistic.java">
+        <entry file="file://$PROJECT_DIR$/src/sample/JsonWork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="-141">
+              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#GenJsonClientData#0;class#JsonWork#0" />
+                <element signature="method#GenerateIp#0;class#JsonWork#0" />
+                <element signature="method#GenerateModules#0;class#JsonWork#0" />
+                <element signature="method#GenerateAddress#0;class#JsonWork#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/GetData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="79" column="32" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="32" />
+              <folding>
+                <element signature="method#Download#0;class#GetData#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -348,10 +78,62 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/StartController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1564">
-              <caret line="111" column="30" selection-start-line="111" selection-start-column="30" selection-end-line="111" selection-end-column="30" />
+            <state relative-caret-position="98">
+              <caret line="166" column="32" selection-start-line="166" selection-start-column="32" selection-end-line="166" selection-end-column="32" />
+              <folding>
+                <element signature="e#2977#2978#0" expanded="true" />
+                <element signature="e#3074#3075#0" expanded="true" />
+                <element signature="e#6227#6228#0" expanded="true" />
+                <element signature="e#6316#6317#0" expanded="true" />
+              </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/StatisticController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="114" column="40" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5226#5227#0" expanded="true" />
+                <element signature="e#5271#5272#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FXML/load.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/LoadController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="449">
+              <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FXML/statistic.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="13" column="153" selection-start-line="13" selection-start-column="153" selection-end-line="13" selection-end-column="160" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -368,13 +150,16 @@
     <findStrings>
       <find>Collectionlog</find>
       <find>SaveConfig</find>
+      <find>System.out</find>
+      <find>System</find>
+      <find>Console</find>
     </findStrings>
     <replaceStrings>
       <replace>log</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -410,17 +195,18 @@
         <option value="$PROJECT_DIR$/src/FXML/statistic.fxml" />
         <option value="$PROJECT_DIR$/config.ini" />
         <option value="$PROJECT_DIR$/src/Controllers/MenuController.java" />
-        <option value="$PROJECT_DIR$/src/FXML/load.fxml" />
-        <option value="$PROJECT_DIR$/src/Controllers/StatisticController.java" />
         <option value="$PROJECT_DIR$/src/Controllers/StartController.java" />
+        <option value="$PROJECT_DIR$/src/FXML/load.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Program.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/LoadController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/StatisticController.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="x" value="-8" />
+    <option name="width" value="975" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -481,7 +267,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545068493027" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545124377218" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -548,26 +334,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="922" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.1337953" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.13557047" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.10012674" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50319827" side_tool="true" visible="true" weight="0.16983524" />
-      <window_info anchor="bottom" id="Messages" order="2" weight="0.23644252" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5067114" side_tool="true" visible="true" weight="0.10339943" />
+      <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.49932885" weight="0.23512748" />
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3282636" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.4968017" weight="0.16983524" />
-      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49840087" weight="0.37093276" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49328858" weight="0.10339943" />
+      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.4966443" weight="0.3696884" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32953104" />
+      <window_info anchor="right" id="Maven" />
       <window_info anchor="right" id="Palette&#9;" order="0" />
       <window_info anchor="right" id="Maven Projects" order="1" />
       <window_info anchor="right" id="Palette" order="2" />
@@ -608,20 +396,22 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout-to-restore>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Controllers/StartController.java</url>
-          <line>97</line>
+          <url>file://$PROJECT_DIR$/src/Controllers/StatisticController.java</url>
+          <line>157</line>
           <properties />
-          <option name="timeStamp" value="62" />
+          <option name="timeStamp" value="66" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="clases.getResource(&quot;../FXML/statistic.fxml&quot;)" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
@@ -720,23 +510,6 @@
       </provider>
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/rt.jar!/com/apple/eawt/_AppEventHandler.class" />
-    <entry file="file://$PROJECT_DIR$/src/sample/Pairs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/LoggingMachine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/production/ProofOfUse/Controllers/StartController.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1785" />
@@ -759,20 +532,6 @@
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/com/sun/javafx/tk/Toolkit.java" />
-    <entry file="file://$PROJECT_DIR$/src/sample/JsonWork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GenJsonClientData#0;class#JsonWork#0" />
-            <element signature="method#GenerateIp#0;class#JsonWork#0" />
-            <element signature="method#GenerateModules#0;class#JsonWork#0" />
-            <element signature="method#GenerateAddress#0;class#JsonWork#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/DataCollection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1054">
@@ -781,16 +540,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#GetAndAdd#0;class#DataCollection#0" />
             <element signature="method#Remove#0;class#DataCollection#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/GetData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="78" column="26" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="26" />
-          <folding>
-            <element signature="method#Download#0;class#GetData#0" />
           </folding>
         </state>
       </provider>
@@ -805,14 +554,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/event/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="963">
-          <caret line="197" selection-start-line="197" selection-end-line="197" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FXML/statistic.fxml" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/event/Event.java" />
     <entry file="file://$PROJECT_DIR$/config.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -820,26 +562,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/LoadController.java" />
-    <entry file="file://$PROJECT_DIR$/src/FXML/load.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Controllers/StatisticController.java" />
-    <entry file="file://$PROJECT_DIR$/src/Controllers/MenuController.java">
+    <entry file="file://$PROJECT_DIR$/src/FXML/start.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        <state relative-caret-position="71">
+          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/LoggingMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FXML/start.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Statistic.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -848,17 +587,102 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Pairs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/GetData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="79" column="32" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="32" />
+          <folding>
+            <element signature="method#Download#0;class#GetData#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/StartController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="111" column="30" selection-start-line="111" selection-start-column="30" selection-end-line="111" selection-end-column="30" />
+        <state relative-caret-position="98">
+          <caret line="166" column="32" selection-start-line="166" selection-start-column="32" selection-end-line="166" selection-end-column="32" />
+          <folding>
+            <element signature="e#2977#2978#0" expanded="true" />
+            <element signature="e#3074#3075#0" expanded="true" />
+            <element signature="e#6227#6228#0" expanded="true" />
+            <element signature="e#6316#6317#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FXML/statistic.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="13" column="153" selection-start-line="13" selection-start-column="153" selection-end-line="13" selection-end-column="160" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FXML/load.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/JsonWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-141">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#GenJsonClientData#0;class#JsonWork#0" />
+            <element signature="method#GenerateIp#0;class#JsonWork#0" />
+            <element signature="method#GenerateModules#0;class#JsonWork#0" />
+            <element signature="method#GenerateAddress#0;class#JsonWork#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="136" column="52" lean-forward="true" selection-start-line="136" selection-start-column="52" selection-end-line="136" selection-end-column="52" />
+        <state relative-caret-position="-906">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="70" column="8" selection-start-line="70" selection-start-column="8" selection-end-line="73" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/LoadController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/StatisticController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="114" column="40" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5226#5227#0" expanded="true" />
+            <element signature="e#5271#5272#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
