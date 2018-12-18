@@ -10,7 +10,10 @@ public class Statistic {
     static HashSet<Module> modules = new HashSet<Module>();
     static HashSet<String> modulesName = new HashSet<String>();
     static HashSet<String> address = new HashSet<>();
-    static Pairs[] pairUser,pairTime,pairTU,pairAdress; // pairUser - для функции SortingByUsers, pairTime - TimePerModule, pairTU - Time per Users
+    public static Pairs[] pairUser;
+    public static Pairs[] pairTime;
+    public static Pairs[] pairTU;
+    public static Pairs[] pairAdress; // pairUser - для функции SortingByUsers, pairTime - TimePerModule, pairTU - Time per Users
 
     Statistic(ArrayList<ClientData> client){
         this.client = client;

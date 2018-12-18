@@ -1,8 +1,7 @@
 package sample;
-/*Саша*/
 
+import Controllers.StatisticController;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,10 +20,6 @@ import java.util.HashMap;
 import java.util.Properties;
 import java.util.logging.Level;
 
-/*
-import org.knowm.xchart.CategoryChart;
-import org.knowm.xchart.CategoryChartBuilder;
-import org.knowm.xchart.SwingWrapper;*/
 
 
 
@@ -35,10 +30,10 @@ public class Program extends Application {
 	public static Properties property;
 	public static User loggingUser;
 
-	static BarChart<String,Number> GetInstanceOfChart(String x_axis,
-									  String y_axis,
-									  String c_title,
-									  Pairs[] arr_pair){
+	public static BarChart<String,Number> GetInstanceOfChart(String x_axis,
+															 String y_axis,
+															 String c_title,
+															 Pairs[] arr_pair){
 		CategoryAxis xAxis = new CategoryAxis();
 		NumberAxis yAxis = new NumberAxis();
 		BarChart<String,Number> chart = new BarChart<String, Number>(xAxis,yAxis);
@@ -148,11 +143,12 @@ public class Program extends Application {
 	}
 	/* Функция проверяет на соответствие введенные пользователем данные
 	 * и возвращает доступную ему привелегию*/
-	public static void recieveJson(){
+	public static void recieveJson(String IP, int Port){
 		Runnable recieve_data = () -> {
+
 			boolean[] result_of_conversation;
 			do {
-				ClientData lclient = GetData.Download("127.0.0.1", 8005);
+				ClientData lclient = GetData.Download(IP, Port);
 
 				if (lclient == null)
 					break;
@@ -174,7 +170,9 @@ public class Program extends Application {
 		new Thread(recieve_data).run();
 
 		for (int i = 0;i < Program.gen_collection.getCollection().size();i++){
-			System.out.println(Program.gen_collection.getCollection().values().toArray()[i].toString());
+			String log = Program.gen_collection.getCollection().values().toArray()[i].toString() + "\n";
+			System.out.println(log);
+			StatisticController.addConsoleLog(log);
 		}
 
 		Collection<ArrayList<ClientData>> temp_map = gen_collection.collection.values();
@@ -186,68 +184,16 @@ public class Program extends Application {
 		Statistic stat = new Statistic(DataArray);
 
 	}
-	public static void watchStatisticInfo(){
 
-		BarChart<String,Number> module_user=  GetInstanceOfChart("Названия модулей",
-												"Кол-во пользователей",
-												"Кол-во пользователей в модулях",
-												Statistic.pairUser);
-		BarChart<String,Number> module_time =  GetInstanceOfChart("",
-				"Часы",
-				"Кол-во времени, проведенного в модулях",
-				Statistic.pairTime);
-		BarChart<String,Number> module_tu =  GetInstanceOfChart("",
-				"Часы",
-				"Среднее время использования модуля на человека",
-				Statistic.pairTU);
-		BarChart<String,Number> module_addr =  GetInstanceOfChart("",
-				"Кол-во пользователей",
-				"Кол-во людей по городам",
-				Statistic.pairAdress);
-		new Thread(() ->{
-			Platform.runLater(() -> {
-					Scene scene = new Scene(module_user, 800, 600);
-					Stage stage = new Stage();
-					stage.setScene(scene);
-					stage.show();}
-				);
-		}).start();
-
-		new Thread(() ->{
-				Platform.runLater(() -> {
-					Scene scene = new Scene(module_time, 800, 600);
-					Stage stage = new Stage();
-					stage.setScene(scene);
-					stage.show();}
-				);
-			}).start();
-
-		new Thread(() ->{
-			Platform.runLater(() -> {
-					Scene scene = new Scene(module_tu, 800, 600);
-					Stage stage = new Stage();
-					stage.setScene(scene);
-					stage.show();}
-				);
-			}).start();
-
-		new Thread(() ->{
-			Platform.runLater(() -> {
-					Scene scene = new Scene(module_addr, 800, 600);
-					Stage stage = new Stage();
-					stage.setScene(scene);
-					stage.show();}
-				);
-			}).start();
-
-		/*
-		Alert alert = new Alert(Alert.AlertType.INFORMATION);
-		alert.setTitle("Watch statistic info");
-		alert.setHeaderText(null);
-		alert.setContentText("Данная функция находится в разработке :)");
-
-		alert.showAndWait();*/
+	public static ArrayList<ClientData> LoadFile(String file_content){
+		String[] lines = file_content.split(System.getProperty("line.separator"));
+		ArrayList<ClientData> clients = new ArrayList<>();
+		for(String line : lines){
+			clients.add(JsonWork.Deserialize(line));
+		}
+		return clients;
 	}
+
 	public static void ClientTrustworthy(ClientData client){
 		try{
 			URL geoip_api_addr = new URL("http://ip-api.com/json/" + client.clientIp.getHostAddress() + "?lang=en");
