@@ -1,5 +1,6 @@
 package Controllers;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -75,12 +76,28 @@ public class StatisticController {
     private  TextArea txtLogArea;
 
     @FXML
+    private MenuItem btnSort;
+
+    @FXML
     void initialize() {
         if (flagAdmin){
             btnAutotest.setVisible(false);
             btnDebug.setVisible(false);
         }
+        btnSort.setDisable(true);
         //refreshStat();
+        btnSort.setOnAction(event -> {
+            ObservableList<Tab> tabs = tabPane.getTabs();
+            int activeTab = 1;
+            for(int i = 0; i < tabs.size(); i++){
+                if(tabs.get(i).isSelected()) activeTab = i + 1;
+            }
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText("Look, an Information Dialog");
+            alert.setContentText(String.valueOf(activeTab));
+            alert.showAndWait();
+        });
         btnImportServer.setOnAction(event -> {
             Parent root = null;
             try {
@@ -174,6 +191,7 @@ public class StatisticController {
         tabAvgTimeModuls.setContent(module_tu);
         tabTimeModuls.setContent(module_time);
         txtLogArea.setText(consoleLog);
+        btnSort.setDisable(false);
     }
 
     public static void setFlagUser(boolean pr) {flagAdmin = pr;}

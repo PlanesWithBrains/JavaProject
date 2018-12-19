@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d545ea6-9541-4e6e-90cb-df258e548778" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../JsonServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonServer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProofOfUse/Controllers/StatisticController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProofOfUse/Controllers/StatisticController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProofOfUse/sample/GetData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProofOfUse/sample/GetData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProofOfUse/sample/Program.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProofOfUse/sample/Program.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/StatisticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/StatisticController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/statistic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/statistic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/GetData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GetData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Program.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,11 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1712">
+              <caret line="202" column="116" lean-forward="true" selection-start-line="202" selection-start-column="116" selection-end-line="202" selection-end-column="116" />
             </state>
           </provider>
         </entry>
@@ -34,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/ClientData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="63" column="33" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
+            <state relative-caret-position="114">
+              <caret line="74" column="24" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/GetData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="79" column="32" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="32" />
+            <state relative-caret-position="476">
+              <caret line="91" column="9" lean-forward="true" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
               <folding>
                 <element signature="method#Download#0;class#GetData#0" />
               </folding>
@@ -124,8 +129,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/StatisticController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="142" column="38" lean-forward="true" selection-start-line="142" selection-start-column="38" selection-end-line="142" selection-end-column="38" />
+            <state relative-caret-position="340">
+              <caret line="97" column="60" selection-start-line="97" selection-start-column="60" selection-end-line="97" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -182,7 +187,6 @@
         <option value="$PROJECT_DIR$/src/sample/LoggingMachine.java" />
         <option value="$PROJECT_DIR$/src/Controllers/StartNewUserController.java" />
         <option value="$PROJECT_DIR$/src/FXML/start.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/GetData.java" />
         <option value="$PROJECT_DIR$/src/sample/Pairs.java" />
         <option value="$PROJECT_DIR$/src/sample/ClientData.java" />
         <option value="$PROJECT_DIR$/src/sample/Statistic.java" />
@@ -191,8 +195,9 @@
         <option value="$PROJECT_DIR$/src/Controllers/MenuController.java" />
         <option value="$PROJECT_DIR$/src/Controllers/LoadController.java" />
         <option value="$PROJECT_DIR$/src/FXML/load.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/Program.java" />
         <option value="$PROJECT_DIR$/src/Controllers/StartController.java" />
+        <option value="$PROJECT_DIR$/src/sample/GetData.java" />
+        <option value="$PROJECT_DIR$/src/sample/Program.java" />
         <option value="$PROJECT_DIR$/src/Controllers/StatisticController.java" />
       </list>
     </option>
@@ -209,6 +214,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -258,12 +264,11 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545170862411" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545204811341" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../JsonServer" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -335,7 +340,7 @@
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="3" weight="0.090618335" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.14697987" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
@@ -344,8 +349,8 @@
       <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.49932885" weight="0.23512748" />
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.3282636" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.4904051" visible="true" weight="0.28308025" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32719547" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.4904051" visible="true" weight="0.28186968" />
       <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49520257" weight="0.36876357" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -397,7 +402,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Controllers/StatisticController.java</url>
-          <line>180</line>
+          <line>198</line>
           <properties />
           <option name="timeStamp" value="66" />
         </line-breakpoint>
@@ -409,7 +414,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Controllers/StatisticController.java</url>
-          <line>128</line>
+          <line>145</line>
           <properties />
           <option name="timeStamp" value="68" />
         </line-breakpoint>
@@ -578,26 +583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/ClientData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="63" column="33" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/JsonWork.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -608,16 +593,6 @@
             <element signature="method#GenerateIp#0;class#JsonWork#0" />
             <element signature="method#GenerateModules#0;class#JsonWork#0" />
             <element signature="method#GenerateAddress#0;class#JsonWork#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/GetData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="79" column="32" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="32" />
-          <folding>
-            <element signature="method#Download#0;class#GetData#0" />
           </folding>
         </state>
       </provider>
@@ -662,10 +637,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/GetData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="91" column="9" lean-forward="true" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
+          <folding>
+            <element signature="method#Download#0;class#GetData#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/ClientData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="74" column="24" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1712">
+          <caret line="202" column="116" lean-forward="true" selection-start-line="202" selection-start-column="116" selection-end-line="202" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/StatisticController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="142" column="38" lean-forward="true" selection-start-line="142" selection-start-column="38" selection-end-line="142" selection-end-column="38" />
+        <state relative-caret-position="340">
+          <caret line="97" column="60" selection-start-line="97" selection-start-column="60" selection-end-line="97" selection-end-column="60" />
         </state>
       </provider>
     </entry>

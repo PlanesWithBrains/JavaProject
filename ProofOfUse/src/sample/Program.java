@@ -191,7 +191,9 @@ public class Program extends Application {
 		String[] lines = file_content.split(System.getProperty("line.separator"));
 		ArrayList<ClientData> clients = new ArrayList<>();
 		for(String line : lines){
-			clients.add(JsonWork.Deserialize(line));
+			ClientData client = JsonWork.Deserialize(line);
+			clients.add(client);
+			ClientTrustworthy(client);
 		}
 		return clients;
 	}
