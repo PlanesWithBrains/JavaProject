@@ -144,7 +144,7 @@ public class StatisticController {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information of developers");
             alert.setHeaderText("DEVELOPERS:");
-            alert.setContentText("Alexander Umansky\t  readysloth@protonmail.com \nSolovev Dmitry\t  chrome266@gmail.com\nAnton Ablamsky\t  ablamskiy98@gmail.com");
+            alert.setContentText("Alex Umanskiy\treadysloth@protonmail.com\nSolovev Dmitry\tchrome266@gmail.com\nAnton Ablamskiy\tablamskiy98@gmail.com");
            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
             stage.getIcons().add(new Image(Program.class.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
             alert.showAndWait();
