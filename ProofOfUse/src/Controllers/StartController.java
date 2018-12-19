@@ -179,7 +179,7 @@ public class StartController {
         Stage stage = new Stage(); //хуйня чисто для scene builder
         stage.setTitle(title); //название окна
         stage.setScene(scene);
-        //stage.setResizable(false);
+        stage.setResizable(false);
         stage.getIcons().add(new Image(Program.class.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override

@@ -115,7 +115,7 @@ public class Statistic {
         }
         SortStatisticPairs(pairAdress.length,pairAdress);
     }
-    void RangeSelection(Object a,Object b,Pairs obj[]){// a - нижняя граница, b - верхняя, Pairs - тот график для которого
+    public static void RangeSelection(Object a,Object b,Pairs obj[]){// a - нижняя граница, b - верхняя, Pairs - тот график для которого
         // Что это и как это юзать:
         // Функция отбора по диапазону, как прикрутить в гуй вам лучше знать
         // если нету верхней или нижней границы кидать на вход параметра null (с дюрейшен на вводе придется по ебаться(скорее всего по формату конструктора))

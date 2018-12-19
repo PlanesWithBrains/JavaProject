@@ -34,7 +34,7 @@ public class Program extends Application {
 	public static BarChart<String,Number> GetInstanceOfChart(String x_axis,
 															 String y_axis,
 															 String c_title,
-															 Pairs[] arr_pair){
+															 Pairs[] arr_pair, int number){
 		CategoryAxis xAxis = new CategoryAxis();
 		NumberAxis yAxis = new NumberAxis();
 		BarChart<String,Number> chart = new BarChart<String, Number>(xAxis,yAxis);
@@ -65,7 +65,7 @@ public class Program extends Application {
 				StatisticController.addConsoleLog(e.getMessage() + "\n");
 		}
 		chart.getData().add(series);
-
+		StatisticController.setCount(number,arr_pair.length);
 		return chart;
 	}
 
