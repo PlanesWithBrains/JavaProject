@@ -9,6 +9,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -33,7 +34,7 @@ public class Program extends Application {
 	public static BarChart<String,Number> GetInstanceOfChart(String x_axis,
 															 String y_axis,
 															 String c_title,
-															 Pairs[] arr_pair){
+															 Pairs[] arr_pair, int number){
 		CategoryAxis xAxis = new CategoryAxis();
 		NumberAxis yAxis = new NumberAxis();
 		BarChart<String,Number> chart = new BarChart<String, Number>(xAxis,yAxis);
@@ -61,10 +62,10 @@ public class Program extends Application {
 			}
 			catch (Exception e){
 				e.printStackTrace();
+				StatisticController.addConsoleLog(e.getMessage() + "\n");
 		}
-
 		chart.getData().add(series);
-
+		StatisticController.setCount(number,arr_pair.length);
 		return chart;
 	}
 
@@ -75,6 +76,7 @@ public class Program extends Application {
 		stage.setTitle("JAVA DEMO"); //название окна
 		stage.setScene(scene);
 		stage.setResizable(false);
+        stage.getIcons().add(new Image(Program.class.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
 		stage.show(); //запускаем окно
 	}
 	@Override
@@ -189,7 +191,9 @@ public class Program extends Application {
 		String[] lines = file_content.split(System.getProperty("line.separator"));
 		ArrayList<ClientData> clients = new ArrayList<>();
 		for(String line : lines){
-			clients.add(JsonWork.Deserialize(line));
+			ClientData client = JsonWork.Deserialize(line);
+			clients.add(client);
+			ClientTrustworthy(client);
 		}
 		return clients;
 	}

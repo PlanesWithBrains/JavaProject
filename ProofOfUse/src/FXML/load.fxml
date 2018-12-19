@@ -11,7 +11,7 @@
    <children>
       <ImageView fx:id="imgLoad" fitHeight="91.0" fitWidth="104.0" layoutX="478.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../FXML/load.gif" />
+            <Image url="@../ImagesAndFonts/load.gif" />
          </image>
       </ImageView>
       <TextField fx:id="fldIP" layoutX="47.0" layoutY="46.0" text="127.0.0.1" />

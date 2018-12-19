@@ -6,6 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
@@ -43,9 +46,14 @@ public class StartController {
     @FXML
     private Button btnLogin;
 
+    @FXML
+    private Text lblName;
+
 
     @FXML
     void initialize() {
+        Font font = Font.loadFont(getClass().getResourceAsStream("/ImagesAndFonts/Label.ttf"), 31);
+        lblName.setFont(font);
         if (flagNewUser){ //save user
             btnChangeUser.setVisible(true);
             lblUserName.setVisible(true);
@@ -171,7 +179,8 @@ public class StartController {
         Stage stage = new Stage(); //хуйня чисто для scene builder
         stage.setTitle(title); //название окна
         stage.setScene(scene);
-        //stage.setResizable(false);
+        stage.setResizable(false);
+        stage.getIcons().add(new Image(Program.class.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
