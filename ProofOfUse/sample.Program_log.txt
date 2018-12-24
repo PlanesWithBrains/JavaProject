@@ -1,0 +1,9 @@
+INFO	Wed Nov 28 22:26:01 MSK 2018	Config file could not be saved
+INFO	Thu Nov 29 11:33:58 MSK 2018	Config file could not be saved
+INFO	Mon Dec 17 19:55:20 MSK 2018	Config file could not be saved
+INFO	Wed Dec 19 14:51:59 MSK 2018	Config file could not be saved
+INFO	Wed Dec 19 14:51:59 MSK 2018	Config file could not be saved
+INFO	Wed Dec 19 17:09:46 MSK 2018	Config file could not be saved
+INFO	Wed Dec 19 17:09:46 MSK 2018	Config file could not be saved
+INFO	Wed Dec 19 17:56:17 MSK 2018	Config file could not be saved
+INFO	Wed Dec 19 17:56:17 MSK 2018	Config file could not be saved
