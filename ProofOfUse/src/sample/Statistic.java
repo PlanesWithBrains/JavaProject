@@ -1,9 +1,11 @@
 package sample;
 
+import Controllers.StatisticController;
+
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
-import java.util.*;
 
 public class Statistic {
     static ArrayList<ClientData> client;
@@ -15,7 +17,7 @@ public class Statistic {
     public static Pairs[] pairTU;
     public static Pairs[] pairAdress; // pairUser - для функции SortingByUsers, pairTime - TimePerModule, pairTU - Time per Users
 
-    Statistic(ArrayList<ClientData> client){
+    public Statistic(ArrayList<ClientData> client){
         this.client = client;
         NumberofModules();
         SortingByUsers();
@@ -115,7 +117,7 @@ public class Statistic {
         }
         SortStatisticPairs(pairAdress.length,pairAdress);
     }
-    void RangeSelection(Object a,Object b,Pairs obj[]){// a - нижняя граница, b - верхняя, Pairs - тот график для которого
+    public static void RangeSelection(Object a,Object b,Pairs obj[]){// a - нижняя граница, b - верхняя, Pairs - тот график для которого
         // Что это и как это юзать:
         // Функция отбора по диапазону, как прикрутить в гуй вам лучше знать
         // если нету верхней или нижней границы кидать на вход параметра null (с дюрейшен на вводе придется по ебаться(скорее всего по формату конструктора))
@@ -130,18 +132,22 @@ public class Statistic {
         // (Ввод Duration'a можно реализовать(?) так как у нас сделано со временем в КПО)
         // пример того как ее можно вызвать: строка 71 данного файла(имеется в виду туда прописать вызов, с необходимыми дюрейшенами)
         boolean flag = true;
-        Pairs<Object,Object>[] Obj = new Pairs[0];// временный массив
+        Pairs<Object,Object>[] Obj = new Pairs[obj.length];// временный массив
         if (a == null && b!= null){
             if (obj[0]._2 instanceof Integer && b instanceof Integer){
-                for(int i=0;i<obj.length;i++){
-                    if((int)obj[i]._2 < (int)b)
-                        Obj[i] = new Pairs<Object,Object>(obj[i]._1,obj[i]._2);
+                for(int i=0,j = 0;i<obj.length;i++){
+                    if((int)obj[i]._2 < (int)b) {
+                        Obj[j] = new Pairs<Object, Object>(obj[i]._1, obj[i]._2);
+                        j++;
+                    }
                 }
             }
             if (obj[0]._2 instanceof Duration && b instanceof Duration){
-                for(int i=0;i<obj.length;i++){
-                    if(((Duration)obj[i]._2).minus((Duration)b).isNegative())
-                        Obj[i] = new Pairs<Object,Object>(obj[i]._1,obj[i]._2);
+                for(int i=0,j = 0;i<obj.length;i++){
+                    if(((Duration)obj[i]._2).minus((Duration)b).isNegative()) {
+                        Obj[j] = new Pairs<Object, Object>(obj[i]._1, obj[i]._2);
+                        j++;
+                    }
                 }
             }
             if (!(b instanceof Duration || b instanceof Integer ))
@@ -149,35 +155,47 @@ public class Statistic {
         }
         if (b == null && a!=null) {
             if (obj[0]._2 instanceof Integer && a instanceof Integer) {
-                for (int i = 0; i < obj.length; i++) {
-                    if ((int) obj[i]._2 > (int) a)
-                        Obj[i] = new Pairs<Object, Object>(obj[i]._1, obj[i]._2);
+                for (int i = 0, j = 0; i < obj.length; i++) {
+                    if ((int) obj[i]._2 > (int) a) {
+                        Obj[j] = new Pairs<Object, Object>(obj[i]._1, obj[i]._2);
+                        j++;
+                    }
                 }
             }
             if (obj[0]._2 instanceof Duration && a instanceof Duration) {
-                for (int i = 0; i < obj.length; i++) {
-                    if (!((Duration) obj[i]._2).minus((Duration) a).isNegative())
-                        Obj[i] = new Pairs<Object, Object>(obj[i]._1, obj[i]._2);
+                for (int i = 0, j = 0; i < obj.length; i++) {
+                    if (!((Duration) obj[i]._2).minus((Duration) a).isNegative()) {
+                        Obj[j] = new Pairs<Object, Object>(obj[i]._1, obj[i]._2);
+                        j++;
+                    }
                 }
             }
-            if (!(a instanceof Duration || a instanceof Integer ))
+            if (!(a instanceof Duration || a instanceof Integer )) {
                 System.out.println("ошибка соответствия типов(a)");
+                StatisticController.addConsoleLog("ошибка соответствия типов(a)");
+            }
         }
         if (a != null && b != null){
             if (obj[0]._2 instanceof Duration && (a instanceof Duration && b instanceof Duration)) {
-                for (int i = 0; i < obj.length; i++) {
-                    if (!((Duration) obj[i]._2).minus((Duration) a).isNegative() && ((Duration) obj[i]._2).minus((Duration) b).isNegative())
-                        Obj[i] = new Pairs<Object, Object>(obj[i]._1, obj[i]._2);
+                for (int i = 0,j=0; i < obj.length; i++) {
+                    if (!((Duration) obj[i]._2).minus((Duration) a).isNegative() && ((Duration) obj[i]._2).minus((Duration) b).isNegative()) {
+                        Obj[j] = new Pairs<Object, Object>(obj[i]._1, obj[i]._2);
+                        j++;
+                    }
                 }
             }
-            if (obj[0]._2 instanceof Integer && (a instanceof Integer && b instanceof Integer)) {
-                for (int i = 0; i < obj.length; i++) {
-                    if ((int) obj[i]._2 > (int) a && (int)obj[i]._2 < (int)b)
-                        Obj[i] = new Pairs<Object, Object>(obj[i]._1, obj[i]._2);
+            if (obj[0]._2 instanceof Integer && (a instanceof Integer && b instanceof Integer)) { //
+                for (int i = 0,j=0; i < obj.length; i++) {
+                    if ((int) obj[i]._2 > (int) a && (int)obj[i]._2 < (int)b) {
+                        Obj[j] = new Pairs<Object, Object>((Object)obj[i]._1, (Object)obj[i]._2);
+                        j++;
+                    }
                 }
             }
-            if(!(a instanceof Duration || a instanceof Integer ) && !(b instanceof Duration || b instanceof Integer))
+            if(!(a instanceof Duration || a instanceof Integer ) && !(b instanceof Duration || b instanceof Integer)) {
                 System.out.println("ошибка соответствия типов(a && b)");
+                StatisticController.addConsoleLog("ошибка соответствия типов(a && b)");
+            }
         }
         if (a == null && b == null){
             System.out.println("Не правильное считывание данных (оба null)");
@@ -186,7 +204,8 @@ public class Statistic {
         if (flag) {
             Arrays.fill(obj, null);// очищяем исходный массив
             for (int i = 0; i < Obj.length; i++) {
-                obj[i] = Obj[i];
+                if(Obj[i] != null)
+                    obj[i] = Obj[i];
             }
         }
     }

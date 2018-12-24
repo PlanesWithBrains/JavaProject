@@ -1,13 +1,12 @@
 package sample;
 
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.*;
-import java.lang.*;
+import java.net.Inet4Address;
+import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-import java.util.logging.*;
+import java.util.logging.Level;
 
 public class GetData {
     static LoggingMachine log;

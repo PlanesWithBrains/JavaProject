@@ -9,6 +9,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -29,11 +30,12 @@ public class Program extends Application {
 	public static LoggingMachine log;
 	public static Properties property;
 	public static User loggingUser;
+	private static boolean fast_enough = true;
 
-	public static BarChart<String,Number> GetInstanceOfChart(String x_axis,
+    public static BarChart<String,Number> GetInstanceOfChart(String x_axis,
 															 String y_axis,
 															 String c_title,
-															 Pairs[] arr_pair){
+															 Pairs[] arr_pair, int number){
 		CategoryAxis xAxis = new CategoryAxis();
 		NumberAxis yAxis = new NumberAxis();
 		BarChart<String,Number> chart = new BarChart<String, Number>(xAxis,yAxis);
@@ -61,10 +63,10 @@ public class Program extends Application {
 			}
 			catch (Exception e){
 				e.printStackTrace();
+				StatisticController.addConsoleLog(e.getMessage() + "\n");
 		}
-
 		chart.getData().add(series);
-
+		StatisticController.setCount(number,arr_pair.length);
 		return chart;
 	}
 
@@ -75,6 +77,7 @@ public class Program extends Application {
 		stage.setTitle("JAVA DEMO"); //название окна
 		stage.setScene(scene);
 		stage.setResizable(false);
+        stage.getIcons().add(new Image(Program.class.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
 		stage.show(); //запускаем окно
 	}
 	@Override
@@ -153,7 +156,13 @@ public class Program extends Application {
 				if (lclient == null)
 					break;
 
-				ClientTrustworthy(lclient);
+				//проверка на медленный интернет
+				if(fast_enough) {
+                    long start_ms = System.currentTimeMillis();
+                    ClientTrustworthy(lclient);
+                    fast_enough = System.currentTimeMillis() - start_ms > 3*1000 ? false : true;
+                }
+
 				if (gen_collection.collection.containsKey(lclient.uniqKey)) { //???????? ?? ??????? ?????????? ?? ???? ?????
 
 					gen_collection.GetAndAdd(lclient.uniqKey, lclient);
@@ -185,6 +194,17 @@ public class Program extends Application {
 
 	}
 
+	public static ArrayList<ClientData> LoadFile(String file_content){
+		String[] lines = file_content.split(System.getProperty("line.separator"));
+		ArrayList<ClientData> clients = new ArrayList<>();
+		for(String line : lines){
+			ClientData client = JsonWork.Deserialize(line);
+			clients.add(client);
+			ClientTrustworthy(client);
+		}
+		return clients;
+	}
+
 	public static void ClientTrustworthy(ClientData client){
 		try{
 			URL geoip_api_addr = new URL("http://ip-api.com/json/" + client.clientIp.getHostAddress() + "?lang=en");
@@ -199,12 +219,18 @@ public class Program extends Application {
 					lon = lon.substring(0,lon.indexOf(','));
 			String 	lat = data.substring(data.indexOf("\"lat\":") + "\"lat\":".length());
 					lat = lat.substring(0,lat.indexOf(','));
+
+            client.latitude = lat;
+            client.longitude = lon;
+
 			String lonlat = lon + "," + lat;
 			client.ActualLocation = client.ActualLocation.replaceAll("#lonlat#",lonlat);
 			client.ActualLocation = client.ActualLocation.replaceAll("#zoom#","10");
 		}
 		catch (Exception e){
-			e.printStackTrace();
+			System.out.printf(e.getMessage());
+			client.ActualLocation = "";
+			client.trusted = false;
 		}
 
 	}

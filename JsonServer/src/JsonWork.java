@@ -1,10 +1,9 @@
 import com.google.gson.Gson;
 import com.sun.security.ntlm.Client;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.lang.*;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.*;
 import java.time.*;
@@ -26,11 +25,12 @@ public class JsonWork {
 	/*метод создает случайного клиента и возвращает объект ClientData*/
 	static ClientData GenerateData() {
 		Random rand = new Random();
-		ClientData client = new ClientData( GenerateIp(),
+		String IP = GenerateIp();
+		ClientData client = new ClientData( IP,
 											Math.abs(rand.nextLong()),
 											Duration.ofHours(Math.abs(rand.nextLong())%512),
 											GenerateModules(),
-											GenerateAddress());
+											GenerateAddress(IP));
 
 		return client;
 	}
@@ -60,7 +60,8 @@ public class JsonWork {
 							"FileSystem",
 							"EmbedBrowser",
 							"Search",
-							"VoiceRecognition"};
+							"VoiceRecognition",
+							};
 
 		/*размер имени модуля и количества модулей*/
 		int count = rand.nextInt(names.length - 1) + 1;
@@ -82,7 +83,7 @@ public class JsonWork {
 	}
 
 
-	private static Address GenerateAddress() {
+	private static Address GenerateAddress(String IP) {
 
 		Random rand = new Random();
 		Country[] countries = {
@@ -100,18 +101,51 @@ public class JsonWork {
 																"Baumholder",
 																"Delitzsch",
 																"Munich"})};
-		/*выбираем случайную страну из массива*/
-		int country_index = rand.nextInt(countries.length);
-		/*выбираем случайный город данной страны*/
-		int city_index = rand.nextInt(countries[country_index].cities.length);
+		Country actual_Addr;
+		if(!Server.FAST)
+			actual_Addr = GetCountryData(IP);
+		else
+			actual_Addr = null;
 
-		/*создаем адрес*/
-		Address addr = new Address(	countries[country_index].country,
-									countries[country_index].cities[city_index]);
+		if(actual_Addr == null) {
+			/*выбираем случайную страну из массива*/
+			int country_index = rand.nextInt(countries.length);
+			/*выбираем случайный город данной страны*/
+			int city_index = rand.nextInt(countries[country_index].cities.length);
 
-		return addr;
+			/*создаем адрес*/
+			return new Address(countries[country_index].country,
+					countries[country_index].cities[city_index]);
+		}
+		else
+			return new Address(actual_Addr.country,actual_Addr.cities[0]);
 	}
 
+	public static Country GetCountryData(String IP){
+		String city;
+		String country;
+
+		try{
+			URL geoip_api_addr = new URL("http://ip-api.com/json/" + IP + "?lang=en");
+			BufferedReader output = new BufferedReader(new InputStreamReader(geoip_api_addr.openStream()));
+			String data = output.readLine();
+			int city_start = data.indexOf("city\":\"") + "city\":\"".length();
+			data = data.substring(city_start);
+			city = data.substring(0, data.indexOf('"'));
+
+			int country_start = data.indexOf("country\":\"") + "country\":\"".length();
+			data = data.substring(country_start);
+			country = data.substring(0, data.indexOf('"'));
+
+			return new Country(country, new String[]{city});
+		}
+		catch (Exception e){
+			System.out.printf(e.getMessage() + "\n");
+			if(e.getMessage().contains("timed out"))
+				Server.FAST = true;
+		}
+		return null;
+	}
 	static String Serialize(ClientData client){
 
 		return new Gson().toJson(client);

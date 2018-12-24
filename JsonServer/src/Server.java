@@ -14,6 +14,7 @@ import java.util.logging.*;
 
 public class Server {
 
+    public static boolean FAST = false;
     static ServerSocket server;
     static Socket connection;
     static Logger log = Logger.getLogger(Server.class.getName());
@@ -65,7 +66,7 @@ public class Server {
 
     public static void main(String[] args) {
         while (true) {
-            ServerStart(8010);
+            ServerStart(8005);
             StringBuilder file_content = new StringBuilder();
 
             for (int i = 0; i < 100; i++) {

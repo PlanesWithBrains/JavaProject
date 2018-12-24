@@ -1,13 +1,17 @@
-package sample;/*Саша*/
+package sample;/*РЎР°С€Р°*/
+
+import javafx.scene.image.Image;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStreamReader;
 import java.net.*;
-import java.time.*;
-import java.lang.*;
-import java.util.*;
+import java.time.Duration;
+import java.util.ArrayList;
 
 class Module{
-	String			module;			//название модуля
-	Duration		moduleUsage;	//длительность использования
-	long			peopleCnt;		//количество пользователей, использующих модуль
+	String			module;			//РЅР°Р·РІР°РЅРёРµ РјРѕРґСѓР»СЏ
+	Duration		moduleUsage;	//РґР»РёС‚РµР»СЊРЅРѕСЃС‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ
+	long			peopleCnt;		//РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№, РёСЃРїРѕР»СЊР·СѓСЋС‰РёС… РјРѕРґСѓР»СЊ
 	
 	Module(){
 		module 	 = null;
@@ -24,10 +28,10 @@ class Module{
 }
 
 class Address{
-	String 			region;			//регион
-	String 			city;			//город
-	String 			district;		//район
-	String 			country;		//страна
+	String 			region;			//СЂРµРіРёРѕРЅ
+	String 			city;			//РіРѕСЂРѕРґ
+	String 			district;		//СЂР°Р№РѕРЅ
+	String 			country;		//СЃС‚СЂР°РЅР°
 	Address(){
 		country	 = null;
 		region	 = null;
@@ -66,13 +70,16 @@ class Address{
 }
 
 public class ClientData {
-	Inet4Address	clientIp;		//IP адрес клиента
-	long			uniqKey;		//уникальный ключ приложения
-	Duration		fullUsage;		//длительность использования программы
-	ArrayList<Module>	modules;	//лист модулей, которые используют пользователи
-	Address			addr;			//адрес клиента 
+	Inet4Address	clientIp;		//IP Р°РґСЂРµСЃ РєР»РёРµРЅС‚Р°
+	long			uniqKey;		//СѓРЅРёРєР°Р»СЊРЅС‹Р№ РєР»СЋС‡ РїСЂРёР»РѕР¶РµРЅРёСЏ
+	Duration		fullUsage;		//РґР»РёС‚РµР»СЊРЅРѕСЃС‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РїСЂРѕРіСЂР°РјРјС‹
+	ArrayList<Module>	modules;	//Р»РёСЃС‚ РјРѕРґСѓР»РµР№, РєРѕС‚РѕСЂС‹Рµ РёСЃРїРѕР»СЊР·СѓСЋС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»Рё
+	Address			addr;			//Р°РґСЂРµСЃ РєР»РёРµРЅС‚Р° 
 	boolean			trusted = false;
 	String			ActualLocation;
+	String			latitude;		//shirina
+	String			longitude;		//dolgota
+									//ne smeytes, translit dlya sovmestimosti
 	ClientData(){
 		Inet4Address	clientIp = (Inet4Address) Inet4Address.getLoopbackAddress();		
 		long			uniqKey  = -1;			
@@ -98,6 +105,20 @@ public class ClientData {
 		addr	 = Addr;			 
 	}
 
+	Image GetMapInstance(){
+
+		byte[] buffer;
+		try{
+			URL map_url = new URL(ActualLocation);
+			URLConnection downloadMap = map_url.openConnection();
+			buffer = new byte[downloadMap.getContentLength()];
+			downloadMap.getInputStream().read(buffer);
+		}
+		catch (Exception e){
+			return null;
+		}
+		return new Image(new ByteArrayInputStream(buffer));
+	}
 	public String toString() {
 		return  "UniqKey: " + this.uniqKey +
 				" FullUsage: " + fullUsage.toString() +
