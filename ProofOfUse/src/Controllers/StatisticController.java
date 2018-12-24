@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -77,6 +78,9 @@ public class StatisticController {
     private MenuItem btnSort;
 
     @FXML
+    private MenuItem btnClose;
+
+    @FXML
     private MenuItem btnDebug;
 
     @FXML
@@ -89,7 +93,15 @@ public class StatisticController {
             btnDebug.setVisible(false);
         }
         btnSort.setDisable(true);
+        btnClose.setDisable(true);
         //refreshStat();
+        btnClose.setOnAction(event -> {
+            tabCountUsersModuls.getChildren().remove(0);
+            tabCountUsersCountry.getChildren().remove(0);
+            tabAvgTimeModuls.getChildren().remove(0);
+            tabTimeModuls.getChildren().remove(0);
+            btnClose.setDisable(true);
+        });
         btnSort.setOnAction(event -> {
             ObservableList<Tab> tabs = tabPane.getTabs();
             int activeTab = 1;
@@ -112,10 +124,11 @@ public class StatisticController {
             stage.setResizable(false);
             stage.getIcons().add(new Image(Program.class.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
             stage.showAndWait();
-            refreshStat();
+            refreshStat(2);
 
         });
         btnImportServer.setOnAction(event -> {
+            btnClose.setDisable(false);
             Parent root = null;
             try {
                 root = FXMLLoader.load(Program.class.getResource("../FXML/load.fxml")); //загружаем fxml нового окна
@@ -131,9 +144,10 @@ public class StatisticController {
             stage.setResizable(false);
             stage.getIcons().add(new Image(Program.class.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
             stage.showAndWait();
-            refreshStat();
+            refreshStat(1);
         });
         btnImportFile.setOnAction(event -> {
+            btnClose.setDisable(false);
             FileChooser fc = new FileChooser();
             fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON files", "*.json"));
 
@@ -161,7 +175,7 @@ public class StatisticController {
                     StatisticController.addConsoleLog(clients.toString() + "\n");
                 }
                 Statistic stat = new Statistic(temp);
-                refreshStat();
+                refreshStat(1);
             }
         });
         btnDebug.setOnAction(event -> {
@@ -186,7 +200,7 @@ public class StatisticController {
     }
     static void refreshLog(){
     }
-    void refreshStat(){
+    void refreshStat(int flag){
         module_time = GetInstanceOfChart("",
                 "Hours",
                 "Amount of time spent in the modules",
@@ -207,11 +221,21 @@ public class StatisticController {
        // Scene scene = new Scene(module_time, 800, 600);
        //module_time.
         int prefWidth = 1920, prefHeight = 868;
+        CategoryAxis axis = (CategoryAxis)module_time.getXAxis();
+        if (axis.getCategories().size() < 7){
+            module_time.setCategoryGap(600.0 / 7);
+        }
         module_time.setPrefSize(prefWidth + (count1 > 15 ? 20*(count1-15) : 0),868);
         module_user.setPrefSize(1920 + (count2 > 15 ? 20*(count1-15) : 0),868);
         module_tu.setPrefSize(1920 + (count3 > 15 ? 20*(count1-15) : 0),868);
         module_addr.setPrefSize(1920 + (count4 > 15 ? 20*(count1-15) : 0),868);
 
+        if (flag != 1) {
+            tabCountUsersModuls.getChildren().remove(0);
+            tabCountUsersCountry.getChildren().remove(0);
+            tabAvgTimeModuls.getChildren().remove(0);
+            tabTimeModuls.getChildren().remove(0);
+        }
         tabCountUsersModuls.getChildren().add(module_user);
         tabCountUsersCountry.getChildren().add(module_addr);
         tabAvgTimeModuls.getChildren().add(module_tu);

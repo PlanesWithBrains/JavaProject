@@ -1,6 +1,9 @@
 import com.google.gson.Gson;
 import com.sun.security.ntlm.Client;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.InputStream;
 import java.net.*;
 import java.lang.*;
@@ -62,11 +65,13 @@ public class Server {
 
     public static void main(String[] args) {
         while (true) {
-            ServerStart(8012);
+            ServerStart(7545);
+            StringBuilder file_content = new StringBuilder();
 
             for (int i = 0; i < 100; i++) {
                 String json = SendJson();
-
+                file_content.append(json);
+                file_content.append(System.getProperty("line.separator"));
                 log.log(Level.INFO, "Sent json number " + i + " " + json.substring(0, json.indexOf("}")) + " ...");
 
                 try {
@@ -84,8 +89,13 @@ public class Server {
                 }
             }
             WriteTerminator();
+            try {
+                BufferedWriter writer = new BufferedWriter(new FileWriter("server_out_"+file_content.hashCode()+".txt"));
+                writer.write(file_content.toString());
+                writer.close();
+            }
+            catch (Exception e){}
             ServerClose();
-
         }
     }
 }

@@ -61,7 +61,7 @@ public class JsonWork {
 							"EmbedBrowser",
 							"Search",
 							"VoiceRecognition",
-							"Lohi", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
+							};
 
 		/*размер имени модуля и количества модулей*/
 		int count = rand.nextInt(names.length - 1) + 1;

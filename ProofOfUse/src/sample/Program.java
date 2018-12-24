@@ -155,7 +155,7 @@ public class Program extends Application {
 				if (lclient == null)
 					break;
 
-				ClientTrustworthy(lclient);
+				//ClientTrustworthy(lclient);
 				if (gen_collection.collection.containsKey(lclient.uniqKey)) { //???????? ?? ??????? ?????????? ?? ???? ?????
 
 					gen_collection.GetAndAdd(lclient.uniqKey, lclient);
@@ -217,7 +217,9 @@ public class Program extends Application {
 			client.ActualLocation = client.ActualLocation.replaceAll("#zoom#","10");
 		}
 		catch (Exception e){
-			e.printStackTrace();
+			System.out.printf(e.getMessage());
+			client.ActualLocation = "";
+			client.trusted = false;
 		}
 
 	}

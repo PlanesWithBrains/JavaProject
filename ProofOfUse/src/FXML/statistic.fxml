@@ -14,7 +14,7 @@
    <children>
       <SplitPane dividerPositions="0.9537414965986395" layoutX="25.0" layoutY="52.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-            <TabPane fx:id="tabPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="698.0" prefWidth="1228.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="1080.0" tabMaxWidth="1920.0">
+            <TabPane fx:id="tabPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="698.0" prefWidth="1228.0" tabMaxHeight="1080.0" tabMaxWidth="1920.0">
               <tabs>
                   <Tab text="Кол-во пользователей в модулях">
                      <content>
@@ -66,9 +66,8 @@
           <MenuItem fx:id="btnImportFile" mnemonicParsing="false" text="Импорт файла данных" />
             <MenuItem fx:id="btnImportServer" mnemonicParsing="false" text="Импорт по сети" />
             <MenuItem fx:id="btnSort" mnemonicParsing="false" text="Диапазон" />
-            <MenuItem fx:id="btnClose" mnemonicParsing="false" text="Закрыть проект" disable="true" />
+            <MenuItem fx:id="btnClose" mnemonicParsing="false" text="Закрыть проект" />
           <MenuItem fx:id="btnInfo" mnemonicParsing="false" text="О разработчиках" />
-
           <MenuItem fx:id="btnDebug" mnemonicParsing="false" text="Debug" />
           <MenuItem fx:id="btnAutotest" mnemonicParsing="false" text="Autotest" />
         </items>
