@@ -36,13 +36,38 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ProofOfUse$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1541607204182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="2028262351">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="191" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="191" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="230" column="46" selection-start-line="230" selection-start-column="46" selection-end-line="230" selection-end-column="46" />
+            <state relative-caret-position="302">
+              <caret line="269" column="9" lean-forward="true" selection-start-line="269" selection-start-column="9" selection-end-line="269" selection-end-column="9" />
+              <folding>
+                <element signature="e#4976#4988#0" expanded="true" />
+                <element signature="method#ClientTrustworthy_old#0;class#Program#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,46 +76,17 @@
         <entry file="file://$PROJECT_DIR$/src/FXML/statistic.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
+            <state relative-caret-position="1343">
+              <caret line="90" column="31" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/StatisticController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="298" selection-start-line="298" selection-end-line="298" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#10987#10988#0" expanded="true" />
-                <element signature="e#11032#11033#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Map/GoogleMap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-49">
-              <caret line="31" column="40" lean-forward="true" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Map/map.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="108" column="7" selection-start-line="108" selection-start-column="7" selection-end-line="108" selection-end-column="7" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="339">
+              <caret line="302" column="48" selection-start-line="302" selection-start-column="48" selection-end-line="302" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -98,14 +94,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/ClientData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="145" selection-start-line="145" selection-end-line="145" />
+            <state relative-caret-position="293">
+              <caret line="142" column="42" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="42" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#ClientData#0;class#ClientData#0" />
-                <element signature="e#3702#3703#0" expanded="true" />
-                <element signature="e#3717#3718#0" expanded="true" />
-                <element signature="e#3742#3743#0" expanded="true" />
+                <element signature="e#3647#3648#0" expanded="true" />
+                <element signature="e#3704#3705#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -114,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Statistic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+            <state relative-caret-position="578">
+              <caret line="54" column="18" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
               <folding>
                 <element signature="method#UsersPerCities#0;class#Statistic#0" />
                 <element signature="e#5172#5239#0" />
@@ -127,7 +120,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/GetData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
+            <state relative-caret-position="289">
               <caret line="80" selection-start-line="80" selection-end-line="80" />
               <folding>
                 <element signature="method#Download#0;class#GetData#0" />
@@ -139,7 +132,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/DataCollection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
+            <state relative-caret-position="833">
               <caret line="51" selection-start-line="51" selection-end-line="55" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -169,6 +162,7 @@
       <find>Console</find>
       <find>recieve</find>
       <find>getU</find>
+      <find>lati</find>
     </findStrings>
     <replaceStrings>
       <replace>log</replace>
@@ -214,11 +208,11 @@
         <option value="$PROJECT_DIR$/src/FXML/statistic.fxml" />
         <option value="$PROJECT_DIR$/src/Controllers/RangeController.java" />
         <option value="$PROJECT_DIR$/src/FXML/start.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/Program.java" />
         <option value="$PROJECT_DIR$/src/sample/Statistic.java" />
-        <option value="$PROJECT_DIR$/src/sample/ClientData.java" />
         <option value="$PROJECT_DIR$/src/Map/map.html" />
         <option value="$PROJECT_DIR$/src/Controllers/StatisticController.java" />
+        <option value="$PROJECT_DIR$/src/sample/ClientData.java" />
+        <option value="$PROJECT_DIR$/src/sample/Program.java" />
       </list>
     </option>
   </component>
@@ -234,8 +228,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -366,24 +360,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="894" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.15973154" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.15831557" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.10012674" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.51543623" side_tool="true" visible="true" weight="0.27903682" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5181237" side_tool="true" visible="true" weight="0.43363994" />
       <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.49530202" weight="0.23371105" />
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" sideWeight="0.4986577" weight="0.32577905" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.48456377" weight="0.27903682" />
-      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.4919463" weight="0.32577905" />
+      <window_info anchor="bottom" id="Find" order="5" sideWeight="0.4978678" weight="0.32457292" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.48187634" weight="0.2785808" />
+      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.48933902" weight="0.43363994" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32953104" />
@@ -429,14 +423,35 @@
       <window_info anchor="right" id="Maven" order="9" />
     </layout-to-restore>
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Controllers/StatisticController.java</url>
+          <line>298</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/sample/ClientData.java</url>
           <line>145</line>
           <properties />
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/sample/Program.java</url>
+          <line>180</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/sample/Program.java</url>
+          <line>235</line>
+          <properties />
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -635,25 +650,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FXML/menu.fxml">
+    <entry file="file://$PROJECT_DIR$/src/FXML/menu.fxml" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/jre/lib/rt.jar!/java/util/ArrayList.class" />
+    <entry file="file://$PROJECT_DIR$/src/Controllers/MenuController.java" />
+    <entry file="file://$PROJECT_DIR$/src/Map/map.html" />
+    <entry file="file://$PROJECT_DIR$/src/Map/GoogleMap.java" />
+    <entry file="file://$PROJECT_DIR$/src/FXML/statistic.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="152" selection-start-line="7" selection-start-column="152" selection-end-line="7" selection-end-column="152" />
+        <state relative-caret-position="1343">
+          <caret line="90" column="31" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/jre/lib/rt.jar!/java/util/ArrayList.class" />
-    <entry file="file://$PROJECT_DIR$/src/Controllers/MenuController.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Statistic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+        <state relative-caret-position="578">
+          <caret line="54" column="18" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
+          <folding>
+            <element signature="method#UsersPerCities#0;class#Statistic#0" />
+            <element signature="e#5172#5239#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/GetData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
+        <state relative-caret-position="289">
           <caret line="80" selection-start-line="80" selection-end-line="80" />
           <folding>
             <element signature="method#Download#0;class#GetData#0" />
@@ -663,7 +686,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/DataCollection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
+        <state relative-caret-position="833">
           <caret line="51" selection-start-line="51" selection-end-line="55" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -673,74 +696,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Statistic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-          <folding>
-            <element signature="method#UsersPerCities#0;class#Statistic#0" />
-            <element signature="e#5172#5239#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="230" column="46" selection-start-line="230" selection-start-column="46" selection-end-line="230" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FXML/statistic.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Map/map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="108" column="7" selection-start-line="108" selection-start-column="7" selection-end-line="108" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Map/GoogleMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-49">
-          <caret line="31" column="40" lean-forward="true" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/ClientData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="145" selection-start-line="145" selection-end-line="145" />
+        <state relative-caret-position="293">
+          <caret line="142" column="42" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#ClientData#0;class#ClientData#0" />
-            <element signature="e#3702#3703#0" expanded="true" />
-            <element signature="e#3717#3718#0" expanded="true" />
-            <element signature="e#3742#3743#0" expanded="true" />
+            <element signature="e#3647#3648#0" expanded="true" />
+            <element signature="e#3704#3705#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/StatisticController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="298" selection-start-line="298" selection-end-line="298" />
+        <state relative-caret-position="339">
+          <caret line="302" column="48" selection-start-line="302" selection-start-column="48" selection-end-line="302" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="269" column="9" lean-forward="true" selection-start-line="269" selection-start-column="9" selection-end-line="269" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#10987#10988#0" expanded="true" />
-            <element signature="e#11032#11033#0" expanded="true" />
+            <element signature="e#4976#4988#0" expanded="true" />
+            <element signature="method#ClientTrustworthy_old#0;class#Program#0" />
           </folding>
         </state>
       </provider>

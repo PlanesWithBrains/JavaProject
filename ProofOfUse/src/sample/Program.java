@@ -205,19 +205,26 @@ public class Program extends Application {
 		return clients;
 	}
 
-	public static void ClientTrustworthy(ClientData client){
+	public static void ClientTrustworthy_old(ClientData client){
 		try{
-			URL geoip_api_addr = new URL("http://ip-api.com/json/" + client.clientIp.getHostAddress() + "?lang=en");
+			URL geoip_api_addr = new URL("https://ipapi.co/" + client.clientIp.getHostAddress() + "/json/");
 			BufferedReader  output = new BufferedReader(new InputStreamReader(geoip_api_addr.openStream()));
-			String data = output.readLine();
-			if(data.contains("fail"))
+			String data = "";
+
+			String line = "";
+			do {
+				line = output.readLine();
+				data += line;
+			}while (line != null);
+
+			if(data == null || data.contains("fail"))
 				return;
 			if(data.contains(client.addr.city))
 				client.trusted = true;
 			client.ActualLocation = "https://static-maps.yandex.ru/1.x/?ll=#lonlat#&z=#zoom#&size=450,450&z=13&l=map&pt=#lonlat#";
-			String 	lon = data.substring(data.indexOf("\"lon\":") + "\"lon\":".length());
+			String 	lon = data.substring(data.indexOf("\"longitude\":") + "\"longitude\":".length()) + 1;
 					lon = lon.substring(0,lon.indexOf(','));
-			String 	lat = data.substring(data.indexOf("\"lat\":") + "\"lat\":".length());
+			String 	lat = data.substring(data.indexOf("\"latitude\":") + "\"latitude\":".length() + 1);
 					lat = lat.substring(0,lat.indexOf(','));
 
             client.latitude = lat;
@@ -226,6 +233,40 @@ public class Program extends Application {
 			String lonlat = lon + "," + lat;
 			client.ActualLocation = client.ActualLocation.replaceAll("#lonlat#",lonlat);
 			client.ActualLocation = client.ActualLocation.replaceAll("#zoom#","10");
+			client.ActualLocation.replaceAll(" ","");
+		}
+		catch (Exception e){
+			System.out.printf(e.getMessage());
+			client.ActualLocation = "";
+			client.trusted = false;
+		}
+
+	}
+
+
+	public static void ClientTrustworthy(ClientData client){
+		try{
+			URL geoip_api_addr = new URL("https://ipapi.co/" + client.clientIp.getHostAddress() + "/latlong/");
+			BufferedReader  output = new BufferedReader(new InputStreamReader(geoip_api_addr.openStream()));
+			String data = output.readLine();
+
+			geoip_api_addr = new URL("https://ipapi.co/" + client.clientIp.getHostAddress() + "/city/");
+			if((new BufferedReader(new InputStreamReader(geoip_api_addr.openStream()))).readLine().contains(client.addr.city))
+				client.trusted = true;
+			client.ActualLocation = "https://static-maps.yandex.ru/1.x/?ll=#lonlat#&z=#zoom#&size=450,450&z=13&l=map&pt=#lonlat#";
+			String 	lat = data.substring(0,data.indexOf(','));
+			data = data.substring(lat.length() + 1);
+			String 	lon = data;
+
+			client.latitude = lat;
+			client.longitude = lon;
+
+			String lonlat = lon + "," + lat;
+			if(lonlat.toLowerCase().contains("undef"))
+				return;
+			client.ActualLocation = client.ActualLocation.replaceAll("#lonlat#",lonlat);
+			client.ActualLocation = client.ActualLocation.replaceAll("#zoom#","10");
+			client.ActualLocation.replaceAll(" ","");
 		}
 		catch (Exception e){
 			System.out.printf(e.getMessage());

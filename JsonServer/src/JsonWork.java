@@ -126,14 +126,23 @@ public class JsonWork {
 		String country;
 
 		try{
-			URL geoip_api_addr = new URL("http://ip-api.com/json/" + IP + "?lang=en");
+			URL geoip_api_addr = new URL("https://ipapi.co/" + IP + "/json/");
 			BufferedReader output = new BufferedReader(new InputStreamReader(geoip_api_addr.openStream()));
-			String data = output.readLine();
-			int city_start = data.indexOf("city\":\"") + "city\":\"".length();
+			String data = "";
+
+			String line = "";
+			do {
+				line = output.readLine();
+				data += line;
+			}while (line != null);
+
+			if(data == null || data.contains("fail"))
+				return null;
+			int city_start = data.indexOf("city\":\"") + "city\":\"".length() + 1;
 			data = data.substring(city_start);
 			city = data.substring(0, data.indexOf('"'));
 
-			int country_start = data.indexOf("country\":\"") + "country\":\"".length();
+			int country_start = data.indexOf("country\":\"") + "country\":\"".length() + 1;
 			data = data.substring(country_start);
 			country = data.substring(0, data.indexOf('"'));
 
