@@ -3,8 +3,10 @@ package sample;/*Саша*/
 import javafx.scene.image.Image;
 
 import java.io.ByteArrayInputStream;
-import java.io.InputStreamReader;
-import java.net.*;
+import java.net.Inet4Address;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.UnknownHostException;
 import java.time.Duration;
 import java.util.ArrayList;
 
@@ -104,8 +106,7 @@ public class ClientData {
 		modules	 = Modules;		
 		addr	 = Addr;			 
 	}
-
-	Image GetMapInstance(){
+	 public Image GetMapInstance(){
 
 		byte[] buffer;
 		try{
@@ -130,4 +131,21 @@ public class ClientData {
 		return (int)(uniqKey % Integer.MAX_VALUE);
 	}
 	public long getUniqKey(){return uniqKey;}
+	public void copyClient(ClientData client){
+		this.clientIp = client.clientIp;
+		this.uniqKey = client.uniqKey;
+		this.fullUsage = client.fullUsage;
+		this.modules = client.modules;
+		this.addr = client.addr;
+		this.trusted = client.trusted;
+		this.ActualLocation = client.ActualLocation;
+		this.latitude = client.latitude;
+		this.longitude = client.longitude;
+	}
+	public double getLatitude(){ //not worked
+        return Double.valueOf(latitude);
+	}
+	public double getLongtitude(){ //not worked
+	    return Double.valueOf(longitude);
+    }
 }

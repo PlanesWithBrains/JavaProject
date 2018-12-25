@@ -66,7 +66,7 @@ public class Server {
 
     public static void main(String[] args) {
         while (true) {
-            ServerStart(8005);
+            ServerStart(8006);
             StringBuilder file_content = new StringBuilder();
 
             for (int i = 0; i < 100; i++) {
