@@ -3,14 +3,16 @@ package Controllers;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Orientation;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import sample.ClientData;
@@ -27,7 +29,7 @@ import java.util.ResourceBundle;
 
 import static sample.Program.GetInstanceOfChart;
 
-public class StatisticController {
+public class StatisticController  {
 
     private static boolean flagAdmin = false;
     private static String consoleLog = "";
@@ -52,6 +54,9 @@ public class StatisticController {
     private TabPane tabPane;
 
     @FXML
+    private ScrollPane scroll;
+
+    @FXML
     private AnchorPane tabCountUsersModuls;
 
     @FXML
@@ -64,6 +69,18 @@ public class StatisticController {
     private AnchorPane tabTimeModuls;
 
     @FXML
+    private AnchorPane tabClientsName;
+
+    @FXML
+    private AnchorPane tabClientsMap;
+
+    @FXML
+    private ImageView imageClient;
+
+    @FXML
+    private AnchorPane tabMap;
+
+    @FXML
     private TextArea txtLogArea;
 
     @FXML
@@ -73,13 +90,13 @@ public class StatisticController {
     private MenuItem btnImportServer;
 
     @FXML
-    private MenuItem btnInfo;
-
-    @FXML
     private MenuItem btnSort;
 
     @FXML
     private MenuItem btnClose;
+
+    @FXML
+    private MenuItem btnInfo;
 
     @FXML
     private MenuItem btnDebug;
@@ -87,14 +104,6 @@ public class StatisticController {
     @FXML
     private MenuItem btnAutotest;
 
-    @FXML
-    private AnchorPane ClientList;
-
-    @FXML
-    private AnchorPane MapPlace;
-
-    @FXML
-    private StackPane ClientInfo;
 
     @FXML
     void initialize() {
@@ -211,12 +220,11 @@ public class StatisticController {
 
 
     }
-    static void refreshLog(){
-    }
+
     void refreshStat(int flag){
         module_time = GetInstanceOfChart("",
                 "Hours",
-                "Amount of time spent in the modules",
+                    "Amount of time spent in the modules",
                 Statistic.pairTime, count1);
         module_tu =  GetInstanceOfChart("",
                 "Hours",
@@ -230,29 +238,74 @@ public class StatisticController {
                 "Number of users",
                 "Number of users in moduls",
                 Statistic.pairUser, count4);
-        ///module_time.set
-       // Scene scene = new Scene(module_time, 800, 600);
-       //module_time.
+
         int prefWidth = 1920, prefHeight = 868;
+
         CategoryAxis axis = (CategoryAxis)module_time.getXAxis();
         if (axis.getCategories().size() < 7){
             module_time.setCategoryGap(600.0 / 7);
         }
+        axis = (CategoryAxis)module_user.getXAxis();
+        if (axis.getCategories().size() < 7){
+            module_user.setCategoryGap(600.0 / 7);
+        }
+        axis = (CategoryAxis)module_tu.getXAxis();
+        if (axis.getCategories().size() < 7){
+            module_tu.setCategoryGap(600.0 / 7);
+        }
+        axis = (CategoryAxis)module_addr.getXAxis();
+        if (axis.getCategories().size() < 7){
+            module_addr.setCategoryGap(600.0 / 7);
+        }
+
+        tabClientsName.setPrefSize(632,838);
         module_time.setPrefSize(prefWidth + (count1 > 15 ? 20*(count1-15) : 0),868);
         module_user.setPrefSize(1920 + (count2 > 15 ? 20*(count1-15) : 0),868);
         module_tu.setPrefSize(1920 + (count3 > 15 ? 20*(count1-15) : 0),868);
         module_addr.setPrefSize(1920 + (count4 > 15 ? 20*(count1-15) : 0),868);
+        tabMap.setPrefSize(1920,868);
 
         if (flag != 1) {
             tabCountUsersModuls.getChildren().remove(0);
             tabCountUsersCountry.getChildren().remove(0);
             tabAvgTimeModuls.getChildren().remove(0);
             tabTimeModuls.getChildren().remove(0);
+            tabClientsName.getChildren().remove(0);
+            tabMap.getChildren().remove(0);
         }
         tabCountUsersModuls.getChildren().add(module_user);
         tabCountUsersCountry.getChildren().add(module_addr);
         tabAvgTimeModuls.getChildren().add(module_tu);
         tabTimeModuls.getChildren().add(module_time);
+
+        //UNCOMMIT when will do all , to not to pay money Google
+        //Maps
+        //GoogleMap map = new GoogleMap();
+        //map.setWidth(1920);
+        //map.setHeight(868);
+
+
+        //Images
+        ArrayList<ClientData> clients = Statistic.getSortClients();
+        FlowPane pane = new FlowPane(Orientation.VERTICAL);
+        pane.setPrefSize(632,838);
+        for (int i = 0; i < clients.size(); i++){
+            ClientData temp = clients.get(i);
+            Hyperlink button = new Hyperlink(String.valueOf(clients.get(i).getUniqKey()));
+            button.setOnAction(e -> {
+                imageClient.setImage(temp.GetMapInstance()); //not worked
+            });
+            pane.getChildren().add(button);
+            double lat = temp.getLatitude();
+            double lon = temp.getLongtitude();
+            //UNCOMMIT when will do all , to not to pay money Google
+            //if(temp.getLatitude() != 0 && temp.getLongtitude() != 0) //not worked
+              // map.setMarkerPosition(lat, lon);
+        }
+        tabClientsName.getChildren().add(pane);
+
+        //UNCOMMIT when will do all , to not to pay money Google
+        //tabMap.getChildren().add(map);
 
         txtLogArea.setText(consoleLog);
         btnSort.setDisable(false);
