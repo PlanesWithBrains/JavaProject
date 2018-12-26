@@ -3,6 +3,8 @@ package sample;/*Саша*/
 import javafx.scene.image.Image;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.net.Inet4Address;
 import java.net.URL;
 import java.net.URLConnection;
@@ -111,9 +113,16 @@ public class ClientData {
 		byte[] buffer;
 		try{
 			URL map_url = new URL(ActualLocation);
+			//URL map_url = new URL(url);
 			URLConnection downloadMap = map_url.openConnection();
 			buffer = new byte[downloadMap.getContentLength()];
-			downloadMap.getInputStream().read(buffer);
+			InputStream isr = downloadMap.getInputStream();
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			for(int i = 0; i < buffer.length; i++){
+				baos.write(isr.read());
+			}
+
+			buffer = baos.toByteArray();
 		}
 		catch (Exception e){
 			return null;

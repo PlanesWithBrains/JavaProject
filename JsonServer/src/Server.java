@@ -14,7 +14,7 @@ import java.util.logging.*;
 
 public class Server {
 
-    public static boolean FAST = false;
+    public static boolean FAST = true;
     static ServerSocket server;
     static Socket connection;
     static Logger log = Logger.getLogger(Server.class.getName());
@@ -69,7 +69,7 @@ public class Server {
             ServerStart(8006);
             StringBuilder file_content = new StringBuilder();
 
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 30; i++) {
                 String json = SendJson();
                 file_content.append(json);
                 file_content.append(System.getProperty("line.separator"));

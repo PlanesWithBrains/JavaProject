@@ -180,6 +180,8 @@ public class Program extends Application {
 
 		for (int i = 0;i < Program.gen_collection.getCollection().size();i++){
 			String log = Program.gen_collection.getCollection().values().toArray()[i].toString() + "\n";
+			/*Image img = new ClientData().
+					GetMapInstance("https://static-maps.yandex.ru/1.x/?ll=65.398900,55.928800&z=10&size=450,450&z=13&l=map&pt=65.398900,55.928800");*/
 			System.out.println(log);
 			StatisticController.addConsoleLog(log);
 		}

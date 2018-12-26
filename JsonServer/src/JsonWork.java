@@ -152,6 +152,11 @@ public class JsonWork {
 			System.out.printf(e.getMessage() + "\n");
 			if(e.getMessage().contains("timed out"))
 				Server.FAST = true;
+			if(e.getMessage().contains("429"))
+				try {
+					Thread.sleep(10 * 1000);
+				}
+				catch (Exception Ex){}
 		}
 		return null;
 	}
