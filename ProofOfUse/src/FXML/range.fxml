@@ -7,8 +7,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RangeController">
    <children>
-      <TextField fx:id="fldTOP" layoutX="344.0" layoutY="139.0" promptText="Верхняя граница" />
-      <TextField fx:id="fldBot" layoutX="81.0" layoutY="139.0" promptText="Нижняя граница" />
+      <TextField fx:id="fldTOP" layoutX="344.0" layoutY="139.0" promptText="Top border" />
+      <TextField fx:id="fldBot" layoutX="81.0" layoutY="139.0" promptText="Bot border" />
       <Button fx:id="btnRange" layoutX="236.0" layoutY="234.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="129.0" text="Фильтровать" />
    </children>
 </AnchorPane>
