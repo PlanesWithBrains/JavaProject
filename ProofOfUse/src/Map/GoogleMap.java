@@ -1,5 +1,6 @@
 package Map;
 
+import Controllers.StatisticController;
 import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -30,7 +31,7 @@ public class GoogleMap extends Parent {
     {
         webView = new WebView();
         webEngine = webView.getEngine();
-        webEngine.load(getClass().getResource("../Map/map.html").toExternalForm());
+        webEngine.load(StatisticController.class.getResource("../Map/map.html").toExternalForm());
         ready = false;
         webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<Worker.State>()
         {
@@ -100,6 +101,11 @@ public class GoogleMap extends Parent {
         String sLat = Double.toString(lat);
         String sLng = Double.toString(lng);
         invokeJS("setMarkerPosition(" + sLat + ", " + sLng + ")");
+    }
+    public void addMarker(double lat, double lng, String name){
+        String sLat = Double.toString(lat);
+        String sLng = Double.toString(lng);
+        invokeJS("setAllMarkers("+sLat+", "+lng+", str)");
     }
 
     public void setMapCenter(double lat, double lng) {

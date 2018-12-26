@@ -184,7 +184,9 @@ public class StartController {
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
+
                 Program.SaveConfig(Program.property, Program.loggingUser);
+                StatisticController.saveHTML();
             }
         });
         stage.show();

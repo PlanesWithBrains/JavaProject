@@ -151,10 +151,31 @@ public class ClientData {
 		this.latitude = client.latitude;
 		this.longitude = client.longitude;
 	}
-	public double getLatitude(){ //not worked
-        return Double.valueOf(latitude);
+	public double getLatitude(){
+		try {
+			if (this.latitude != null && this.latitude != "Undefined" && this.latitude != "None") {//not worked
+				System.out.println("successful position!");
+				return Double.valueOf(latitude);
+			} else {
+				System.out.println("undefined position!");
+				return 0;
+			}
+		}
+		catch (Exception ex){
+			System.out.println("undefined position!");
+			return 0;
+		}
 	}
-	public double getLongtitude(){ //not worked
-	    return Double.valueOf(longitude);
-    }
+	public double getLongtitude() { //not worked
+		try {
+			if (this.longitude != null && this.latitude != "Undefined" && this.latitude != "None")
+				return Double.valueOf(longitude);
+			else
+				return 0;
+		}
+		catch (Exception ex){
+			System.out.println("undefined position!");
+			return 0;
+		}
+	}
 }

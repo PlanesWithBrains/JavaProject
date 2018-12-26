@@ -69,7 +69,7 @@ public class Server {
             ServerStart(8006);
             StringBuilder file_content = new StringBuilder();
 
-            for (int i = 0; i < 30; i++) {
+            for (int i = 0; i < 10; i++) {
                 String json = SendJson();
                 file_content.append(json);
                 file_content.append(System.getProperty("line.separator"));
