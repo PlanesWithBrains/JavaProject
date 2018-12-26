@@ -16,7 +16,7 @@
         <items>
             <TabPane fx:id="tabPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="698.0" prefWidth="1228.0" tabMaxHeight="1080.0" tabMaxWidth="1920.0">
               <tabs>
-                  <Tab text="Кол-во пользователей в модулях">
+                  <Tab text="COUNT Users for modules">
                      <content>
                         <ScrollPane fx:id="scroll" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
                           <content>
@@ -25,7 +25,7 @@
                         </ScrollPane>
                      </content>
                   </Tab>
-                <Tab text="Кол-во людей по городам">
+                <Tab text="COUNT Users">
                      <content>
                         <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
                           <content>
@@ -33,7 +33,7 @@
                           </content>
                         </ScrollPane>
                      </content></Tab>
-                <Tab text="Среднее время модуля на человека">
+                <Tab text="AVG time per User">
                      <content>
                         <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
                           <content>
@@ -41,7 +41,7 @@
                           </content>
                         </ScrollPane>
                      </content></Tab>
-                  <Tab text="Время, проведенное в модулях">
+                  <Tab text="Time for modules ">
                      <content>
                         <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
                           <content>
@@ -63,11 +63,11 @@
       </SplitPane>
       <MenuButton fx:id="mbtnMenu" layoutX="86.0" layoutY="9.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: #b5b5b5; -fx-border-radius: 4;" text="MENU">
         <items>
-          <MenuItem fx:id="btnImportFile" mnemonicParsing="false" text="Импорт файла данных" />
-            <MenuItem fx:id="btnImportServer" mnemonicParsing="false" text="Импорт по сети" />
-            <MenuItem fx:id="btnSort" mnemonicParsing="false" text="Диапазон" />
-            <MenuItem fx:id="btnClose" mnemonicParsing="false" text="Закрыть проект" />
-          <MenuItem fx:id="btnInfo" mnemonicParsing="false" text="О разработчиках" />
+          <MenuItem fx:id="btnImportFile" mnemonicParsing="false" text="Open file" />
+            <MenuItem fx:id="btnImportServer" mnemonicParsing="false" text="Download file" />
+            <MenuItem fx:id="btnSort" mnemonicParsing="false" text="Range" />
+            <MenuItem fx:id="btnClose" mnemonicParsing="false" text="Close project" />
+          <MenuItem fx:id="btnInfo" mnemonicParsing="false" text="Developers" />
           <MenuItem fx:id="btnDebug" mnemonicParsing="false" text="Debug" />
           <MenuItem fx:id="btnAutotest" mnemonicParsing="false" text="Autotest" />
         </items>
