@@ -8,10 +8,11 @@
         #map_canvas { height: 100% }
     </style>
     <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=***&sensor=false">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPbDtotWIsmcI82L2fGWzjH4jpukWtHvs&sensor=false">
     </script>
     <script type="text/javascript">
         var map;
+        var markers = [];
         var marker;
 
         function get_click_position(event){
@@ -24,7 +25,10 @@
 
         function setMarkerPosition(lat, lng) {
             var clickLatLng = new google.maps.LatLng(lat, lng);
-            marker.setPosition(clickLatLng);
+            marker = new google.maps.Marker({
+                position: clickLatLng,
+                map: map,
+            });
         }
 
         function startJumping(){
@@ -84,23 +88,17 @@
             map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
             google.maps.event.addListener(map, 'click', get_click_position);
 
-            marker = new google.maps.Marker({
-                position: defLatLng,
+            for( i = 0; i < markers.length; i++ ) {
+                var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                marker = new google.maps.Marker({
+                position: position,
                 map: map,
-                icon: "img/Pin.png"
-            });
+                title: markers[i][0]
+                });
+                }
 
             app.handle(0, 0);
         }
-
-        function setDarkMarkerIcon() {
-            marker.setIcon("img/Pin.png");
-        }
-
-        function setLightMarkerIcon() {
-            marker.setIcon("img/Pin_s.png");
-        }
-
     </script>
 </head>
 <body onload="initialize()">

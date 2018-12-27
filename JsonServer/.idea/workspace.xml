@@ -3,18 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="3d5822dc-bc56-463b-98ad-4e70b9ce8139" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JsonServer/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JsonServer/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_out_1335298403.json" beforeDir="false" afterPath="$PROJECT_DIR$/server_out_1335298403.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_out_2068434592.json" beforeDir="false" afterPath="$PROJECT_DIR$/server_out_2068434592.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_out_731260860.json" beforeDir="false" afterPath="$PROJECT_DIR$/server_out_731260860.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/.idea/libraries/gson_2_8_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/.idea/libraries/gson_2_8_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/.idea/libraries/xchart_3_5_2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ProofOfUse/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/ProofOfUse.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/ProofOfUse.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/Controllers/MenuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/Controllers/StartController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/Controllers/StartController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/Controllers/StartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/Controllers/StartController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/Controllers/StatisticController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/Controllers/StatisticController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/FXML/load.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/FXML/menu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/FXML/statistic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/FXML/statistic.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/sample/Address.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/sample/Address.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/sample/ClientData.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/sample/ClientData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/sample/Module.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/sample/Module.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/META-INF/ProofOfUse.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/Map/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/Map/map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/sample/Program.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/sample/Program.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/sample/Statistic.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/sample/Statistic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/src/Controllers/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/src/Controllers/StartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/src/Controllers/StatisticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/src/Controllers/StatisticController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/src/Map/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/src/Map/map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/src/sample/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/src/sample/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/src/sample/Statistic.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/src/sample/Statistic.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,17 +56,32 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-800945258">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="3" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/JsonWork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="139" column="28" lean-forward="true" selection-start-line="139" selection-start-column="28" selection-end-line="139" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1078">
+              <caret line="170" column="1" selection-start-line="170" selection-start-column="1" selection-end-line="170" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -70,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="78" column="42" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="42" />
+            <state relative-caret-position="357">
+              <caret line="63" column="32" lean-forward="true" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -88,12 +113,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/ClientData.java" />
-        <option value="$PROJECT_DIR$/src/Server.java" />
         <option value="$PROJECT_DIR$/src/JsonWork.java" />
+        <option value="$PROJECT_DIR$/src/Server.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="90" />
     <option name="y" value="30" />
     <option name="width" value="1280" />
@@ -105,8 +130,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -183,9 +208,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="922" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15458423" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15618336" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -194,7 +220,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5565032" weight="0.3029151" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5565032" visible="true" weight="0.30260304" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49413645" weight="0.2991128" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -264,6 +290,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/JsonWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1078">
+          <caret line="170" column="1" selection-start-line="170" selection-start-column="1" selection-end-line="170" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ClientData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1513">
@@ -273,18 +306,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="78" column="42" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JsonWork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="139" column="28" lean-forward="true" selection-start-line="139" selection-start-column="28" selection-end-line="139" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="357">
+          <caret line="63" column="32" lean-forward="true" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
         </state>
       </provider>
     </entry>

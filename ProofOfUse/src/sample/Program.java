@@ -31,8 +31,18 @@ public class Program extends Application {
 	public static Properties property;
 	public static User loggingUser;
 	private static boolean fast_enough = true;
+	public static ArrayList<ClientData> getSortClients(){
 
-    public static BarChart<String,Number> GetInstanceOfChart(String x_axis,
+		Collection<ArrayList<ClientData>> temp_map = gen_collection.collection.values();
+		ArrayList<ClientData> temp = new ArrayList<ClientData>();
+		for(ArrayList<ClientData> clients : temp_map) {
+			for(int k = 0; k < clients.size(); k++)
+				temp.add(((ClientData) clients.toArray()[k]));
+		}
+		return temp;
+	}
+
+	public static BarChart<String,Number> GetInstanceOfChart(String x_axis,
 															 String y_axis,
 															 String c_title,
 															 Pairs[] arr_pair, int number){
@@ -72,12 +82,13 @@ public class Program extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception{
-		Parent root = FXMLLoader.load(getClass().getResource("../FXML/start.fxml"));//загружаем fxml стартового окна
+		//File f = new File(getClass().getResourceAsStream("../FXML/start.fxml"))
+		Parent root = FXMLLoader.load(this.getClass().getResource("../FXML/start.fxml"));//загружаем fxml стартового окна
 		Scene scene = new Scene(root);
 		stage.setTitle("JAVA DEMO"); //название окна
 		stage.setScene(scene);
 		stage.setResizable(false);
-        stage.getIcons().add(new Image(Program.class.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
+        stage.getIcons().add(new Image(this.getClass().getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
 		stage.show(); //запускаем окно
 	}
 	@Override
@@ -106,7 +117,7 @@ public class Program extends Application {
 
 		/*читаем файл конфига*/
 		try {
-			configFile = new FileInputStream("config.ini");
+			configFile = new FileInputStream("./config.ini");
 			property.load(configFile);
 		} catch (FileNotFoundException e) {
 			log.log(Level.INFO,"Config file not found");

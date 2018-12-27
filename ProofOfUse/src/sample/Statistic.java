@@ -25,20 +25,6 @@ public class Statistic {
         TimePerUsers();
         UsersPerCities();
     }
-    public static ArrayList<ClientData> getClients() {return client;}
-    public static ArrayList<ClientData> getSortClients(){
-        ArrayList<ClientData> temp = client;
-        for(int i = temp.size()-1 ; i > 0 ; i--){
-            for(int j = 0 ; j < i ; j++){
-            if( temp.get(j).getUniqKey() > temp.get(j+1).getUniqKey() ){
-                ClientData tmp = temp.get(j);
-                temp.get(i).copyClient(temp.get(j+1));
-                temp.get(j+1).copyClient(tmp);
-            }
-        }
-    }
-      return temp;
-}
 
     void SortStatisticPairs(int n,Pairs obj[]){
             for (int gap = n / 2; gap > 0; gap /= 2) {

@@ -180,11 +180,12 @@ public class StartController {
         stage.setTitle(title); //название окна
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.getIcons().add(new Image(Program.class.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
+        stage.getIcons().add(new Image(clases.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
                 Program.SaveConfig(Program.property, Program.loggingUser);
+                StatisticController.saveHTML();
             }
         });
         stage.show();

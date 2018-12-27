@@ -1,5 +1,6 @@
 package Controllers;
 
+import Map.GoogleMap;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +22,7 @@ import sample.Statistic;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -33,6 +35,7 @@ public class StatisticController  {
 
     private static boolean flagAdmin = false;
     private static String consoleLog = "";
+    private static String str = "";
 
     BarChart<String,Number> module_time;
     BarChart<String,Number> module_tu;
@@ -130,7 +133,7 @@ public class StatisticController  {
             RangeController.setNumber(activeTab);
             Parent root = null;
             try {
-                root = FXMLLoader.load(Program.class.getResource("../FXML/range.fxml")); //загружаем fxml нового окна
+                root = FXMLLoader.load(getClass().getResource("../FXML/range.fxml")); //загружаем fxml нового окна
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());
@@ -141,7 +144,7 @@ public class StatisticController  {
             stage.setTitle("Filter for range"); //название окна
             stage.setScene(scene);
             stage.setResizable(false);
-            stage.getIcons().add(new Image(Program.class.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
             stage.showAndWait();
             refreshStat(2);
 
@@ -150,7 +153,7 @@ public class StatisticController  {
             btnClose.setDisable(false);
             Parent root = null;
             try {
-                root = FXMLLoader.load(Program.class.getResource("../FXML/load.fxml")); //загружаем fxml нового окна
+                root = FXMLLoader.load(getClass().getResource("../FXML/load.fxml")); //загружаем fxml нового окна
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());
@@ -161,7 +164,7 @@ public class StatisticController  {
             stage.setTitle("Import file from server"); //название окна
             stage.setScene(scene);
             stage.setResizable(false);
-            stage.getIcons().add(new Image(Program.class.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
             stage.showAndWait();
             refreshStat(1);
         });
@@ -278,18 +281,11 @@ public class StatisticController  {
         tabAvgTimeModuls.getChildren().add(module_tu);
         tabTimeModuls.getChildren().add(module_time);
 
-        //UNCOMMIT when will do all , to not to pay money Google
-        //Maps
-        //GoogleMap map = new GoogleMap();
-        //map.setWidth(1920);
-        //map.setHeight(868);
-
-
         //Images
-        ArrayList<ClientData> clients = Statistic.getSortClients();
+        ArrayList<ClientData> clients = Program.getSortClients();
         FlowPane pane = new FlowPane(Orientation.VERTICAL);
-        pane.setPrefSize(632,838);
-        for (int i = 0; i < clients.size(); i++){
+        pane.setPrefSize(632, 838);
+        for (int i = 0; i < clients.size(); i++) {
             ClientData temp = clients.get(i);
             Hyperlink button = new Hyperlink(String.valueOf(clients.get(i).getUniqKey()));
             button.setOnAction(e -> {
@@ -298,14 +294,25 @@ public class StatisticController  {
             pane.getChildren().add(button);
             double lat = temp.getLatitude();
             double lon = temp.getLongtitude();
-            //UNCOMMIT when will do all , to not to pay money Google
-            //if(temp.getLatitude() != 0 && temp.getLongtitude() != 0) //not worked
-              // map.setMarkerPosition(lat, lon);
+            if(temp.getLatitude() != 0 && temp.getLongtitude() != 0)
+                try {
+                    if (i == 0)
+                        str = addMarker(lat, lon, String.valueOf(temp.getUniqKey()));
+                    else
+                        addMarker(lat, lon, String.valueOf(temp.getUniqKey()));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
         }
         tabClientsName.getChildren().add(pane);
 
+        //Maps
         //UNCOMMIT when will do all , to not to pay money Google
-        //tabMap.getChildren().add(map);
+        GoogleMap map = new GoogleMap();
+        map.setWidth(1920);
+        map.setHeight(868);
+        tabMap.getChildren().add(map);
 
         txtLogArea.setText(consoleLog);
         btnSort.setDisable(false);
@@ -334,4 +341,39 @@ public class StatisticController  {
                 }
             }
         }
+    String addMarker(double lan, double lon, String str) throws IOException {
+        String PATH = getClass().getResource("../Map/map.html").toExternalForm();
+        PATH = PATH.substring(6, PATH.length());
+        String contents = new String(Files.readAllBytes(Paths.get(PATH)));
+        String res = contents.substring(0,519) + "[\r\n";
+        res += "        ['"+str+"', "+lan+","+lon+"],\n";
+        res += "\t" + contents.substring(521, contents.length());
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter(PATH, "UTF-8");
+            writer.print(res);
+        }
+        catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        finally {
+            writer.close();
+        }
+        return contents;
+    }
+    static public void saveHTML() {
+        if (str != ""){
+            String PATH = StatisticController.class.getResource("../Map/map.html").toExternalForm();
+            PATH = PATH.substring(6, PATH.length());
+            PrintWriter writer = null;
+            try {
+                writer = new PrintWriter(PATH, "UTF-8");
+                writer.print(str);
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            } finally {
+                writer.close();
+            }
+        }
+    }
 }
