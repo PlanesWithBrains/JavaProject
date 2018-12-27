@@ -152,9 +152,19 @@ public class ClientData {
 		this.longitude = client.longitude;
 	}
 	public double getLatitude(){ //not worked
-        return Double.valueOf(latitude);
+        try {
+			return Double.valueOf(latitude);
+		}
+		catch (Exception e){
+        	return 0;
+		}
 	}
 	public double getLongtitude(){ //not worked
-	    return Double.valueOf(longitude);
+		try {
+	    	return Double.valueOf(longitude);
+		}
+		catch (Exception e){
+			return 0;
+		}
     }
 }

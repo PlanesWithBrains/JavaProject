@@ -163,7 +163,7 @@ public class Program extends Application {
                     fast_enough = System.currentTimeMillis() - start_ms > 3*1000 ? false : true;
                 }
 
-				if (gen_collection.collection.containsKey(lclient.uniqKey)) { //???????? ?? ??????? ?????????? ?? ???? ?????
+				if (gen_collection.collection.containsKey(lclient.uniqKey)) {
 
 					gen_collection.GetAndAdd(lclient.uniqKey, lclient);
 				} else {

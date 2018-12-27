@@ -138,11 +138,11 @@ public class JsonWork {
 
 			if(data == null || data.contains("fail"))
 				return null;
-			int city_start = data.indexOf("city\":\"") + "city\":\"".length() + 1;
+			int city_start = data.indexOf("\"city\": \"") + "\"city\": \"".length();
 			data = data.substring(city_start);
 			city = data.substring(0, data.indexOf('"'));
 
-			int country_start = data.indexOf("country\":\"") + "country\":\"".length() + 1;
+			int country_start = data.indexOf("\"country_name\":") + "\"country_name\":\"".length() + 1;
 			data = data.substring(country_start);
 			country = data.substring(0, data.indexOf('"'));
 

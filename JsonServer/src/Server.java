@@ -14,7 +14,7 @@ import java.util.logging.*;
 
 public class Server {
 
-    public static boolean FAST = true;
+    public static boolean FAST = false;
     static ServerSocket server;
     static Socket connection;
     static Logger log = Logger.getLogger(Server.class.getName());
@@ -66,10 +66,10 @@ public class Server {
 
     public static void main(String[] args) {
         while (true) {
-            ServerStart(8006);
+            ServerStart(8010);
             StringBuilder file_content = new StringBuilder();
 
-            for (int i = 0; i < 30; i++) {
+            for (int i = 0; i < 10; i++) {
                 String json = SendJson();
                 file_content.append(json);
                 file_content.append(System.getProperty("line.separator"));
@@ -91,7 +91,7 @@ public class Server {
             }
             WriteTerminator();
             try {
-                BufferedWriter writer = new BufferedWriter(new FileWriter("server_out_"+file_content.hashCode()+".txt"));
+                BufferedWriter writer = new BufferedWriter(new FileWriter("server_out_"+file_content.hashCode()+".json"));
                 writer.write(file_content.toString());
                 writer.close();
             }

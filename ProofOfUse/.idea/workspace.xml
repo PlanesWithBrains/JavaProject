@@ -40,19 +40,34 @@
     <session id="2028262351">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.2" value="2" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="563" />
+          <entry key="java" value="623" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="563" />
+          <entry key="JAVA" value="623" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="1" />
+          <entry key="java" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="1" />
+          <entry key="JAVA" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -62,10 +77,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="183" column="150" selection-start-line="183" selection-start-column="150" selection-end-line="183" selection-end-column="150" />
+            <state relative-caret-position="2448">
+              <caret line="165" column="34" selection-start-line="165" selection-start-column="20" selection-end-line="165" selection-end-column="34" />
               <folding>
-                <element signature="e#4976#4988#0" expanded="true" />
                 <element signature="method#ClientTrustworthy_old#0;class#Program#0" />
               </folding>
             </state>
@@ -82,29 +96,20 @@
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/StatisticController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="294" column="12" selection-start-line="294" selection-start-column="12" selection-end-line="294" selection-end-column="12" />
+            <state relative-caret-position="43">
+              <caret line="268" column="24" lean-forward="true" selection-start-line="268" selection-start-column="24" selection-end-line="268" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/ClientData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-206">
-              <caret line="114" column="12" selection-start-line="114" selection-start-column="12" selection-end-line="114" selection-end-column="12" />
-              <folding>
-                <element signature="e#2089#2097#0" expanded="true" />
-                <element signature="e#3544#3545#0" expanded="true" />
-                <element signature="e#3592#3593#0" expanded="true" />
-                <element signature="e#4029#4030#0" expanded="true" />
-                <element signature="e#4086#4087#0" expanded="true" />
-                <element signature="e#4118#4119#0" expanded="true" />
-                <element signature="e#4176#4177#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="866">
+              <caret line="169" column="1" lean-forward="true" selection-start-line="169" selection-start-column="1" selection-end-line="169" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -136,13 +141,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/DataCollection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="51" selection-start-line="51" selection-end-line="55" selection-end-column="45" />
+            <state relative-caret-position="221">
+              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#GetAndAdd#0;class#DataCollection#0" />
                 <element signature="method#Remove#0;class#DataCollection#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/LoggingMachine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="355">
+              <caret line="87" selection-start-line="87" selection-end-line="87" />
             </state>
           </provider>
         </entry>
@@ -196,7 +210,6 @@
         <option value="$PROJECT_DIR$/src/Controllers/startNewUserController.java" />
         <option value="$PROJECT_DIR$/src/sample/User.java" />
         <option value="$PROJECT_DIR$/src/Controllers/startController.java" />
-        <option value="$PROJECT_DIR$/src/sample/DataCollection.java" />
         <option value="$PROJECT_DIR$/src/FXML/menuUser.fxml" />
         <option value="$PROJECT_DIR$/src/Controllers/MenuAdminController.java" />
         <option value="$PROJECT_DIR$/src/sample/LoggingMachine.java" />
@@ -217,6 +230,7 @@
         <option value="$PROJECT_DIR$/src/Controllers/StatisticController.java" />
         <option value="$PROJECT_DIR$/src/sample/Program.java" />
         <option value="$PROJECT_DIR$/src/sample/ClientData.java" />
+        <option value="$PROJECT_DIR$/src/sample/DataCollection.java" />
       </list>
     </option>
   </component>
@@ -364,24 +378,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="894" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="922" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.15991472" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.16471216" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.10012674" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5127932" side_tool="true" visible="true" weight="0.43363994" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.52132195" side_tool="true" visible="true" weight="0.27756655" />
       <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.4946695" weight="0.2325887" />
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" sideWeight="0.4978678" weight="0.32457292" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.48081023" weight="0.2785808" />
-      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.48720682" weight="0.43363994" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.47867805" weight="0.27756655" />
+      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.48667377" weight="0.23320659" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32953104" />
@@ -445,12 +459,6 @@
           <properties />
           <option name="timeStamp" value="12" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sample/Program.java</url>
-          <line>184</line>
-          <properties />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -458,11 +466,17 @@
         <watch expression="count1" language="JAVA" />
         <watch expression="obj[0]._2" />
         <watch expression="obj.length" />
+        <watch expression="lclient" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>lclient</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>count1</expression-string>
         <language-id>JAVA</language-id>
@@ -510,6 +524,11 @@
       </expression>
     </expressions>
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>lclient</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>elapsed_times.size()</expression-string>
         <language-id>JAVA</language-id>
@@ -567,13 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/LoggingMachine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Pairs.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -593,13 +605,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
           <caret line="110" selection-start-line="110" selection-end-line="110" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GenJsonClientData#0;class#JsonWork#0" />
-            <element signature="method#GenerateIp#0;class#JsonWork#0" />
-            <element signature="method#GenerateModules#0;class#JsonWork#0" />
-            <element signature="method#GenerateAddress#0;class#JsonWork#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -646,7 +651,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FXML/menu.fxml" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/jre/lib/rt.jar!/java/util/ArrayList.class" />
     <entry file="file://$PROJECT_DIR$/src/Controllers/MenuController.java" />
     <entry file="file://$PROJECT_DIR$/src/Map/map.html" />
     <entry file="file://$PROJECT_DIR$/src/Map/GoogleMap.java" />
@@ -668,18 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DataCollection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="51" selection-start-line="51" selection-end-line="55" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GetAndAdd#0;class#DataCollection#0" />
-            <element signature="method#Remove#0;class#DataCollection#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/GetData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -690,12 +682,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/jre/lib/rt.jar!/java/util/ArrayList.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="191" selection-start-line="191" selection-end-line="191" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/ClientData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="866">
+          <caret line="169" column="1" lean-forward="true" selection-start-line="169" selection-start-column="1" selection-end-line="169" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/LoggingMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/DataCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#GetAndAdd#0;class#DataCollection#0" />
+            <element signature="method#Remove#0;class#DataCollection#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="183" column="150" selection-start-line="183" selection-start-column="150" selection-end-line="183" selection-end-column="150" />
+        <state relative-caret-position="2448">
+          <caret line="165" column="34" selection-start-line="165" selection-start-column="20" selection-end-line="165" selection-end-column="34" />
           <folding>
-            <element signature="e#4976#4988#0" expanded="true" />
             <element signature="method#ClientTrustworthy_old#0;class#Program#0" />
           </folding>
         </state>
@@ -703,24 +727,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/StatisticController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="294" column="12" selection-start-line="294" selection-start-column="12" selection-end-line="294" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/ClientData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-206">
-          <caret line="114" column="12" selection-start-line="114" selection-start-column="12" selection-end-line="114" selection-end-column="12" />
-          <folding>
-            <element signature="e#2089#2097#0" expanded="true" />
-            <element signature="e#3544#3545#0" expanded="true" />
-            <element signature="e#3592#3593#0" expanded="true" />
-            <element signature="e#4029#4030#0" expanded="true" />
-            <element signature="e#4086#4087#0" expanded="true" />
-            <element signature="e#4118#4119#0" expanded="true" />
-            <element signature="e#4176#4177#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="43">
+          <caret line="268" column="24" lean-forward="true" selection-start-line="268" selection-start-column="24" selection-end-line="268" selection-end-column="24" />
         </state>
       </provider>
     </entry>
