@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="434.0" style="-fx-background-color: #ffffff" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.StartController">
+   <children>
+      <Label layoutX="180.0" layoutY="152.0" text="Sign in">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblUserName" layoutX="98.0" layoutY="192.0" prefHeight="30.0" prefWidth="223.0" style="-fx-text-alignment: CENTER;" text="User" textFill="#346b2e">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="fieldPass" layoutX="100.0" layoutY="237.0" prefHeight="25.0" prefWidth="223.0" promptText="Password" />
+      <Button fx:id="btnChangeUser" layoutX="321.0" layoutY="194.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: transparent;" text="&gt; Change user" textFill="#2f2fb1" />
+      <Button fx:id="btnLogin" layoutX="179.0" layoutY="316.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="86.0" style="-fx-background-color: #2f2fb1;" text="LOGIN" textFill="WHITE" />
+      <TextField fx:id="fieldUser" layoutX="100.0" layoutY="194.0" prefHeight="25.0" prefWidth="223.0" promptText="Login" />
+      <ImageView fitHeight="81.0" fitWidth="86.0" layoutX="265.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ImagesAndFonts/LOGOJAVA.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="lblName" fill="#2f2fb1" layoutX="59.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Proof of Use" wrappingWidth="175.87200164794922">
+         <font>
+            <Font name="MADEEvolveSansEVO" size="31.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

@@ -81,19 +81,19 @@ public class StartController {
         });
 
         btnChangeUser.setOnAction(event -> {
-            btnChangeUser.getScene().getWindow().hide(); //СЃРєСЂС‹С‚СЊ СЃС‚Р°СЂРѕРµ РѕРєРЅРѕ
-            StartController.flagNewUser = false; //С„Р»Р°Рі С‚РѕРіРѕ, С‡С‚Рѕ С„РѕСЂРјР° РѕС‚РєСЂС‹РІР°РµС‚СЃСЏ РЅР° РІРІРѕРґ РґР°РЅРЅС‹С… РЅРѕРІРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+            btnChangeUser.getScene().getWindow().hide(); //скрыть старое окно
+            StartController.flagNewUser = false; //флаг того, что форма открывается на ввод данных нового пользователя
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("../FXML/start.fxml")); //Р·Р°РіСЂСѓР¶Р°РµРј fxml РЅРѕРІРѕРіРѕ РѕРєРЅР°
+                root = FXMLLoader.load(getClass().getResource("/FXML/start.fxml")); //загружаем fxml нового окна
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());
             }
 
-            Scene scene = new Scene(root); //РІС‹СЃС‚Р°РІР»СЏРµРј РµРіРѕ СЂР°Р·РјРµСЂС‹
-            Stage stage = new Stage(); //С…СѓР№РЅСЏ С‡РёСЃС‚Рѕ РґР»СЏ scene builder
-            stage.setTitle("Start new user"); //РЅР°Р·РІР°РЅРёРµ РѕРєРЅР°
+            Scene scene = new Scene(root); //выставляем его размеры
+            Stage stage = new Stage(); //хуйня чисто для scene builder
+            stage.setTitle("Start new user"); //название окна
             stage.setScene(scene);
             stage.setResizable(false);
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -113,12 +113,12 @@ public class StartController {
         switch (priv) {
             case user: {
                 StatisticController.setFlagUser(true);
-                loadStatistic("MENU USER", clases);
+                loadStatistic("Proof of Use", clases);
                 break;
             }
             case root: {
                 StatisticController.setFlagUser(false);
-                loadStatistic("MENU ADMIN", clases);
+                loadStatistic("Proof of Use (Admin)", clases);
                 break;
             }
             case wrong_pass: {
@@ -136,20 +136,20 @@ public class StartController {
     public static User.Priveledge Verify(User user, Properties property) {
         Program.log.info("Verifying entered data");
 
-        /*РїРѕР»СѓС‡Р°РµРј РІ СЃС‚СЂРѕРєСѓ СЃРІРѕР№СЃС‚РІР° РґР»СЏ РІРІРµРґРµРЅРЅРѕРіРѕ РЅРёРєР°*/
+        /*получаем в строку свойства для введенного ника*/
         String props = property.getProperty(user.getName());
 
-        /*РµСЃР»Рё С‡С‚РµРЅРёРµ СЃРІРѕР№СЃС‚РІР° РІРµСЂРЅСѓР»Рѕ null, С‚Рѕ СЃРІРѕР№СЃС‚РІРѕ РЅРµ РїСЂРѕС‡РёС‚Р°Р»РѕСЃСЊ*/
+        /*если чтение свойства вернуло null, то свойство не прочиталось*/
         if(props == null) {
             Program.log.log(Level.INFO, "Wrong username or encoding error in config.ini");
             return User.Priveledge.wrong_login;
         }
 
-		/*РІ РјР°СЃСЃРёРІ userData РЅР° [0] РїРѕР»РѕР¶РёС‚СЃСЏ РїР°СЂРѕР»СЊ РёР· РєРѕРЅС„РёРіР°
-		  Р° РЅР° [1] РµРіРѕ РїСЂРёРІРµР»РµРіРёСЏ РІ РІРёРґРµ СЃС‚СЂРѕРєРё*/
+		/*в массив userData на [0] положится пароль из конфига
+		  а на [1] его привелегия в виде строки*/
         String[] userData = props.split(",");
 
-        /*С„РѕСЂРјРёСЂСѓРµРј РёР· СЃС‚СЂРѕРєРё РїСЂРёРІРµР»РµРіРёРё enum Рё РєР»Р°РґРµРј РµРіРѕ РІ user`Р°*/
+        /*формируем из строки привелегии enum и кладем его в user`а*/
         user.setPriveledge(User.Priveledge.valueOf(userData[1]));
         if(userData[0].equals(user.getPassword()))
             return user.getPriveledge();
@@ -170,17 +170,17 @@ public class StartController {
     static void loadStatistic(String title, Class clases){
         Parent root = null;
         try {
-            root = FXMLLoader.load(clases.getResource("../FXML/statistic.fxml")); //Р·Р°РіСЂСѓР¶Р°РµРј fxml РЅРѕРІРѕРіРѕ РѕРєРЅР°
+            root = FXMLLoader.load(clases.getResource("/FXML/statistic.fxml")); //загружаем fxml нового окна
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
         }
-        Scene scene = new Scene(root); //РІС‹СЃС‚Р°РІР»СЏРµРј РµРіРѕ СЂР°Р·РјРµСЂС‹
-        Stage stage = new Stage(); //С…СѓР№РЅСЏ С‡РёСЃС‚Рѕ РґР»СЏ scene builder
-        stage.setTitle(title); //РЅР°Р·РІР°РЅРёРµ РѕРєРЅР°
+        Scene scene = new Scene(root); //выставляем его размеры
+        Stage stage = new Stage(); //хуйня чисто для scene builder
+        stage.setTitle(title); //название окна
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.getIcons().add(new Image(clases.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
+        stage.getIcons().add(new Image(clases.getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {

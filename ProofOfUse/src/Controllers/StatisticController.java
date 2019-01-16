@@ -84,6 +84,9 @@ public class StatisticController  {
     private AnchorPane tabMap;
 
     @FXML
+    private Tab slcMap;
+
+    @FXML
     private TextArea txtLogArea;
 
     @FXML
@@ -110,6 +113,7 @@ public class StatisticController  {
 
     @FXML
     void initialize() {
+        tabPane.setDisable(true);
         if (flagAdmin){
             btnAutotest.setVisible(false);
             btnDebug.setVisible(false);
@@ -123,6 +127,7 @@ public class StatisticController  {
             tabAvgTimeModuls.getChildren().remove(0);
             tabTimeModuls.getChildren().remove(0);
             btnClose.setDisable(true);
+            tabPane.setDisable(true);
         });
         btnSort.setOnAction(event -> {
             ObservableList<Tab> tabs = tabPane.getTabs();
@@ -133,18 +138,18 @@ public class StatisticController  {
             RangeController.setNumber(activeTab);
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("../FXML/range.fxml")); //Р·Р°РіСЂСѓР¶Р°РµРј fxml РЅРѕРІРѕРіРѕ РѕРєРЅР°
+                root = FXMLLoader.load(getClass().getResource("/FXML/range.fxml")); //загружаем fxml нового окна
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());
                 StatisticController.addConsoleLog(e.getMessage() + "\n");
             }
-            Scene scene = new Scene(root); //РІС‹СЃС‚Р°РІР»СЏРµРј РµРіРѕ СЂР°Р·РјРµСЂС‹
-            Stage stage = new Stage(); //С…СѓР№РЅСЏ С‡РёСЃС‚Рѕ РґР»СЏ scene builder
-            stage.setTitle("Filter for range"); //РЅР°Р·РІР°РЅРёРµ РѕРєРЅР°
+            Scene scene = new Scene(root); //выставляем его размеры
+            Stage stage = new Stage(); //хуйня чисто для scene builder
+            stage.setTitle("Filter for range"); //название окна
             stage.setScene(scene);
             stage.setResizable(false);
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
             stage.showAndWait();
             refreshStat(2);
 
@@ -153,19 +158,20 @@ public class StatisticController  {
             btnClose.setDisable(false);
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("../FXML/load.fxml")); //Р·Р°РіСЂСѓР¶Р°РµРј fxml РЅРѕРІРѕРіРѕ РѕРєРЅР°
+                root = FXMLLoader.load(getClass().getResource("/FXML/load.fxml")); //загружаем fxml нового окна
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());
                 StatisticController.addConsoleLog(e.getMessage() + "\n");
             }
-            Scene scene = new Scene(root); //РІС‹СЃС‚Р°РІР»СЏРµРј РµРіРѕ СЂР°Р·РјРµСЂС‹
-            Stage stage = new Stage(); //С…СѓР№РЅСЏ С‡РёСЃС‚Рѕ РґР»СЏ scene builder
-            stage.setTitle("Import file from server"); //РЅР°Р·РІР°РЅРёРµ РѕРєРЅР°
+            Scene scene = new Scene(root); //выставляем его размеры
+            Stage stage = new Stage(); //хуйня чисто для scene builder
+            stage.setTitle("Import file from server"); //название окна
             stage.setScene(scene);
             stage.setResizable(false);
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
             stage.showAndWait();
+            tabPane.setDisable(false);
             refreshStat(1);
         });
         btnImportFile.setOnAction(event -> {
@@ -173,12 +179,12 @@ public class StatisticController  {
             FileChooser fc = new FileChooser();
             fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON files", "*.json"));
 
-            //РґРёСЂРµРєС‚РѕСЂРёСЏ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+            //директория по умолчанию
             try {
                 File initialDirectory = new File(System.getProperty("user.home") + "\\Documents\\");
                 fc.setInitialDirectory(initialDirectory);
             }
-            catch (Exception exp){ //РµСЃР»Рё MAC os
+            catch (Exception exp){ //если MAC os
                 System.out.println((char)27 + "[32m"+exp.getMessage());
                 StatisticController.addConsoleLog(exp.getMessage() + "\n");
             }
@@ -197,6 +203,7 @@ public class StatisticController  {
                     StatisticController.addConsoleLog(clients.toString() + "\n");
                 }
                 Statistic stat = new Statistic(temp);
+                tabPane.setDisable(false);
                 refreshStat(1);
             }
         });
@@ -216,7 +223,7 @@ public class StatisticController  {
             alert.setHeaderText("DEVELOPERS:");
             alert.setContentText("Alex Umanskiy\treadysloth@protonmail.com\nSolovev Dmitry\tchrome266@gmail.com\nAnton Ablamskiy\tablamskiy98@gmail.com");
            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image(Program.class.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
+            stage.getIcons().add(new Image(Program.class.getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
             alert.showAndWait();
         });
 
@@ -239,10 +246,10 @@ public class StatisticController  {
                 Statistic.pairAdress, count3);
         module_user =  GetInstanceOfChart("Module name",
                 "Number of users",
-                "Number of users in moduls",
+                "Number of users in modules",
                 Statistic.pairUser, count4);
 
-        int prefWidth = 1920, prefHeight = 868;
+        int prefWidth = 1265, prefHeight = 659;
 
         CategoryAxis axis = (CategoryAxis)module_time.getXAxis();
         if (axis.getCategories().size() < 7){
@@ -261,12 +268,12 @@ public class StatisticController  {
             module_addr.setCategoryGap(600.0 / 7);
         }
 
-        tabClientsName.setPrefSize(632,838);
-        module_time.setPrefSize(prefWidth + (count1 > 15 ? 20*(count1-15) : 0),868);
-        module_user.setPrefSize(1920 + (count2 > 15 ? 20*(count1-15) : 0),868);
-        module_tu.setPrefSize(1920 + (count3 > 15 ? 20*(count1-15) : 0),868);
-        module_addr.setPrefSize(1920 + (count4 > 15 ? 20*(count1-15) : 0),868);
-        tabMap.setPrefSize(1920,868);
+        tabClientsName.setPrefSize(625,653);
+        module_time.setPrefSize(prefWidth + (count1 > 15 ? 20*(count1-15) : 0),prefHeight);
+        module_user.setPrefSize(prefWidth + (count2 > 15 ? 20*(count1-15) : 0),prefHeight);
+        module_tu.setPrefSize(prefWidth + (count3 > 15 ? 20*(count1-15) : 0),prefHeight);
+        module_addr.setPrefSize(prefWidth + (count4 > 15 ? 20*(count1-15) : 0),prefHeight);
+        tabMap.setPrefSize(prefWidth,prefWidth);
 
         if (flag != 1) {
             tabCountUsersModuls.getChildren().remove(0);
@@ -275,6 +282,7 @@ public class StatisticController  {
             tabTimeModuls.getChildren().remove(0);
             tabClientsName.getChildren().remove(0);
             tabMap.getChildren().remove(0);
+            tabMap.getChildren().remove(1);
         }
         tabCountUsersModuls.getChildren().add(module_user);
         tabCountUsersCountry.getChildren().add(module_addr);
@@ -284,7 +292,7 @@ public class StatisticController  {
         //Images
         ArrayList<ClientData> clients = Program.getSortClients();
         FlowPane pane = new FlowPane(Orientation.VERTICAL);
-        pane.setPrefSize(632, 838);
+        pane.setPrefSize(625, 653);
         for (int i = 0; i < clients.size(); i++) {
             ClientData temp = clients.get(i);
             Hyperlink button = new Hyperlink(String.valueOf(clients.get(i).getUniqKey()));
@@ -305,6 +313,7 @@ public class StatisticController  {
                 }
 
         }
+        pane.getChildren().add(new Label("\n\nP.S. не все клиенты могут иметь распознанный адрес\nиз-за ограничений работы GeoIP"));
         tabClientsName.getChildren().add(pane);
 
         //Maps
@@ -313,6 +322,15 @@ public class StatisticController  {
         map.setWidth(1920);
         map.setHeight(868);
         tabMap.getChildren().add(map);
+        slcMap.setOnSelectionChanged(event -> {
+            if (slcMap.isSelected()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText("Карта отключена!");
+                alert.setContentText("Простите, но мы уже отключили карту в приложении, с целью не платить за демо-период googleMaps. Можете посмотреть метки на карте в файле map.html - он находится в папке рядом с jar-ником (метки активны, только пока работает программа)");
+                alert.showAndWait();
+            }
+        });
 
         txtLogArea.setText(consoleLog);
         btnSort.setDisable(false);
@@ -342,8 +360,7 @@ public class StatisticController  {
             }
         }
     String addMarker(double lan, double lon, String str) throws IOException {
-        String PATH = getClass().getResource("../Map/map.html").toExternalForm();
-        PATH = PATH.substring(6, PATH.length());
+        String PATH = "./map.html";
         String contents = new String(Files.readAllBytes(Paths.get(PATH)));
         String res = contents.substring(0,519) + "[\r\n";
         res += "        ['"+str+"', "+lan+","+lon+"],\n";
@@ -363,8 +380,7 @@ public class StatisticController  {
     }
     static public void saveHTML() {
         if (str != ""){
-            String PATH = StatisticController.class.getResource("../Map/map.html").toExternalForm();
-            PATH = PATH.substring(6, PATH.length());
+            String PATH = "./map.html";
             PrintWriter writer = null;
             try {
                 writer = new PrintWriter(PATH, "UTF-8");

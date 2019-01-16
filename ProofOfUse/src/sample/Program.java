@@ -83,12 +83,12 @@ public class Program extends Application {
 	@Override
 	public void start(Stage stage) throws Exception{
 		//File f = new File(getClass().getResourceAsStream("../FXML/start.fxml"))
-		Parent root = FXMLLoader.load(this.getClass().getResource("../FXML/start.fxml"));//загружаем fxml стартового окна
+		Parent root = FXMLLoader.load(this.getClass().getResource("/FXML/start.fxml"));//загружаем fxml стартового окна
 		Scene scene = new Scene(root);
 		stage.setTitle("JAVA DEMO"); //название окна
 		stage.setScene(scene);
 		stage.setResizable(false);
-        stage.getIcons().add(new Image(this.getClass().getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
+        stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
 		stage.show(); //запускаем окно
 	}
 	@Override
@@ -149,7 +149,7 @@ public class Program extends Application {
 		catch (Exception e){}
 
 		try {
-			property.store(new FileOutputStream("sample/config.ini"), null);
+			property.store(new FileOutputStream("./config.ini"), null);
 		}
 		catch (Exception e){
 			log.log(Level.INFO,"Config file could not be saved");
