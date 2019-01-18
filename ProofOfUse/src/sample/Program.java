@@ -1,8 +1,7 @@
 package sample;
-/*Саша*/
 
+import Controllers.StatisticController;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,6 +9,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -21,10 +21,6 @@ import java.util.HashMap;
 import java.util.Properties;
 import java.util.logging.Level;
 
-/*
-import org.knowm.xchart.CategoryChart;
-import org.knowm.xchart.CategoryChartBuilder;
-import org.knowm.xchart.SwingWrapper;*/
 
 
 
@@ -34,11 +30,22 @@ public class Program extends Application {
 	public static LoggingMachine log;
 	public static Properties property;
 	public static User loggingUser;
+	private static boolean fast_enough = true;
+	public static ArrayList<ClientData> getSortClients(){
 
-	static BarChart<String,Number> GetInstanceOfChart(String x_axis,
-									  String y_axis,
-									  String c_title,
-									  Pairs[] arr_pair){
+		Collection<ArrayList<ClientData>> temp_map = gen_collection.collection.values();
+		ArrayList<ClientData> temp = new ArrayList<ClientData>();
+		for(ArrayList<ClientData> clients : temp_map) {
+			for(int k = 0; k < clients.size(); k++)
+				temp.add(((ClientData) clients.toArray()[k]));
+		}
+		return temp;
+	}
+
+	public static BarChart<String,Number> GetInstanceOfChart(String x_axis,
+															 String y_axis,
+															 String c_title,
+															 Pairs[] arr_pair, int number){
 		CategoryAxis xAxis = new CategoryAxis();
 		NumberAxis yAxis = new NumberAxis();
 		BarChart<String,Number> chart = new BarChart<String, Number>(xAxis,yAxis);
@@ -66,20 +73,22 @@ public class Program extends Application {
 			}
 			catch (Exception e){
 				e.printStackTrace();
+				StatisticController.addConsoleLog(e.getMessage() + "\n");
 		}
-
 		chart.getData().add(series);
-
+		StatisticController.setCount(number,arr_pair.length);
 		return chart;
 	}
 
 	@Override
 	public void start(Stage stage) throws Exception{
-		Parent root = FXMLLoader.load(getClass().getResource("../FXML/start.fxml"));//загружаем fxml стартового окна
+		//File f = new File(getClass().getResourceAsStream("../FXML/start.fxml"))
+		Parent root = FXMLLoader.load(this.getClass().getResource("/FXML/start.fxml"));//загружаем fxml стартового окна
 		Scene scene = new Scene(root);
 		stage.setTitle("JAVA DEMO"); //название окна
 		stage.setScene(scene);
 		stage.setResizable(false);
+        stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
 		stage.show(); //запускаем окно
 	}
 	@Override
@@ -108,7 +117,7 @@ public class Program extends Application {
 
 		/*читаем файл конфига*/
 		try {
-			configFile = new FileInputStream("config.ini");
+			configFile = new FileInputStream("./config.ini");
 			property.load(configFile);
 		} catch (FileNotFoundException e) {
 			log.log(Level.INFO,"Config file not found");
@@ -140,7 +149,7 @@ public class Program extends Application {
 		catch (Exception e){}
 
 		try {
-			property.store(new FileOutputStream("sample/config.ini"), null);
+			property.store(new FileOutputStream("./config.ini"), null);
 		}
 		catch (Exception e){
 			log.log(Level.INFO,"Config file could not be saved");
@@ -148,17 +157,24 @@ public class Program extends Application {
 	}
 	/* Функция проверяет на соответствие введенные пользователем данные
 	 * и возвращает доступную ему привелегию*/
-	public static void recieveJson(){
+	public static void recieveJson(String IP, int Port){
 		Runnable recieve_data = () -> {
+
 			boolean[] result_of_conversation;
 			do {
-				ClientData lclient = GetData.Download("127.0.0.1", 8005);
+				ClientData lclient = GetData.Download(IP, Port);
 
 				if (lclient == null)
 					break;
 
-				ClientTrustworthy(lclient);
-				if (gen_collection.collection.containsKey(lclient.uniqKey)) { //???????? ?? ??????? ?????????? ?? ???? ?????
+				//проверка на медленный интернет
+				if(fast_enough) {
+                    long start_ms = System.currentTimeMillis();
+                    ClientTrustworthy(lclient);
+                    fast_enough = System.currentTimeMillis() - start_ms > 3*1000 ? false : true;
+                }
+
+				if (gen_collection.collection.containsKey(lclient.uniqKey)) {
 
 					gen_collection.GetAndAdd(lclient.uniqKey, lclient);
 				} else {
@@ -174,7 +190,11 @@ public class Program extends Application {
 		new Thread(recieve_data).run();
 
 		for (int i = 0;i < Program.gen_collection.getCollection().size();i++){
-			System.out.println(Program.gen_collection.getCollection().values().toArray()[i].toString());
+			String log = Program.gen_collection.getCollection().values().toArray()[i].toString() + "\n";
+			/*Image img = new ClientData().
+					GetMapInstance("https://static-maps.yandex.ru/1.x/?ll=65.398900,55.928800&z=10&size=450,450&z=13&l=map&pt=65.398900,55.928800");*/
+			System.out.println(log);
+			StatisticController.addConsoleLog(log);
 		}
 
 		Collection<ArrayList<ClientData>> temp_map = gen_collection.collection.values();
@@ -186,88 +206,85 @@ public class Program extends Application {
 		Statistic stat = new Statistic(DataArray);
 
 	}
-	public static void watchStatisticInfo(){
 
-		BarChart<String,Number> module_user=  GetInstanceOfChart("Названия модулей",
-												"Кол-во пользователей",
-												"Кол-во пользователей в модулях",
-												Statistic.pairUser);
-		BarChart<String,Number> module_time =  GetInstanceOfChart("",
-				"Часы",
-				"Кол-во времени, проведенного в модулях",
-				Statistic.pairTime);
-		BarChart<String,Number> module_tu =  GetInstanceOfChart("",
-				"Часы",
-				"Среднее время использования модуля на человека",
-				Statistic.pairTU);
-		BarChart<String,Number> module_addr =  GetInstanceOfChart("",
-				"Кол-во пользователей",
-				"Кол-во людей по городам",
-				Statistic.pairAdress);
-		new Thread(() ->{
-			Platform.runLater(() -> {
-					Scene scene = new Scene(module_user, 800, 600);
-					Stage stage = new Stage();
-					stage.setScene(scene);
-					stage.show();}
-				);
-		}).start();
-
-		new Thread(() ->{
-				Platform.runLater(() -> {
-					Scene scene = new Scene(module_time, 800, 600);
-					Stage stage = new Stage();
-					stage.setScene(scene);
-					stage.show();}
-				);
-			}).start();
-
-		new Thread(() ->{
-			Platform.runLater(() -> {
-					Scene scene = new Scene(module_tu, 800, 600);
-					Stage stage = new Stage();
-					stage.setScene(scene);
-					stage.show();}
-				);
-			}).start();
-
-		new Thread(() ->{
-			Platform.runLater(() -> {
-					Scene scene = new Scene(module_addr, 800, 600);
-					Stage stage = new Stage();
-					stage.setScene(scene);
-					stage.show();}
-				);
-			}).start();
-
-		/*
-		Alert alert = new Alert(Alert.AlertType.INFORMATION);
-		alert.setTitle("Watch statistic info");
-		alert.setHeaderText(null);
-		alert.setContentText("Данная функция находится в разработке :)");
-
-		alert.showAndWait();*/
+	public static ArrayList<ClientData> LoadFile(String file_content){
+		String[] lines = file_content.split(System.getProperty("line.separator"));
+		ArrayList<ClientData> clients = new ArrayList<>();
+		for(String line : lines){
+			ClientData client = JsonWork.Deserialize(line);
+			clients.add(client);
+			ClientTrustworthy(client);
+		}
+		return clients;
 	}
-	public static void ClientTrustworthy(ClientData client){
+
+	public static void ClientTrustworthy_old(ClientData client){
 		try{
-			URL geoip_api_addr = new URL("http://ip-api.com/json/" + client.clientIp.getHostAddress() + "?lang=en");
+			URL geoip_api_addr = new URL("https://ipapi.co/" + client.clientIp.getHostAddress() + "/json/");
 			BufferedReader  output = new BufferedReader(new InputStreamReader(geoip_api_addr.openStream()));
-			String data = output.readLine();
-			if(data.contains("fail"))
+			String data = "";
+
+			String line = "";
+			do {
+				line = output.readLine();
+				data += line;
+			}while (line != null);
+
+			if(data == null || data.contains("fail"))
 				return;
 			if(data.contains(client.addr.city))
 				client.trusted = true;
 			client.ActualLocation = "https://static-maps.yandex.ru/1.x/?ll=#lonlat#&z=#zoom#&size=450,450&z=13&l=map&pt=#lonlat#";
-			String 	lon = data.substring(data.indexOf("\"lon\":") + "\"lon\":".length());
+			String 	lon = data.substring(data.indexOf("\"longitude\":") + "\"longitude\":".length()) + 1;
 					lon = lon.substring(0,lon.indexOf(','));
-			String 	lat = data.substring(data.indexOf("\"lat\":") + "\"lat\":".length());
+			String 	lat = data.substring(data.indexOf("\"latitude\":") + "\"latitude\":".length() + 1);
 					lat = lat.substring(0,lat.indexOf(','));
+
+            client.latitude = lat;
+            client.longitude = lon;
+
 			String lonlat = lon + "," + lat;
 			client.ActualLocation = client.ActualLocation.replaceAll("#lonlat#",lonlat);
 			client.ActualLocation = client.ActualLocation.replaceAll("#zoom#","10");
+			client.ActualLocation.replaceAll(" ","");
 		}
 		catch (Exception e){
-			e.printStackTrace();
+			System.out.printf(e.getMessage());
+			client.ActualLocation = "";
+			client.trusted = false;
+		}
+
+	}
+
+
+	public static void ClientTrustworthy(ClientData client){
+		try{
+			URL geoip_api_addr = new URL("https://ipapi.co/" + client.clientIp.getHostAddress() + "/latlong/");
+			BufferedReader  output = new BufferedReader(new InputStreamReader(geoip_api_addr.openStream()));
+			String data = output.readLine();
+
+			geoip_api_addr = new URL("https://ipapi.co/" + client.clientIp.getHostAddress() + "/city/");
+			if((new BufferedReader(new InputStreamReader(geoip_api_addr.openStream()))).readLine().contains(client.addr.city))
+				client.trusted = true;
+			client.ActualLocation = "https://static-maps.yandex.ru/1.x/?ll=#lonlat#&z=#zoom#&size=450,450&z=13&l=map&pt=#lonlat#";
+			String 	lat = data.substring(0,data.indexOf(','));
+			data = data.substring(lat.length() + 1);
+			String 	lon = data;
+
+			client.latitude = lat;
+			client.longitude = lon;
+
+			String lonlat = lon + "," + lat;
+			if(lonlat.toLowerCase().contains("undef"))
+				return;
+			client.ActualLocation = client.ActualLocation.replaceAll("#lonlat#",lonlat);
+			client.ActualLocation = client.ActualLocation.replaceAll("#zoom#","10");
+			client.ActualLocation.replaceAll(" ","");
+		}
+		catch (Exception e){
+			System.out.printf(e.getMessage());
+			client.ActualLocation = "";
+			client.trusted = false;
 		}
 
 	}

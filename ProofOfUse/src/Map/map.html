@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        html { height: 100% }
+        body { height: 100%; margin: 0; padding: 0 }
+        #map_canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPbDtotWIsmcI82L2fGWzjH4jpukWtHvs&sensor=false">
+    </script>
+    <script type="text/javascript">
+        var map;
+        var markers = [];
+        var marker;
+
+        function get_click_position(event){
+            var location = event.latLng;
+            var lat = location.lat();
+            var lng = location.lng();
+            setMarkerPosition(lat, lng);
+            app.handle(lat, lng);
+        }
+
+        function setMarkerPosition(lat, lng) {
+            var clickLatLng = new google.maps.LatLng(lat, lng);
+            marker = new google.maps.Marker({
+                position: clickLatLng,
+                map: map,
+            });
+        }
+
+        function startJumping(){
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+
+        function stopJumping(){
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+
+        function setMapCenter(lat, lng) {
+            var latlng = new google.maps.LatLng(lat, lng);
+            map.setCenter(latlng);
+        }
+
+        function switchSatellite() {
+            var mapOptions = {
+                mapTypeId: google.maps.MapTypeId.SATELLITE
+            };
+            map.setOptions(mapOptions);
+            setLightMarkerIcon();
+        }
+
+        function switchRoadmap() {
+            var mapOptions = {
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map.setOptions(mapOptions);
+            setDarkMarkerIcon();
+        }
+
+        function switchHybrid() {
+            var mapOptions = {
+                mapTypeId: google.maps.MapTypeId.HYBRID
+            };
+            map.setOptions(mapOptions);
+            setLightMarkerIcon();
+        }
+
+        function switchTerrain() {
+            var mapOptions = {
+                mapTypeId: google.maps.MapTypeId.TERRAIN
+            };
+            map.setOptions(mapOptions);
+            setDarkMarkerIcon();
+        }
+
+        function initialize() {
+            var defLatLng = new google.maps.LatLng(59.95632093391832, 30.309906005859375);
+            var mapOptions = {
+                center: defLatLng,
+                zoom: 3,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                disableDefaultUI: true,
+                panControl: false
+            };
+            map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+            google.maps.event.addListener(map, 'click', get_click_position);
+
+            for( i = 0; i < markers.length; i++ ) {
+                var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: markers[i][0]
+                });
+                }
+
+            app.handle(0, 0);
+        }
+    </script>
+</head>
+<body onload="initialize()">
+<div id="map_canvas" style="width:100%; height:100%"></div>
+</body>
+</html>

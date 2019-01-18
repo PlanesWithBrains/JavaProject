@@ -1,19 +1,14 @@
 package Controllers;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.Properties;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-
-
+import javafx.scene.image.Image;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
@@ -21,8 +16,15 @@ import sample.LoggingMachine;
 import sample.Program;
 import sample.User;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.Properties;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+
 public class StartController {
     public static boolean flagNewUser = true;
+
     @FXML
     private ResourceBundle resources;
 
@@ -44,9 +46,14 @@ public class StartController {
     @FXML
     private Button btnLogin;
 
+    @FXML
+    private Text lblName;
+
 
     @FXML
     void initialize() {
+        Font font = Font.loadFont(getClass().getResourceAsStream("/ImagesAndFonts/Label.ttf"), 31);
+        lblName.setFont(font);
         if (flagNewUser){ //save user
             btnChangeUser.setVisible(true);
             lblUserName.setVisible(true);
@@ -75,9 +82,7 @@ public class StartController {
 
         btnChangeUser.setOnAction(event -> {
             btnChangeUser.getScene().getWindow().hide(); //скрыть старое окно
-
             StartController.flagNewUser = false; //флаг того, что форма открывается на ввод данных нового пользователя
-
             Parent root = null;
             try {
                 root = FXMLLoader.load(getClass().getResource("../FXML/start.fxml")); //загружаем fxml нового окна
@@ -103,16 +108,17 @@ public class StartController {
 
     public static LoggingMachine login(Window window, Class clases) {
         User.Priveledge priv = Verify(Program.loggingUser, Program.property);
+        //Program.recieveJson();
         if (priv != User.Priveledge.wrong_pass && priv != User.Priveledge.wrong_login) window.hide();
         switch (priv) {
             case user: {
-                MenuController.setFlagUser(true);
-                loadMenu("MENU USER", clases);
+                StatisticController.setFlagUser(true);
+                loadStatistic("MENU USER", clases);
                 break;
             }
             case root: {
-                MenuController.setFlagUser(false);
-                loadMenu("MENU ADMIN", clases);
+                StatisticController.setFlagUser(false);
+                loadStatistic("MENU ADMIN", clases);
                 break;
             }
             case wrong_pass: {
@@ -161,11 +167,10 @@ public class StartController {
         Program.log.info("User entered wrong login or password");
         System.out.println("======++++++Access Denied++++++=====");
     }
-    static void loadMenu(String title, Class clases){
+    static void loadStatistic(String title, Class clases){
         Parent root = null;
         try {
-
-            root = FXMLLoader.load(clases.getResource("../FXML/menu.fxml")); //загружаем fxml нового окна
+            root = FXMLLoader.load(clases.getResource("../FXML/statistic.fxml")); //загружаем fxml нового окна
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
@@ -175,6 +180,14 @@ public class StartController {
         stage.setTitle(title); //название окна
         stage.setScene(scene);
         stage.setResizable(false);
+        stage.getIcons().add(new Image(clases.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                Program.SaveConfig(Program.property, Program.loggingUser);
+                StatisticController.saveHTML();
+            }
+        });
         stage.show();
     }
 }
