@@ -106,9 +106,6 @@ public class StatisticController  {
     private MenuItem btnInfo;
 
     @FXML
-    private MenuItem btnDebug;
-
-    @FXML
     private MenuItem btnAutotest;
 
 
@@ -117,7 +114,6 @@ public class StatisticController  {
         tabPane.setDisable(true);
         if (flagAdmin){
             btnAutotest.setVisible(false);
-            btnDebug.setVisible(false);
         }
         btnSort.setDisable(true);
         btnClose.setDisable(true);
@@ -127,9 +123,13 @@ public class StatisticController  {
             tabCountUsersCountry.getChildren().remove(0);
             tabAvgTimeModuls.getChildren().remove(0);
             tabTimeModuls.getChildren().remove(0);
+            btnImportServer.setDisable(false);
+            btnImportFile.setDisable(false);
+            btnAutotest.setDisable(false);
             btnClose.setDisable(true);
             tabPane.setDisable(true);
             btnSort.setDisable(true);
+            clearPair();
             flag = 1;
         });
         btnSort.setOnAction(event -> {
@@ -141,34 +141,36 @@ public class StatisticController  {
             RangeController.setNumber(activeTab);
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/FXML/range.fxml")); //загружаем fxml нового окна
+                root = FXMLLoader.load(getClass().getResource("/FXML/range.fxml")); //Р·Р°РіСЂСѓР¶Р°РµРј fxml РЅРѕРІРѕРіРѕ РѕРєРЅР°
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());
                 StatisticController.addConsoleLog(e.getMessage() + "\n");
             }
-            Scene scene = new Scene(root); //выставляем его размеры
-            Stage stage = new Stage(); //хуйня чисто для scene builder
-            stage.setTitle("Filter for range"); //название окна
+            Scene scene = new Scene(root); //РІС‹СЃС‚Р°РІР»СЏРµРј РµРіРѕ СЂР°Р·РјРµСЂС‹
+            Stage stage = new Stage(); //С…СѓР№РЅСЏ С‡РёСЃС‚Рѕ РґР»СЏ scene builder
+            stage.setTitle("Filter for range"); //РЅР°Р·РІР°РЅРёРµ РѕРєРЅР°
             stage.setScene(scene);
             stage.setResizable(false);
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
             stage.showAndWait();
             refreshStat(flag, true);
-
+                btnImportFile.setDisable(true);
+                btnImportServer.setDisable(true);
+                btnAutotest.setDisable(true);
         });
         btnImportServer.setOnAction(event -> {
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/FXML/load.fxml")); //загружаем fxml нового окна
+                root = FXMLLoader.load(getClass().getResource("/FXML/load.fxml")); //Р·Р°РіСЂСѓР¶Р°РµРј fxml РЅРѕРІРѕРіРѕ РѕРєРЅР°
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());
                 StatisticController.addConsoleLog(e.getMessage() + "\n");
             }
-            Scene scene = new Scene(root); //выставляем его размеры
-            Stage stage = new Stage(); //хуйня чисто для scene builder
-            stage.setTitle("Import file from server"); //название окна
+            Scene scene = new Scene(root); //РІС‹СЃС‚Р°РІР»СЏРµРј РµРіРѕ СЂР°Р·РјРµСЂС‹
+            Stage stage = new Stage(); //С…СѓР№РЅСЏ С‡РёСЃС‚Рѕ РґР»СЏ scene builder
+            stage.setTitle("Import file from server"); //РЅР°Р·РІР°РЅРёРµ РѕРєРЅР°
             stage.setScene(scene);
             stage.setResizable(false);
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
@@ -183,8 +185,8 @@ public class StatisticController  {
             else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
-                alert.setHeaderText("Ошибка импорта данных!");
-                alert.setContentText("Ошибка 322 - ошибка связи с сервером!");
+                alert.setHeaderText("РћС€РёР±РєР° РёРјРїРѕСЂС‚Р° РґР°РЅРЅС‹С…!");
+                alert.setContentText("РћС€РёР±РєР° 322 - РѕС€РёР±РєР° СЃРІСЏР·Рё СЃ СЃРµСЂРІРµСЂРѕРј!");
                 alert.showAndWait();
             }
         });
@@ -192,12 +194,12 @@ public class StatisticController  {
             FileChooser fc = new FileChooser();
             fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON files", "*.json"));
 
-            //директория по умолчанию
+            //РґРёСЂРµРєС‚РѕСЂРёСЏ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
             try {
                 File initialDirectory = new File(System.getProperty("user.home") + "\\Documents\\");
                 fc.setInitialDirectory(initialDirectory);
             }
-            catch (Exception exp){ //если MAC os
+            catch (Exception exp){ //РµСЃР»Рё MAC os
                 System.out.println((char)27 + "[32m"+exp.getMessage());
                 StatisticController.addConsoleLog(exp.getMessage() + "\n");
             }
@@ -228,8 +230,8 @@ public class StatisticController  {
                 else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information Dialog");
-                    alert.setHeaderText("Ошибка импорта данных!");
-                    alert.setContentText("Ошибка 322 - ошибка загрузки файла!");
+                    alert.setHeaderText("РћС€РёР±РєР° РёРјРїРѕСЂС‚Р° РґР°РЅРЅС‹С…!");
+                    alert.setContentText("РћС€РёР±РєР° 322 - РѕС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё С„Р°Р№Р»Р°!");
                     alert.showAndWait();
                 }
             }
@@ -259,8 +261,8 @@ public class StatisticController  {
                 else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information Dialog");
-                    alert.setHeaderText("Ошибка импорта данных!");
-                    alert.setContentText("Ошибка 322 - ошибка в автотестах!");
+                    alert.setHeaderText("РћС€РёР±РєР° РёРјРїРѕСЂС‚Р° РґР°РЅРЅС‹С…!");
+                    alert.setContentText("РћС€РёР±РєР° 322 - РѕС€РёР±РєР° РІ Р°РІС‚РѕС‚РµСЃС‚Р°С…!");
                     alert.showAndWait();
                 }
             }
@@ -277,6 +279,12 @@ public class StatisticController  {
 
 
 
+    }
+    void clearPair(){
+        Statistic.pairTime = null;
+        Statistic.pairUser = null;
+        Statistic.pairAdress = null;
+        Statistic.pairTU = null;
     }
 
     boolean refreshStat(int flag, boolean flagWrite){
@@ -364,15 +372,15 @@ public class StatisticController  {
                 }
 
         }
-        //pane.getChildren().add(new Label("\n\nP.S. не все клиенты могут иметь распознанный адрес\nиз-за ограничений работы GeoIP\nP.s.s. при загрузке из файла/автотестах актуальность по GeoIP\n не проверяется (она уже выполнена)"));
+        //pane.getChildren().add(new Label("\n\nP.S. РЅРµ РІСЃРµ РєР»РёРµРЅС‚С‹ РјРѕРіСѓС‚ РёРјРµС‚СЊ СЂР°СЃРїРѕР·РЅР°РЅРЅС‹Р№ Р°РґСЂРµСЃ\nРёР·-Р·Р° РѕРіСЂР°РЅРёС‡РµРЅРёР№ СЂР°Р±РѕС‚С‹ GeoIP\nP.s.s. РїСЂРё Р·Р°РіСЂСѓР·РєРµ РёР· С„Р°Р№Р»Р°/Р°РІС‚РѕС‚РµСЃС‚Р°С… Р°РєС‚СѓР°Р»СЊРЅРѕСЃС‚СЊ РїРѕ GeoIP\n РЅРµ РїСЂРѕРІРµСЂСЏРµС‚СЃСЏ (РѕРЅР° СѓР¶Рµ РІС‹РїРѕР»РЅРµРЅР°)"));
         tabClientsName.getChildren().add(pane);
         if (!flagWrite){
             slcClients.setOnSelectionChanged(event -> {
                 if (slcClients.isSelected()) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information Dialog");
-                    alert.setHeaderText("Адресы клиентов не найдены!");
-                    alert.setContentText("Для определения адресов клиентов воспользуйтесь импортом через сервер! При импорте данных через файл/автотестах, локализация GeoIP не выполняется!");
+                    alert.setHeaderText("РђРґСЂРµСЃС‹ РєР»РёРµРЅС‚РѕРІ РЅРµ РЅР°Р№РґРµРЅС‹!");
+                    alert.setContentText("Р”Р»СЏ РѕРїСЂРµРґРµР»РµРЅРёСЏ Р°РґСЂРµСЃРѕРІ РєР»РёРµРЅС‚РѕРІ РІРѕСЃРїРѕР»СЊР·СѓР№С‚РµСЃСЊ РёРјРїРѕСЂС‚РѕРј С‡РµСЂРµР· СЃРµСЂРІРµСЂ! РџСЂРё РёРјРїРѕСЂС‚Рµ РґР°РЅРЅС‹С… С‡РµСЂРµР· С„Р°Р№Р»/Р°РІС‚РѕС‚РµСЃС‚Р°С…, Р»РѕРєР°Р»РёР·Р°С†РёСЏ GeoIP РЅРµ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ!");
                     alert.showAndWait();
                 }
             });
@@ -393,8 +401,8 @@ public class StatisticController  {
             if (slcMap.isSelected()) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
-                alert.setHeaderText("Карта отключена!");
-                alert.setContentText("Простите, но мы уже отключили карту в приложении, с целью не платить за демо-период googleMaps. Можете посмотреть метки на карте в файле map.html - он находится в папке рядом с jar-ником (метки активны, только пока работает программа)");
+                alert.setHeaderText("РљР°СЂС‚Р° РѕС‚РєР»СЋС‡РµРЅР°!");
+                alert.setContentText("РџСЂРѕСЃС‚РёС‚Рµ, РЅРѕ РјС‹ СѓР¶Рµ РѕС‚РєР»СЋС‡РёР»Рё РєР°СЂС‚Сѓ РІ РїСЂРёР»РѕР¶РµРЅРёРё, СЃ С†РµР»СЊСЋ РЅРµ РїР»Р°С‚РёС‚СЊ Р·Р° РґРµРјРѕ-РїРµСЂРёРѕРґ googleMaps. РњРѕР¶РµС‚Рµ РїРѕСЃРјРѕС‚СЂРµС‚СЊ РјРµС‚РєРё РЅР° РєР°СЂС‚Рµ РІ С„Р°Р№Р»Рµ map.html - РѕРЅ РЅР°С…РѕРґРёС‚СЃСЏ РІ РїР°РїРєРµ СЂСЏРґРѕРј СЃ jar-РЅРёРєРѕРј (РјРµС‚РєРё Р°РєС‚РёРІРЅС‹, С‚РѕР»СЊРєРѕ РїРѕРєР° СЂР°Р±РѕС‚Р°РµС‚ РїСЂРѕРіСЂР°РјРјР°)");
                 alert.showAndWait();
             }
         });
