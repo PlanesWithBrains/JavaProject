@@ -11,7 +11,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="800.0" prefWidth="1265.0" snapToPixel="false" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.StatisticController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="616.0" prefWidth="950.0" snapToPixel="false" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.StatisticController">
    <children>
       <SplitPane dividerPositions="0.9311258278145695" layoutX="25.0" layoutY="52.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="800.0" prefWidth="1265.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -21,7 +21,7 @@
                      <content>
                         <ScrollPane fx:id="scroll" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
                           <content>
-                            <AnchorPane fx:id="tabCountUsersModuls" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="659.0" prefWidth="1265.0" />
+                            <AnchorPane fx:id="tabCountUsersModuls" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="949.0" />
                           </content>
                         </ScrollPane>
                      </content>
@@ -30,7 +30,7 @@
                      <content>
                         <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
                           <content>
-                            <AnchorPane fx:id="tabCountUsersCountry" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="659.0" prefWidth="1265.0" />
+                            <AnchorPane fx:id="tabCountUsersCountry" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="949.0" />
                           </content>
                         </ScrollPane>
                      </content></Tab>
@@ -38,7 +38,7 @@
                      <content>
                         <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
                           <content>
-                            <AnchorPane fx:id="tabAvgTimeModuls" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="659.0" prefWidth="1265.0" />
+                            <AnchorPane fx:id="tabAvgTimeModuls" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="949.0" />
                           </content>
                         </ScrollPane>
                      </content></Tab>
@@ -46,17 +46,17 @@
                      <content>
                         <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
                           <content>
-                            <AnchorPane fx:id="tabTimeModuls" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="659.0" prefWidth="1265.0" />
+                            <AnchorPane fx:id="tabTimeModuls" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="949.0" />
                           </content>
                         </ScrollPane>
                      </content></Tab>
-                  <Tab text="Clients">
+                  <Tab fx:id="slcClients" text="Clients">
                      <content>
                         <SplitPane dividerPositions="0.5177865612648221" prefHeight="804.0" prefWidth="1920.0">
                           <items>
                               <ScrollPane prefHeight="868.0" prefWidth="731.0">
                                  <content>
-                                  <AnchorPane fx:id="tabClientsName" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="653.0" prefWidth="625.0" />
+                                  <AnchorPane fx:id="tabClientsName" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="478.0" prefWidth="448.0" />
                                  </content>
                                  <padding>
                                     <Insets left="15.0" />
@@ -64,7 +64,7 @@
                               </ScrollPane>
                             <AnchorPane fx:id="tabClientsMap" minHeight="0.0" minWidth="0.0" prefHeight="879.0" prefWidth="955.0">
                                  <children>
-                                    <ImageView fx:id="imageClient" fitHeight="611.0" fitWidth="553.0" layoutX="26.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="imageClient" fitHeight="387.0" fitWidth="411.0" layoutX="22.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
                                  </children></AnchorPane>
                           </items>
                         </SplitPane>
@@ -83,7 +83,7 @@
             </TabPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: TRANSPARENT;">
                <children>
-                  <TextArea fx:id="txtLogArea" prefHeight="363.0" prefWidth="1228.0" promptText="console log" style="-fx-background-color: TRANSPARENT;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <TextArea fx:id="txtLogArea" editable="false" prefHeight="363.0" prefWidth="1228.0" promptText="console log" style="-fx-background-color: TRANSPARENT;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
         </items>
@@ -98,8 +98,7 @@
             <MenuItem fx:id="btnSort" mnemonicParsing="false" text="Range" />
             <MenuItem fx:id="btnClose" mnemonicParsing="false" text="Close project" />
           <MenuItem fx:id="btnInfo" mnemonicParsing="false" text="Developers" />
-          <MenuItem fx:id="btnDebug" mnemonicParsing="false" text="Debug" />
-          <MenuItem fx:id="btnAutotest" mnemonicParsing="false" text="Autotest" />
+          <MenuItem fx:id="btnAutotest" mnemonicParsing="false" style="-fx-border-color: green;" text="Autotest" />
         </items>
       </MenuButton>
    </children>

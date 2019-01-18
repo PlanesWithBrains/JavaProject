@@ -1,6 +1,5 @@
 package Controllers;
 
-import Map.GoogleMap;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +7,6 @@ import javafx.geometry.Orientation;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -36,6 +34,7 @@ public class StatisticController  {
     private static boolean flagAdmin = false;
     private static String consoleLog = "";
     private static String str = "";
+    private static int flag = 1;
 
     BarChart<String,Number> module_time;
     BarChart<String,Number> module_tu;
@@ -85,6 +84,8 @@ public class StatisticController  {
 
     @FXML
     private Tab slcMap;
+    @FXML
+    private Tab slcClients;
 
     @FXML
     private TextArea txtLogArea;
@@ -128,6 +129,8 @@ public class StatisticController  {
             tabTimeModuls.getChildren().remove(0);
             btnClose.setDisable(true);
             tabPane.setDisable(true);
+            btnSort.setDisable(true);
+            flag = 1;
         });
         btnSort.setOnAction(event -> {
             ObservableList<Tab> tabs = tabPane.getTabs();
@@ -151,11 +154,10 @@ public class StatisticController  {
             stage.setResizable(false);
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
             stage.showAndWait();
-            refreshStat(2);
+            refreshStat(flag, true);
 
         });
         btnImportServer.setOnAction(event -> {
-            btnClose.setDisable(false);
             Parent root = null;
             try {
                 root = FXMLLoader.load(getClass().getResource("/FXML/load.fxml")); //загружаем fxml нового окна
@@ -171,11 +173,22 @@ public class StatisticController  {
             stage.setResizable(false);
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
             stage.showAndWait();
-            tabPane.setDisable(false);
-            refreshStat(1);
+            if(refreshStat(flag, true))
+            {
+                btnSort.setDisable(false);
+                btnClose.setDisable(false);
+                tabPane.setDisable(false);
+                flag++;
+            }
+            else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText("Ошибка импорта данных!");
+                alert.setContentText("Ошибка 322 - ошибка связи с сервером!");
+                alert.showAndWait();
+            }
         });
         btnImportFile.setOnAction(event -> {
-            btnClose.setDisable(false);
             FileChooser fc = new FileChooser();
             fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON files", "*.json"));
 
@@ -203,19 +216,54 @@ public class StatisticController  {
                     StatisticController.addConsoleLog(clients.toString() + "\n");
                 }
                 Statistic stat = new Statistic(temp);
-                tabPane.setDisable(false);
-                refreshStat(1);
+
+                if(temp.size() != 0)
+                {
+                    tabPane.setDisable(false);
+                    refreshStat(flag, false);
+                    btnSort.setDisable(false);
+                    btnClose.setDisable(false);
+                    flag++;
+                }
+                else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Dialog");
+                    alert.setHeaderText("Ошибка импорта данных!");
+                    alert.setContentText("Ошибка 322 - ошибка загрузки файла!");
+                    alert.showAndWait();
+                }
             }
         });
-        btnDebug.setOnAction(event -> {
-            //case 3
-            Program.property.setProperty("debug", Program.property.getProperty("debug").equals("true") ? "false" : "true");
-            Program.property.setProperty("log", Program.property.getProperty("log").equals("true") ? "false" : "true");
-            Program.log.revertChanges();
-        });
         btnAutotest.setOnAction(event -> {
-            //case 4
-            Program.property.setProperty("autotest", Program.property.getProperty("autotest").equals("true") ? "false" : "true");
+            File f = new File(getClass().getResource("/resources/test.json").getPath());
+            if (f!= null){
+                StatisticController.addConsoleLog("#load file: " + f.getAbsolutePath() + "\n");
+                String contents = "";
+                try {
+                    contents = new String(Files.readAllBytes(Paths.get(f.getAbsolutePath())));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                ArrayList<ClientData> temp = Program.LoadFile(contents);
+                for(ClientData clients : temp){
+                    StatisticController.addConsoleLog(clients.toString() + "\n");
+                }
+                Statistic stat = new Statistic(temp);
+                if(refreshStat(flag, false))
+                {
+                    btnSort.setDisable(false);
+                    btnClose.setDisable(false);
+                    tabPane.setDisable(false);
+                    flag++;
+                }
+                else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Dialog");
+                    alert.setHeaderText("Ошибка импорта данных!");
+                    alert.setContentText("Ошибка 322 - ошибка в автотестах!");
+                    alert.showAndWait();
+                }
+            }
         });
         btnInfo.setOnAction(event -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -231,49 +279,50 @@ public class StatisticController  {
 
     }
 
-    void refreshStat(int flag){
+    boolean refreshStat(int flag, boolean flagWrite){
         module_time = GetInstanceOfChart("",
                 "Hours",
                     "Amount of time spent in the modules",
-                Statistic.pairTime, count1);
+                Statistic.pairTime, 1);
         module_tu =  GetInstanceOfChart("",
                 "Hours",
                 "The average time of usage per user",
-                Statistic.pairTU, count2);
+                Statistic.pairTU, 2);
         module_addr =  GetInstanceOfChart("",
                 "Number of users",
                 "Number of users in cities",
-                Statistic.pairAdress, count3);
+                Statistic.pairAdress, 3);
         module_user =  GetInstanceOfChart("Module name",
                 "Number of users",
                 "Number of users in modules",
-                Statistic.pairUser, count4);
+                Statistic.pairUser, 4);
 
-        int prefWidth = 1265, prefHeight = 659;
+        int prefWidth = 949, prefHeight = 488;
+//HERE SIZE OF CATEGORIES
 
-        CategoryAxis axis = (CategoryAxis)module_time.getXAxis();
-        if (axis.getCategories().size() < 7){
-            module_time.setCategoryGap(600.0 / 7);
-        }
-        axis = (CategoryAxis)module_user.getXAxis();
-        if (axis.getCategories().size() < 7){
-            module_user.setCategoryGap(600.0 / 7);
-        }
-        axis = (CategoryAxis)module_tu.getXAxis();
-        if (axis.getCategories().size() < 7){
-            module_tu.setCategoryGap(600.0 / 7);
-        }
-        axis = (CategoryAxis)module_addr.getXAxis();
-        if (axis.getCategories().size() < 7){
-            module_addr.setCategoryGap(600.0 / 7);
-        }
+       // if (count1 < 10)
+        module_time.setCategoryGap(400.0 / count1 );
+       // if (count4 < 10)
+        module_user.setCategoryGap(400.0 / count4);
+      //  if (count2 < 10)
+        module_tu.setCategoryGap(400.0 / count2);
+     //   if (count3 < 10)
+        module_addr.setCategoryGap(400.0 / count3);
 
-        tabClientsName.setPrefSize(625,653);
-        module_time.setPrefSize(prefWidth + (count1 > 15 ? 20*(count1-15) : 0),prefHeight);
-        module_user.setPrefSize(prefWidth + (count2 > 15 ? 20*(count1-15) : 0),prefHeight);
-        module_tu.setPrefSize(prefWidth + (count3 > 15 ? 20*(count1-15) : 0),prefHeight);
-        module_addr.setPrefSize(prefWidth + (count4 > 15 ? 20*(count1-15) : 0),prefHeight);
-        tabMap.setPrefSize(prefWidth,prefWidth);
+        tabClientsName.setPrefSize(448,478);
+
+        module_time.setPrefSize(prefWidth + (count1 > 8 ? 20*(count1-8) : 0),prefHeight);
+        tabTimeModuls.setPrefSize(prefWidth + (count1 > 8 ? 20*(count1-8) : 0),prefHeight);
+
+        module_user.setPrefSize(prefWidth + (count4 > 8 ? 20*(count4-8) : 0),prefHeight);
+        tabCountUsersModuls.setPrefSize(prefWidth + (count4 > 8 ? 20*(count4-8) : 0),prefHeight);
+
+        module_tu.setPrefSize(prefWidth + (count2 > 8 ? 20*(count2-8) : 0),prefHeight);
+        tabAvgTimeModuls.setPrefSize(prefWidth + (count2 > 8 ? 20*(count2-8) : 0),prefHeight);
+
+        module_addr.setPrefSize(prefWidth + (count3 > 8 ? 20*(count3-8) : 0),prefHeight);
+        tabCountUsersCountry.setPrefSize(prefWidth + (count3 > 8 ? 20*(count3-8) : 0),prefHeight);
+       // tabMap.setPrefSize(prefWidth,prefWidth);
 
         if (flag != 1) {
             tabCountUsersModuls.getChildren().remove(0);
@@ -281,8 +330,9 @@ public class StatisticController  {
             tabAvgTimeModuls.getChildren().remove(0);
             tabTimeModuls.getChildren().remove(0);
             tabClientsName.getChildren().remove(0);
-            tabMap.getChildren().remove(0);
-            tabMap.getChildren().remove(1);
+          //  tabClientsName.getChildren().remove(1);
+          //  tabMap.getChildren().remove(0);
+
         }
         tabCountUsersModuls.getChildren().add(module_user);
         tabCountUsersCountry.getChildren().add(module_addr);
@@ -291,8 +341,9 @@ public class StatisticController  {
 
         //Images
         ArrayList<ClientData> clients = Program.getSortClients();
+        if (clients.size() == 0 && flagWrite) return false;
         FlowPane pane = new FlowPane(Orientation.VERTICAL);
-        pane.setPrefSize(625, 653);
+        pane.setPrefSize(448, 478);
         for (int i = 0; i < clients.size(); i++) {
             ClientData temp = clients.get(i);
             Hyperlink button = new Hyperlink(String.valueOf(clients.get(i).getUniqKey()));
@@ -313,15 +364,31 @@ public class StatisticController  {
                 }
 
         }
-        pane.getChildren().add(new Label("\n\nP.S. не все клиенты могут иметь распознанный адрес\nиз-за ограничений работы GeoIP"));
+        //pane.getChildren().add(new Label("\n\nP.S. не все клиенты могут иметь распознанный адрес\nиз-за ограничений работы GeoIP\nP.s.s. при загрузке из файла/автотестах актуальность по GeoIP\n не проверяется (она уже выполнена)"));
         tabClientsName.getChildren().add(pane);
+        if (!flagWrite){
+            slcClients.setOnSelectionChanged(event -> {
+                if (slcClients.isSelected()) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Dialog");
+                    alert.setHeaderText("Адресы клиентов не найдены!");
+                    alert.setContentText("Для определения адресов клиентов воспользуйтесь импортом через сервер! При импорте данных через файл/автотестах, локализация GeoIP не выполняется!");
+                    alert.showAndWait();
+                }
+            });
+        }
+        else
+            slcClients.setOnSelectionChanged(event -> {
+                if(slcClients.isSelected()){
 
+                }
+            });
         //Maps
         //UNCOMMIT when will do all , to not to pay money Google
-        GoogleMap map = new GoogleMap();
-        map.setWidth(1920);
-        map.setHeight(868);
-        tabMap.getChildren().add(map);
+       //GoogleMap map = new GoogleMap();
+        //map.setWidth(prefWidth);
+        //map.setHeight(prefHeight);
+       //tabMap.getChildren().add(map);
         slcMap.setOnSelectionChanged(event -> {
             if (slcMap.isSelected()) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -333,7 +400,7 @@ public class StatisticController  {
         });
 
         txtLogArea.setText(consoleLog);
-        btnSort.setDisable(false);
+        return true;
     }
 
     public static void setFlagUser(boolean pr) {flagAdmin = pr;}
