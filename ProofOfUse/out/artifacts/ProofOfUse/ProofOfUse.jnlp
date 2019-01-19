@@ -8,7 +8,8 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ProofOfUse.jar" size="2575773" download="eager" />
+    <jar href="ProofOfUse.jar" size="7634615" download="eager" />
+    <jar href="gson-2.8.5.jar" size="241622" download="eager" />
   </resources>
   <jfx:javafx-desc  width="600" height="400" main-class="sample.Program"  name="ProofOfUse" />
   <update check="background"/>

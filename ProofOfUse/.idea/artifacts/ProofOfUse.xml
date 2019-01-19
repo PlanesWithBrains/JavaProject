@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="javafx" name="ProofOfUse">
+  <artifact type="javafx" build-on-make="true" name="ProofOfUse">
     <output-path>$PROJECT_DIR$/out/artifacts/ProofOfUse</output-path>
     <properties id="javafx-properties">
       <options>
@@ -15,6 +15,7 @@
       <element id="archive" name="ProofOfUse.jar">
         <element id="module-output" name="ProofOfUse" />
       </element>
+      <element id="library" level="project" name="gson-2.8.5" />
     </root>
   </artifact>
 </component>

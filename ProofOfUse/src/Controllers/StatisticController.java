@@ -1,6 +1,5 @@
 package Controllers;
 
-import Map.GoogleMap;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +7,6 @@ import javafx.geometry.Orientation;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -36,6 +34,7 @@ public class StatisticController  {
     private static boolean flagAdmin = false;
     private static String consoleLog = "";
     private static String str = "";
+    private static int flag = 1;
 
     BarChart<String,Number> module_time;
     BarChart<String,Number> module_tu;
@@ -84,6 +83,11 @@ public class StatisticController  {
     private AnchorPane tabMap;
 
     @FXML
+    private Tab slcMap;
+    @FXML
+    private Tab slcClients;
+
+    @FXML
     private TextArea txtLogArea;
 
     @FXML
@@ -102,17 +106,14 @@ public class StatisticController  {
     private MenuItem btnInfo;
 
     @FXML
-    private MenuItem btnDebug;
-
-    @FXML
     private MenuItem btnAutotest;
 
 
     @FXML
     void initialize() {
+        tabPane.setDisable(true);
         if (flagAdmin){
             btnAutotest.setVisible(false);
-            btnDebug.setVisible(false);
         }
         btnSort.setDisable(true);
         btnClose.setDisable(true);
@@ -122,7 +123,14 @@ public class StatisticController  {
             tabCountUsersCountry.getChildren().remove(0);
             tabAvgTimeModuls.getChildren().remove(0);
             tabTimeModuls.getChildren().remove(0);
+            btnImportServer.setDisable(false);
+            btnImportFile.setDisable(false);
+            btnAutotest.setDisable(false);
             btnClose.setDisable(true);
+            tabPane.setDisable(true);
+            btnSort.setDisable(true);
+            clearPair();
+            flag = 1;
         });
         btnSort.setOnAction(event -> {
             ObservableList<Tab> tabs = tabPane.getTabs();
@@ -133,7 +141,7 @@ public class StatisticController  {
             RangeController.setNumber(activeTab);
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("../FXML/range.fxml")); //загружаем fxml нового окна
+                root = FXMLLoader.load(getClass().getResource("/FXML/range.fxml")); //загружаем fxml нового окна
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());
@@ -144,16 +152,17 @@ public class StatisticController  {
             stage.setTitle("Filter for range"); //название окна
             stage.setScene(scene);
             stage.setResizable(false);
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
             stage.showAndWait();
-            refreshStat(2);
-
+            refreshStat(flag, true);
+                btnImportFile.setDisable(true);
+                btnImportServer.setDisable(true);
+                btnAutotest.setDisable(true);
         });
         btnImportServer.setOnAction(event -> {
-            btnClose.setDisable(false);
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("../FXML/load.fxml")); //загружаем fxml нового окна
+                root = FXMLLoader.load(getClass().getResource("/FXML/load.fxml")); //загружаем fxml нового окна
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());
@@ -164,12 +173,24 @@ public class StatisticController  {
             stage.setTitle("Import file from server"); //название окна
             stage.setScene(scene);
             stage.setResizable(false);
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
             stage.showAndWait();
-            refreshStat(1);
+            if(refreshStat(flag, true))
+            {
+                btnSort.setDisable(false);
+                btnClose.setDisable(false);
+                tabPane.setDisable(false);
+                flag++;
+            }
+            else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText("Ошибка импорта данных!");
+                alert.setContentText("Ошибка 322 - ошибка связи с сервером!");
+                alert.showAndWait();
+            }
         });
         btnImportFile.setOnAction(event -> {
-            btnClose.setDisable(false);
             FileChooser fc = new FileChooser();
             fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON files", "*.json"));
 
@@ -197,18 +218,54 @@ public class StatisticController  {
                     StatisticController.addConsoleLog(clients.toString() + "\n");
                 }
                 Statistic stat = new Statistic(temp);
-                refreshStat(1);
+
+                if(temp.size() != 0)
+                {
+                    tabPane.setDisable(false);
+                    refreshStat(flag, false);
+                    btnSort.setDisable(false);
+                    btnClose.setDisable(false);
+                    flag++;
+                }
+                else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Dialog");
+                    alert.setHeaderText("Ошибка импорта данных!");
+                    alert.setContentText("Ошибка 322 - ошибка загрузки файла!");
+                    alert.showAndWait();
+                }
             }
         });
-        btnDebug.setOnAction(event -> {
-            //case 3
-            Program.property.setProperty("debug", Program.property.getProperty("debug").equals("true") ? "false" : "true");
-            Program.property.setProperty("log", Program.property.getProperty("log").equals("true") ? "false" : "true");
-            Program.log.revertChanges();
-        });
         btnAutotest.setOnAction(event -> {
-            //case 4
-            Program.property.setProperty("autotest", Program.property.getProperty("autotest").equals("true") ? "false" : "true");
+            File f = new File(getClass().getResource("/resources/test.json").getPath());
+            if (f!= null){
+                StatisticController.addConsoleLog("#load file: " + f.getAbsolutePath() + "\n");
+                String contents = "";
+                try {
+                    contents = new String(Files.readAllBytes(Paths.get(f.getAbsolutePath())));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                ArrayList<ClientData> temp = Program.LoadFile(contents);
+                for(ClientData clients : temp){
+                    StatisticController.addConsoleLog(clients.toString() + "\n");
+                }
+                Statistic stat = new Statistic(temp);
+                if(refreshStat(flag, false))
+                {
+                    btnSort.setDisable(false);
+                    btnClose.setDisable(false);
+                    tabPane.setDisable(false);
+                    flag++;
+                }
+                else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Dialog");
+                    alert.setHeaderText("Ошибка импорта данных!");
+                    alert.setContentText("Ошибка 322 - ошибка в автотестах!");
+                    alert.showAndWait();
+                }
+            }
         });
         btnInfo.setOnAction(event -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -216,57 +273,64 @@ public class StatisticController  {
             alert.setHeaderText("DEVELOPERS:");
             alert.setContentText("Alex Umanskiy\treadysloth@protonmail.com\nSolovev Dmitry\tchrome266@gmail.com\nAnton Ablamskiy\tablamskiy98@gmail.com");
            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image(Program.class.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
+            stage.getIcons().add(new Image(Program.class.getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
             alert.showAndWait();
         });
 
 
 
     }
+    void clearPair(){
+        Statistic.pairTime = null;
+        Statistic.pairUser = null;
+        Statistic.pairAdress = null;
+        Statistic.pairTU = null;
+    }
 
-    void refreshStat(int flag){
+    boolean refreshStat(int flag, boolean flagWrite){
         module_time = GetInstanceOfChart("",
                 "Hours",
                     "Amount of time spent in the modules",
-                Statistic.pairTime, count1);
+                Statistic.pairTime, 1);
         module_tu =  GetInstanceOfChart("",
                 "Hours",
                 "The average time of usage per user",
-                Statistic.pairTU, count2);
+                Statistic.pairTU, 2);
         module_addr =  GetInstanceOfChart("",
                 "Number of users",
                 "Number of users in cities",
-                Statistic.pairAdress, count3);
+                Statistic.pairAdress, 3);
         module_user =  GetInstanceOfChart("Module name",
                 "Number of users",
-                "Number of users in moduls",
-                Statistic.pairUser, count4);
+                "Number of users in modules",
+                Statistic.pairUser, 4);
 
-        int prefWidth = 1920, prefHeight = 868;
+        int prefWidth = 949, prefHeight = 488;
+//HERE SIZE OF CATEGORIES
 
-        CategoryAxis axis = (CategoryAxis)module_time.getXAxis();
-        if (axis.getCategories().size() < 7){
-            module_time.setCategoryGap(600.0 / 7);
-        }
-        axis = (CategoryAxis)module_user.getXAxis();
-        if (axis.getCategories().size() < 7){
-            module_user.setCategoryGap(600.0 / 7);
-        }
-        axis = (CategoryAxis)module_tu.getXAxis();
-        if (axis.getCategories().size() < 7){
-            module_tu.setCategoryGap(600.0 / 7);
-        }
-        axis = (CategoryAxis)module_addr.getXAxis();
-        if (axis.getCategories().size() < 7){
-            module_addr.setCategoryGap(600.0 / 7);
-        }
+       // if (count1 < 10)
+        module_time.setCategoryGap(400.0 / count1 );
+       // if (count4 < 10)
+        module_user.setCategoryGap(400.0 / count4);
+      //  if (count2 < 10)
+        module_tu.setCategoryGap(400.0 / count2);
+     //   if (count3 < 10)
+        module_addr.setCategoryGap(400.0 / count3);
 
-        tabClientsName.setPrefSize(632,838);
-        module_time.setPrefSize(prefWidth + (count1 > 15 ? 20*(count1-15) : 0),868);
-        module_user.setPrefSize(1920 + (count2 > 15 ? 20*(count1-15) : 0),868);
-        module_tu.setPrefSize(1920 + (count3 > 15 ? 20*(count1-15) : 0),868);
-        module_addr.setPrefSize(1920 + (count4 > 15 ? 20*(count1-15) : 0),868);
-        tabMap.setPrefSize(1920,868);
+        tabClientsName.setPrefSize(448,478);
+
+        module_time.setPrefSize(prefWidth + (count1 > 8 ? 20*(count1-8) : 0),prefHeight);
+        tabTimeModuls.setPrefSize(prefWidth + (count1 > 8 ? 20*(count1-8) : 0),prefHeight);
+
+        module_user.setPrefSize(prefWidth + (count4 > 8 ? 20*(count4-8) : 0),prefHeight);
+        tabCountUsersModuls.setPrefSize(prefWidth + (count4 > 8 ? 20*(count4-8) : 0),prefHeight);
+
+        module_tu.setPrefSize(prefWidth + (count2 > 8 ? 20*(count2-8) : 0),prefHeight);
+        tabAvgTimeModuls.setPrefSize(prefWidth + (count2 > 8 ? 20*(count2-8) : 0),prefHeight);
+
+        module_addr.setPrefSize(prefWidth + (count3 > 8 ? 20*(count3-8) : 0),prefHeight);
+        tabCountUsersCountry.setPrefSize(prefWidth + (count3 > 8 ? 20*(count3-8) : 0),prefHeight);
+       // tabMap.setPrefSize(prefWidth,prefWidth);
 
         if (flag != 1) {
             tabCountUsersModuls.getChildren().remove(0);
@@ -274,7 +338,9 @@ public class StatisticController  {
             tabAvgTimeModuls.getChildren().remove(0);
             tabTimeModuls.getChildren().remove(0);
             tabClientsName.getChildren().remove(0);
-            tabMap.getChildren().remove(0);
+          //  tabClientsName.getChildren().remove(1);
+          //  tabMap.getChildren().remove(0);
+
         }
         tabCountUsersModuls.getChildren().add(module_user);
         tabCountUsersCountry.getChildren().add(module_addr);
@@ -283,8 +349,9 @@ public class StatisticController  {
 
         //Images
         ArrayList<ClientData> clients = Program.getSortClients();
+        if (clients.size() == 0 && flagWrite) return false;
         FlowPane pane = new FlowPane(Orientation.VERTICAL);
-        pane.setPrefSize(632, 838);
+        pane.setPrefSize(448, 478);
         for (int i = 0; i < clients.size(); i++) {
             ClientData temp = clients.get(i);
             Hyperlink button = new Hyperlink(String.valueOf(clients.get(i).getUniqKey()));
@@ -305,17 +372,43 @@ public class StatisticController  {
                 }
 
         }
+        //pane.getChildren().add(new Label("\n\nP.S. не все клиенты могут иметь распознанный адрес\nиз-за ограничений работы GeoIP\nP.s.s. при загрузке из файла/автотестах актуальность по GeoIP\n не проверяется (она уже выполнена)"));
         tabClientsName.getChildren().add(pane);
+        if (!flagWrite){
+            slcClients.setOnSelectionChanged(event -> {
+                if (slcClients.isSelected()) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Dialog");
+                    alert.setHeaderText("Адресы клиентов не найдены!");
+                    alert.setContentText("Для определения адресов клиентов воспользуйтесь импортом через сервер! При импорте данных через файл/автотестах, локализация GeoIP не выполняется!");
+                    alert.showAndWait();
+                }
+            });
+        }
+        else
+            slcClients.setOnSelectionChanged(event -> {
+                if(slcClients.isSelected()){
 
+                }
+            });
         //Maps
         //UNCOMMIT when will do all , to not to pay money Google
-        GoogleMap map = new GoogleMap();
-        map.setWidth(1920);
-        map.setHeight(868);
-        tabMap.getChildren().add(map);
+       //GoogleMap map = new GoogleMap();
+        //map.setWidth(prefWidth);
+        //map.setHeight(prefHeight);
+       //tabMap.getChildren().add(map);
+        slcMap.setOnSelectionChanged(event -> {
+            if (slcMap.isSelected()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText("Карта отключена!");
+                alert.setContentText("Простите, но мы уже отключили карту в приложении, с целью не платить за демо-период googleMaps. Можете посмотреть метки на карте в файле map.html - он находится в папке рядом с jar-ником (метки активны, только пока работает программа)");
+                alert.showAndWait();
+            }
+        });
 
         txtLogArea.setText(consoleLog);
-        btnSort.setDisable(false);
+        return true;
     }
 
     public static void setFlagUser(boolean pr) {flagAdmin = pr;}
@@ -342,8 +435,7 @@ public class StatisticController  {
             }
         }
     String addMarker(double lan, double lon, String str) throws IOException {
-        String PATH = getClass().getResource("../Map/map.html").toExternalForm();
-        PATH = PATH.substring(6, PATH.length());
+        String PATH = "./map.html";
         String contents = new String(Files.readAllBytes(Paths.get(PATH)));
         String res = contents.substring(0,519) + "[\r\n";
         res += "        ['"+str+"', "+lan+","+lon+"],\n";
@@ -363,8 +455,7 @@ public class StatisticController  {
     }
     static public void saveHTML() {
         if (str != ""){
-            String PATH = StatisticController.class.getResource("../Map/map.html").toExternalForm();
-            PATH = PATH.substring(6, PATH.length());
+            String PATH = "./map.html";
             PrintWriter writer = null;
             try {
                 writer = new PrintWriter(PATH, "UTF-8");

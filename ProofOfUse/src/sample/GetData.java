@@ -3,6 +3,8 @@ package sample;
 import java.io.InputStream;
 import java.net.Inet4Address;
 import java.net.Socket;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.nio.charset.Charset;
 import java.util.logging.Level;
 
@@ -38,7 +40,10 @@ public class GetData {
         try {
             istream = connect2Server.getInputStream();
             try {
-                 connect2Server.getOutputStream().write(-1);
+                if(VerifyData)
+                    connect2Server.getOutputStream().write(2);
+                else
+                    connect2Server.getOutputStream().write(-1);
             }
             catch (Exception E){
                 log.log(Level.INFO, "VerifyData response failed");
@@ -74,6 +79,16 @@ public class GetData {
         boolean identical = false;
         try {
             connect2Server.getOutputStream().write(1);
+            if(VerifyData) {
+                byte[] raw_hash = new byte[connect2Server.getReceiveBufferSize()];
+                connect2Server.getInputStream().read(raw_hash);
+                ByteBuffer bb = ByteBuffer.wrap(raw_hash);
+
+                int recieved_hash = bb.order(ByteOrder.LITTLE_ENDIAN).getInt();
+                log.log(Level.INFO, "Revieved hash: " + recieved_hash + " Hash of local: " + previousClient.hashCode());
+                if (previousClient.hashCode() == recieved_hash)
+                    identical = true;
+            }
         }
         catch (Exception e){
             log.log(Level.INFO, "Error occured during conversation with server");

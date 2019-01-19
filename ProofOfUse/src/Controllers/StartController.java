@@ -81,19 +81,19 @@ public class StartController {
         });
 
         btnChangeUser.setOnAction(event -> {
-            btnChangeUser.getScene().getWindow().hide(); //скрыть старое окно
-            StartController.flagNewUser = false; //флаг того, что форма открывается на ввод данных нового пользователя
+            btnChangeUser.getScene().getWindow().hide(); //ñêðûòü ñòàðîå îêíî
+            StartController.flagNewUser = false; //ôëàã òîãî, ÷òî ôîðìà îòêðûâàåòñÿ íà ââîä äàííûõ íîâîãî ïîëüçîâàòåëÿ
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("../FXML/start.fxml")); //загружаем fxml нового окна
+                root = FXMLLoader.load(getClass().getResource("/FXML/start.fxml")); //çàãðóæàåì fxml íîâîãî îêíà
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());
             }
 
-            Scene scene = new Scene(root); //выставляем его размеры
-            Stage stage = new Stage(); //хуйня чисто для scene builder
-            stage.setTitle("Start new user"); //название окна
+            Scene scene = new Scene(root); //âûñòàâëÿåì åãî ðàçìåðû
+            Stage stage = new Stage(); //õóéíÿ ÷èñòî äëÿ scene builder
+            stage.setTitle("Start new user"); //íàçâàíèå îêíà
             stage.setScene(scene);
             stage.setResizable(false);
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -113,12 +113,12 @@ public class StartController {
         switch (priv) {
             case user: {
                 StatisticController.setFlagUser(true);
-                loadStatistic("MENU USER", clases);
+                loadStatistic("Proof of Use", clases);
                 break;
             }
             case root: {
                 StatisticController.setFlagUser(false);
-                loadStatistic("MENU ADMIN", clases);
+                loadStatistic("Proof of Use (Admin)", clases);
                 break;
             }
             case wrong_pass: {
@@ -136,20 +136,20 @@ public class StartController {
     public static User.Priveledge Verify(User user, Properties property) {
         Program.log.info("Verifying entered data");
 
-        /*получаем в строку свойства для введенного ника*/
+        /*ïîëó÷àåì â ñòðîêó ñâîéñòâà äëÿ ââåäåííîãî íèêà*/
         String props = property.getProperty(user.getName());
 
-        /*если чтение свойства вернуло null, то свойство не прочиталось*/
+        /*åñëè ÷òåíèå ñâîéñòâà âåðíóëî null, òî ñâîéñòâî íå ïðî÷èòàëîñü*/
         if(props == null) {
             Program.log.log(Level.INFO, "Wrong username or encoding error in config.ini");
             return User.Priveledge.wrong_login;
         }
 
-		/*в массив userData на [0] положится пароль из конфига
-		  а на [1] его привелегия в виде строки*/
+		/*â ìàññèâ userData íà [0] ïîëîæèòñÿ ïàðîëü èç êîíôèãà
+		  à íà [1] åãî ïðèâåëåãèÿ â âèäå ñòðîêè*/
         String[] userData = props.split(",");
 
-        /*формируем из строки привелегии enum и кладем его в user`а*/
+        /*ôîðìèðóåì èç ñòðîêè ïðèâåëåãèè enum è êëàäåì åãî â user`à*/
         user.setPriveledge(User.Priveledge.valueOf(userData[1]));
         if(userData[0].equals(user.getPassword()))
             return user.getPriveledge();
@@ -170,17 +170,17 @@ public class StartController {
     static void loadStatistic(String title, Class clases){
         Parent root = null;
         try {
-            root = FXMLLoader.load(clases.getResource("../FXML/statistic.fxml")); //загружаем fxml нового окна
+            root = FXMLLoader.load(clases.getResource("/FXML/statistic.fxml")); //çàãðóæàåì fxml íîâîãî îêíà
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
         }
-        Scene scene = new Scene(root); //выставляем его размеры
-        Stage stage = new Stage(); //хуйня чисто для scene builder
-        stage.setTitle(title); //название окна
+        Scene scene = new Scene(root); //âûñòàâëÿåì åãî ðàçìåðû
+        Stage stage = new Stage(); //õóéíÿ ÷èñòî äëÿ scene builder
+        stage.setTitle(title); //íàçâàíèå îêíà
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.getIcons().add(new Image(clases.getResourceAsStream("../ImagesAndFonts/LOGOJAVA.png")));
+        stage.getIcons().add(new Image(clases.getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {

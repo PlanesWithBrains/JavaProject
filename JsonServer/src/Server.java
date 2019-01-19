@@ -1,18 +1,17 @@
-import com.google.gson.Gson;
-import com.sun.security.ntlm.Client;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
-import java.io.InputStream;
 import java.net.*;
 import java.lang.*;
 import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
-import java.util.*;
 import java.util.logging.*;
 
-public class Server {
+public class Server{
 
     public static boolean FAST = false;
     static ServerSocket server;
@@ -63,40 +62,39 @@ public class Server {
             connection.getOutputStream().write(0);
         } catch (Exception e) {}
     }
-
     public static void main(String[] args) {
         while (true) {
-            ServerStart(8010);
+            Server.ServerStart(8010);
             StringBuilder file_content = new StringBuilder();
 
             for (int i = 0; i < 10; i++) {
-                String json = SendJson();
+                String json = Server.SendJson();
                 file_content.append(json);
                 file_content.append(System.getProperty("line.separator"));
-                log.log(Level.INFO, "Sent json number " + i + " " + json.substring(0, json.indexOf("}")) + " ...");
-
+                Server.log.log(Level.INFO, "Sent json number " + i + " " + json.substring(0, json.indexOf("}")) + " ...");
                 try {
-                    while (connection.getInputStream().read() != 1) ;
+                    while (Server.connection.getInputStream().read() != 1) ;
 
-                    if (VerifyingData && i % 2 == 0) {
+                    if (Server.VerifyingData && i % 2 == 0) {
                         byte[] hash = ByteBuffer.allocate(4).putInt(json.hashCode()).array();
 
-                        log.log(Level.INFO, "Hash " + json.hashCode());
-                        connection.getOutputStream().write(hash);
+                        Server.log.log(Level.INFO, "Hash " + json.hashCode());
+                        Server.connection.getOutputStream().write(hash);
                     }
                 } catch (Exception e) {
-                    log.log(Level.INFO, "Error occured during waiting");
+                    Server.log.log(Level.INFO, "Error occured during waiting");
                     return;
                 }
             }
-            WriteTerminator();
+            Server.WriteTerminator();
             try {
                 BufferedWriter writer = new BufferedWriter(new FileWriter("server_out_"+file_content.hashCode()+".json"));
                 writer.write(file_content.toString());
                 writer.close();
             }
             catch (Exception e){}
-            ServerClose();
+            Server.ServerClose();
         }
+
     }
 }
