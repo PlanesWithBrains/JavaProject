@@ -2,6 +2,7 @@ package Controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import sample.Statistic;
 
@@ -11,6 +12,8 @@ import java.util.ResourceBundle;
 
 public class RangeController {
     static  private  int number = 1;
+    static  private int bot = 0;
+    static private int top;
 
     @FXML
     private ResourceBundle resources;
@@ -28,19 +31,48 @@ public class RangeController {
     private Button btnRange;
 
     @FXML
-    void initialize() {
+    private CheckBox chkBelow;
 
+    @FXML
+    private CheckBox chkOver;
+
+    @FXML
+    void initialize() {
+       chkBelow.setOnAction(event -> {
+           if (chkBelow.isSelected())
+            fldBot.setDisable(false);
+           else
+               fldBot.setDisable(true);
+       });
+       chkOver.setOnAction(event -> {
+           if (chkOver.isSelected())
+               fldTOP.setDisable(false);
+           else
+               fldTOP.setDisable(true);
+       });
 
         btnRange.setOnAction(event -> {
             final Object topBorder, botBorder, topBorderDur, botBorderDur;
             Double doubleTBorder, doubleBBorder;
-            doubleTBorder = Double.valueOf(fldTOP.getText());
-            doubleBBorder = Double.valueOf(fldBot.getText());
+            if (chkOver.isSelected()) {
+                doubleTBorder = Double.valueOf(fldTOP.getText());
+                topBorder = doubleTBorder.intValue();
+                topBorderDur = Duration.ofHours((int) topBorder);
+            }
+            else {
+                topBorder = null;
+                topBorderDur = null;
+            }
+            if (chkBelow.isSelected()) {
+                doubleBBorder = Double.valueOf(fldBot.getText());
+                botBorder = doubleBBorder.intValue();
+                botBorderDur = Duration.ofHours((int) botBorder);
+            }
+            else {
+                botBorder = 0;
+                botBorderDur = Duration.ofHours(0);
+            }
 
-            topBorder = doubleTBorder.intValue();
-            botBorder = doubleBBorder.intValue();
-            topBorderDur = Duration.ofHours((int) topBorder);
-            botBorderDur = Duration.ofHours((int) botBorder);
                 switch (number) {
                     case 1: {
                         Statistic.RangeSelection(botBorder, topBorder, Statistic.pairUser);

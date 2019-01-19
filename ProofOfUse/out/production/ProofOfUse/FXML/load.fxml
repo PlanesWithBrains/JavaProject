@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="116.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoadController">
+<AnchorPane prefHeight="116.0" prefWidth="600.0" style="-fx-background-color: #e0e0e0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoadController">
    <children>
       <ImageView fx:id="imgLoad" fitHeight="91.0" fitWidth="104.0" layoutX="478.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -18,6 +18,6 @@
       <TextField fx:id="fldPort" layoutX="246.0" layoutY="46.0" prefHeight="31.0" prefWidth="67.0" text="8010" />
       <Text layoutX="134.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IP" />
       <Text layoutX="266.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Port" />
-      <Button fx:id="btnLoad" layoutX="340.0" layoutY="46.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="91.0" text="Load" />
+      <Button fx:id="btnLoad" layoutX="340.0" layoutY="46.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="91.0" text="Загрузить" />
    </children>
 </AnchorPane>

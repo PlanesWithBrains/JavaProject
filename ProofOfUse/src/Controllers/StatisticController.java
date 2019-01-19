@@ -281,7 +281,10 @@ public class StatisticController  {
             alert.setContentText("Alex Umanskiy\treadysloth@protonmail.com\nSolovev Dmitry\tchrome266@gmail.com\nAnton Ablamskiy\tablamskiy98@gmail.com");
             Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
             stage.getIcons().add(new Image(Program.class.getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
+            //alert.getDialogPane().lookupButton(ButtonType.OK).setDisable(true);
             alert.showAndWait();
+
+
         });
 
 
