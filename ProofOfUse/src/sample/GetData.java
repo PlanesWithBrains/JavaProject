@@ -98,7 +98,7 @@ public class GetData {
         return new boolean[]{true,identical};
     }
 
-    static void revertChanges(){
-        VerifyData = !VerifyData;
+    static void BreakConnection(){
+        connectionEstablished = false;
     }
 }

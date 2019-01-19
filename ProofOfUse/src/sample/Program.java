@@ -189,6 +189,7 @@ public class Program extends Application {
 		};
 		new Thread(recieve_data).run();
 
+		GetData.BreakConnection();
 		for (int i = 0;i < Program.gen_collection.getCollection().size();i++){
 			String log = Program.gen_collection.getCollection().values().toArray()[i].toString() + "\n";
 			/*Image img = new ClientData().

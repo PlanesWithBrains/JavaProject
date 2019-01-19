@@ -7,6 +7,10 @@ import javafx.geometry.Orientation;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
+import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,6 +22,7 @@ import sample.ClientData;
 import sample.Program;
 import sample.Statistic;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -107,6 +112,8 @@ public class StatisticController  {
 
     @FXML
     private MenuItem btnAutotest;
+    @FXML
+    private Button btnOpenMap;
 
 
     @FXML
@@ -155,9 +162,9 @@ public class StatisticController  {
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
             stage.showAndWait();
             refreshStat(flag, true);
-                btnImportFile.setDisable(true);
-                btnImportServer.setDisable(true);
-                btnAutotest.setDisable(true);
+            btnImportFile.setDisable(true);
+            btnImportServer.setDisable(true);
+            btnAutotest.setDisable(true);
         });
         btnImportServer.setOnAction(event -> {
             Parent root = null;
@@ -185,8 +192,8 @@ public class StatisticController  {
             else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
-                alert.setHeaderText("Ошибка импорта данных!");
-                alert.setContentText("Ошибка 322 - ошибка связи с сервером!");
+                alert.setHeaderText("Error importing data!");
+                alert.setContentText("Error 322 - error communicating with the server!");
                 alert.showAndWait();
             }
         });
@@ -230,14 +237,14 @@ public class StatisticController  {
                 else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information Dialog");
-                    alert.setHeaderText("Ошибка импорта данных!");
-                    alert.setContentText("Ошибка 322 - ошибка загрузки файла!");
+                    alert.setHeaderText("Error importing data!");
+                    alert.setContentText("Error 228 - error loading file!");
                     alert.showAndWait();
                 }
             }
         });
         btnAutotest.setOnAction(event -> {
-            File f = new File(getClass().getResource("/resources/test.json").getPath());
+            File f = new File("./test.json");
             if (f!= null){
                 StatisticController.addConsoleLog("#load file: " + f.getAbsolutePath() + "\n");
                 String contents = "";
@@ -261,8 +268,8 @@ public class StatisticController  {
                 else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information Dialog");
-                    alert.setHeaderText("Ошибка импорта данных!");
-                    alert.setContentText("Ошибка 322 - ошибка в автотестах!");
+                    alert.setHeaderText("Error importing data!");
+                    alert.setContentText("Error 148 error in the AutoTests!");
                     alert.showAndWait();
                 }
             }
@@ -272,7 +279,7 @@ public class StatisticController  {
             alert.setTitle("Information of developers");
             alert.setHeaderText("DEVELOPERS:");
             alert.setContentText("Alex Umanskiy\treadysloth@protonmail.com\nSolovev Dmitry\tchrome266@gmail.com\nAnton Ablamskiy\tablamskiy98@gmail.com");
-           Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
             stage.getIcons().add(new Image(Program.class.getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
             alert.showAndWait();
         });
@@ -290,7 +297,7 @@ public class StatisticController  {
     boolean refreshStat(int flag, boolean flagWrite){
         module_time = GetInstanceOfChart("",
                 "Hours",
-                    "Amount of time spent in the modules",
+                "Amount of time spent in the modules",
                 Statistic.pairTime, 1);
         module_tu =  GetInstanceOfChart("",
                 "Hours",
@@ -308,13 +315,13 @@ public class StatisticController  {
         int prefWidth = 949, prefHeight = 488;
 //HERE SIZE OF CATEGORIES
 
-       // if (count1 < 10)
+        // if (count1 < 10)
         module_time.setCategoryGap(400.0 / count1 );
-       // if (count4 < 10)
+        // if (count4 < 10)
         module_user.setCategoryGap(400.0 / count4);
-      //  if (count2 < 10)
+        //  if (count2 < 10)
         module_tu.setCategoryGap(400.0 / count2);
-     //   if (count3 < 10)
+        //   if (count3 < 10)
         module_addr.setCategoryGap(400.0 / count3);
 
         tabClientsName.setPrefSize(448,478);
@@ -330,7 +337,7 @@ public class StatisticController  {
 
         module_addr.setPrefSize(prefWidth + (count3 > 8 ? 20*(count3-8) : 0),prefHeight);
         tabCountUsersCountry.setPrefSize(prefWidth + (count3 > 8 ? 20*(count3-8) : 0),prefHeight);
-       // tabMap.setPrefSize(prefWidth,prefWidth);
+        // tabMap.setPrefSize(prefWidth,prefWidth);
 
         if (flag != 1) {
             tabCountUsersModuls.getChildren().remove(0);
@@ -338,8 +345,8 @@ public class StatisticController  {
             tabAvgTimeModuls.getChildren().remove(0);
             tabTimeModuls.getChildren().remove(0);
             tabClientsName.getChildren().remove(0);
-          //  tabClientsName.getChildren().remove(1);
-          //  tabMap.getChildren().remove(0);
+            //  tabClientsName.getChildren().remove(1);
+            //  tabMap.getChildren().remove(0);
 
         }
         tabCountUsersModuls.getChildren().add(module_user);
@@ -379,8 +386,8 @@ public class StatisticController  {
                 if (slcClients.isSelected()) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information Dialog");
-                    alert.setHeaderText("Адресы клиентов не найдены!");
-                    alert.setContentText("Для определения адресов клиентов воспользуйтесь импортом через сервер! При импорте данных через файл/автотестах, локализация GeoIP не выполняется!");
+                    alert.setHeaderText("No customer addresses found!");
+                    alert.setContentText("To determine customer addresses, use the import via the server! When importing data via file/AutoTest, GeoIP localization is not performed!");
                     alert.showAndWait();
                 }
             });
@@ -393,17 +400,17 @@ public class StatisticController  {
             });
         //Maps
         //UNCOMMIT when will do all , to not to pay money Google
-       //GoogleMap map = new GoogleMap();
+        //GoogleMap map = new GoogleMap();
         //map.setWidth(prefWidth);
         //map.setHeight(prefHeight);
-       //tabMap.getChildren().add(map);
-        slcMap.setOnSelectionChanged(event -> {
-            if (slcMap.isSelected()) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Information Dialog");
-                alert.setHeaderText("Карта отключена!");
-                alert.setContentText("Простите, но мы уже отключили карту в приложении, с целью не платить за демо-период googleMaps. Можете посмотреть метки на карте в файле map.html - он находится в папке рядом с jar-ником (метки активны, только пока работает программа)");
-                alert.showAndWait();
+        //tabMap.getChildren().add(map);
+        btnOpenMap.setOnAction(event -> {
+            File htmlFile = new File("map.html");
+            try {
+                Desktop.getDesktop().browse(htmlFile.toURI());
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
         });
 
@@ -416,24 +423,24 @@ public class StatisticController  {
         consoleLog = str + consoleLog;
     }
     public static void setCount(int number, int count) {
-            switch (number){
-                case 1: {
-                    count1 = count;
-                    break;
-                }
-                case 2:{
-                    count2 = count;
-                    break;
-                }
-                case 3:{
-                    count3 = count;
-                    break;
-                }
-                case 4: {
-                    count4 = count;
-                }
+        switch (number){
+            case 1: {
+                count1 = count;
+                break;
+            }
+            case 2:{
+                count2 = count;
+                break;
+            }
+            case 3:{
+                count3 = count;
+                break;
+            }
+            case 4: {
+                count4 = count;
             }
         }
+    }
     String addMarker(double lan, double lon, String str) throws IOException {
         String PATH = "./map.html";
         String contents = new String(Files.readAllBytes(Paths.get(PATH)));

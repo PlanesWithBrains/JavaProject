@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
@@ -10,6 +11,8 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="616.0" prefWidth="950.0" snapToPixel="false" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.StatisticController">
    <children>
@@ -72,11 +75,20 @@
                   </Tab>
                   <Tab fx:id="slcMap" text="Map">
                      <content>
-                        <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
-                           <content>
-                              <AnchorPane fx:id="tabMap" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="868.0" prefWidth="1920.0" />
-                           </content>
-                        </ScrollPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btnOpenMap" layoutX="417.0" layoutY="245.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="116.0" text="Open">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Text layoutX="116.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sorry, but we have already removed the support map directly in the application&#10;(so as not to pay for the demo period google Maps $)&#10;&#10;Want to open the map in a browser?" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
                      </content>
                   </Tab>
               </tabs>
