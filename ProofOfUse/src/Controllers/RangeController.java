@@ -33,9 +33,12 @@ public class RangeController {
 
         btnRange.setOnAction(event -> {
             final Object topBorder, botBorder, topBorderDur, botBorderDur;
+            Double doubleTBorder, doubleBBorder;
+            doubleTBorder = Double.valueOf(fldTOP.getText());
+            doubleBBorder = Double.valueOf(fldBot.getText());
 
-            topBorder = Integer.valueOf(fldTOP.getText());
-            botBorder = Integer.valueOf(fldBot.getText());
+            topBorder = doubleTBorder.intValue();
+            botBorder = doubleBBorder.intValue();
             topBorderDur = Duration.ofHours((int) topBorder);
             botBorderDur = Duration.ofHours((int) botBorder);
                 switch (number) {
