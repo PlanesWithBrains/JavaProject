@@ -187,9 +187,9 @@ public class Program extends Application {
 					System.err.println("Object " + lclient.hashCode() + " recieved correctly");
 			} while (result_of_conversation[0]);
 		};
-		new Thread(recieve_data).run();
+		new Thread(recieve_data).start();
 
-		GetData.BreakConnection();
+
 		for (int i = 0;i < Program.gen_collection.getCollection().size();i++){
 			String log = Program.gen_collection.getCollection().values().toArray()[i].toString() + "\n";
 			/*Image img = new ClientData().
@@ -198,6 +198,8 @@ public class Program extends Application {
 			StatisticController.addConsoleLog(log);
 		}
 
+
+		GetData.BreakConnection();
 		Collection<ArrayList<ClientData>> temp_map = gen_collection.collection.values();
 		ArrayList<ClientData> DataArray = new ArrayList<ClientData>();
 		for(ArrayList<ClientData> clients : temp_map) {

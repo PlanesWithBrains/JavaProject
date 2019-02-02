@@ -9,6 +9,12 @@ public class Pairs <A,B>{// переписанный pair для хранени�
         _1 = a;
         _2 = b;
     }
+
+    public Pairs(Pairs<A,B> toCopy){
+        this._1 = toCopy._1;
+        this._2 = toCopy._2;
+    }
+
     public boolean equals(Pairs<A,B> that){
         return (_1.equals(that._1));
     }

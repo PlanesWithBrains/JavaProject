@@ -7,11 +7,11 @@ import javafx.geometry.Orientation;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -19,6 +19,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import sample.ClientData;
+import sample.Pairs;
 import sample.Program;
 import sample.Statistic;
 
@@ -31,10 +32,14 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Stack;
 
 import static sample.Program.GetInstanceOfChart;
 
 public class StatisticController  {
+
+    public static Stack<Pairs[]> chartContainer = new Stack<>();
+    public static Stack<String> chartNameContainer = new Stack<>();
 
     private static boolean flagAdmin = false;
     private static String consoleLog = "";
@@ -115,6 +120,12 @@ public class StatisticController  {
     @FXML
     private Button btnOpenMap;
 
+
+    static  public Pairs<String,Pairs[]> RecoverLastChart(){
+        Pairs[] lastChart = chartContainer.pop();
+        String lastChartName = chartNameContainer.pop();
+        return new Pairs<>(lastChartName,lastChart);
+    }
 
     @FXML
     void initialize() {

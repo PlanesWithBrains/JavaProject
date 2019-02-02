@@ -75,18 +75,22 @@ public class RangeController {
 
                 switch (number) {
                     case 1: {
+                        StatisticController.chartNameContainer.push("pairUser");
                         Statistic.RangeSelection(botBorder, topBorder, Statistic.pairUser);
                         break;
                     }
                     case 2: {
+                        StatisticController.chartNameContainer.push("pairTU");
                         Statistic.RangeSelection(botBorder, topBorder, Statistic.pairTU);
                         break;
                     }
                     case 3: {
+                        StatisticController.chartNameContainer.push("pairAddress");
                         Statistic.RangeSelection(botBorderDur, topBorderDur, Statistic.pairAdress);
                         break;
                     }
                     case 4: {
+                        StatisticController.chartNameContainer.push("pairTime");
                         Statistic.RangeSelection(botBorderDur, topBorderDur, Statistic.pairTime);
                         break;
                     }

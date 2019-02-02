@@ -26,6 +26,14 @@ public class Statistic {
         UsersPerCities();
     }
 
+    public static Pairs[] MakeCopy(Pairs[] chart){
+        Pairs[] copiedChart = new Pairs[chart.length];
+        for(int i = 0; i < chart.length; i++){
+            copiedChart[i] = new Pairs(chart[i]);
+        }
+        return copiedChart;
+    }
+
     void SortStatisticPairs(int n,Pairs obj[]){
             for (int gap = n / 2; gap > 0; gap /= 2) {
                 for (int i = gap; i < n; i += 1) {
@@ -132,6 +140,9 @@ public class Statistic {
         // ФУНКЦИЯ НЕ ПРОВЕРЯЛАСЬ (за неимением таковой возможности)
         // (Ввод Duration'a можно реализовать(?) так как у нас сделано со временем в КПО)
         // пример того как ее можно вызвать: строка 71 данного файла(имеется в виду туда прописать вызов, с необходимыми дюрейшенами)
+
+        StatisticController.chartContainer.push(Statistic.MakeCopy(obj));
+
         boolean flag = true;
         Pairs<Object,Object>[] Obj = new Pairs[obj.length];// временный массив
         if (a == null && b!= null){
