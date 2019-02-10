@@ -6,7 +6,22 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d545ea6-9541-4e6e-90cb-df258e548778" name="Default Changelist" comment="" />
+    <list default="true" id="2d545ea6-9541-4e6e-90cb-df258e548778" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../JsonServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonServer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonServer/.idea/workspace.xml___jb_tmp___" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/FXML/load.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/FXML/load.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/FXML/range.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/FXML/range.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/FXML/start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/FXML/start.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/RangeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/RangeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/StatisticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/StatisticController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/load.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/load.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/range.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/range.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/start.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/FXML/load.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/FXML/load.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/FXML/range.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/FXML/range.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/FXML/start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/FXML/start.fxml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,57 +65,104 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="17681908">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="715" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="715" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="fxml" value="1" />
+          <entry key="java" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="7" />
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/JsonWork.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controllers/StatisticController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="123" column="57" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="57" />
-              <folding>
-                <element signature="e#2759#3296#0" />
-                <element signature="method#clearPair#0;class#StatisticController#0" />
-                <element signature="e#14344#14864#0" />
-                <element signature="e#14935#15023#0" />
-                <element signature="e#15293#15585#0" />
-              </folding>
+            <state relative-caret-position="207">
+              <caret line="62" selection-start-line="62" selection-end-line="62" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/Pairs.java">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/StatisticController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+            <state relative-caret-position="561">
+              <caret line="235" column="13" selection-start-line="235" selection-start-column="13" selection-end-line="235" selection-end-column="13" />
+              <folding>
+                <element signature="e#10011#10666#0" />
+                <element signature="e#11121#11284#0" />
+                <element signature="e#18626#18627#0" expanded="true" />
+                <element signature="e#18671#18672#0" expanded="true" />
+                <element signature="e#16665#17097#0" />
+                <element signature="e#17102#17787#0" />
+                <element signature="e#17792#18212#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Statistic.java">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/event/Event.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="128" column="37" selection-start-line="128" selection-start-column="23" selection-end-line="128" selection-end-column="37" />
+            <state relative-caret-position="379">
+              <caret line="197" selection-start-line="197" selection-end-line="197" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/Scene.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="3765" selection-start-line="3765" selection-end-line="3765" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/control/MenuItem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="462" selection-start-line="462" selection-end-line="462" />
+              <folding>
+                <element signature="e#15741#15742#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/StartController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="411">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,29 +170,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/RangeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="91" column="29" lean-forward="true" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/GetData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
-              <folding>
-                <element signature="method#Download#0;class#GetData#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/out/production/ProofOfUse/resources/map.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+            <state relative-caret-position="553">
+              <caret line="102" column="56" selection-start-line="102" selection-start-column="56" selection-end-line="102" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -207,9 +248,9 @@
         <option value="$PROJECT_DIR$/src/sample/Program.java" />
         <option value="$PROJECT_DIR$/src/Controllers/LoadController.java" />
         <option value="$PROJECT_DIR$/src/sample/Pairs.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/StatisticController.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/RangeController.java" />
         <option value="$PROJECT_DIR$/src/sample/Statistic.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/RangeController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/StatisticController.java" />
       </list>
     </option>
   </component>
@@ -224,7 +265,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -241,6 +281,36 @@
               <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProofOfUse" type="47feb1d3:ProjectViewModuleNode" />
               <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProofOfUse" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProofOfUse" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProofOfUse" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
+              <item name="FXML" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProofOfUse" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -249,6 +319,13 @@
               <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProofOfUse" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="FXML" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
@@ -289,10 +366,11 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547888062055" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549823820157" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -364,12 +442,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="922" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.29051173" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.29371002" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
@@ -379,8 +458,8 @@
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" sideWeight="0.4978678" weight="0.32446134" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.47867805" weight="0.27478755" />
-      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.48614073" weight="0.39660057" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.47867805" visible="true" weight="0.27440348" />
+      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.48614073" weight="0.39587852" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32953104" />
@@ -449,6 +528,18 @@
           <line>101</line>
           <properties />
           <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Controllers/StatisticController.java</url>
+          <line>156</line>
+          <properties />
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Controllers/StatisticController.java</url>
+          <line>565</line>
+          <properties />
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -531,9 +622,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://E:/gson-2.8.5.jar!/com/google/gson/reflect/TypeToken.class" />
-    <entry file="jar://E:/gson-2.8.5.jar!/com/google/gson/Gson.class" />
-    <entry file="file://$PROJECT_DIR$/../Program.java" />
     <entry file="jar://$PROJECT_DIR$/../../xchart-3.5.2.jar!/org/knowm/xchart/BubbleChart.class" />
     <entry file="jar://$PROJECT_DIR$/../../xchart-3.5.2.jar!/org/knowm/xchart/XYChart.class" />
     <entry file="jar://E:/gson-2.8.5.jar!/com/google/gson/stream/JsonWriter.class" />
@@ -565,7 +653,6 @@
     <entry file="file://$PROJECT_DIR$/out/production/ProofOfUse/FXML/menu.fxml" />
     <entry file="file://$PROJECT_DIR$/out/production/ProofOfUse/sample/Program.class" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/com/sun/javafx/tk/Toolkit.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/event/Event.java" />
     <entry file="file://$PROJECT_DIR$/config.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -646,13 +733,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/StartController.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/LoadController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="184" column="21" lean-forward="true" selection-start-line="184" selection-start-column="21" selection-end-line="184" selection-end-column="21" />
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/JsonWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -673,62 +767,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Pairs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
+        <state relative-caret-position="289">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/LoadController.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Statistic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="-890">
+          <caret line="128" column="37" selection-start-line="128" selection-start-column="23" selection-end-line="128" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/ProofOfUse/FXML/statistic.fxml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/control/MenuItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="462" selection-start-line="462" selection-end-line="462" />
+          <folding>
+            <element signature="e#15741#15742#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="3765" selection-start-line="3765" selection-end-line="3765" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/event/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="197" selection-start-line="197" selection-end-line="197" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controllers/StartController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/JsonWork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/RangeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="91" column="29" lean-forward="true" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Statistic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="128" column="37" selection-start-line="128" selection-start-column="23" selection-end-line="128" selection-end-column="37" />
+        <state relative-caret-position="553">
+          <caret line="102" column="56" selection-start-line="102" selection-start-column="56" selection-end-line="102" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/StatisticController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="123" column="57" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="57" />
+        <state relative-caret-position="561">
+          <caret line="235" column="13" selection-start-line="235" selection-start-column="13" selection-end-line="235" selection-end-column="13" />
           <folding>
-            <element signature="e#2759#3296#0" />
-            <element signature="method#clearPair#0;class#StatisticController#0" />
-            <element signature="e#14344#14864#0" />
-            <element signature="e#14935#15023#0" />
-            <element signature="e#15293#15585#0" />
+            <element signature="e#10011#10666#0" />
+            <element signature="e#11121#11284#0" />
+            <element signature="e#18626#18627#0" expanded="true" />
+            <element signature="e#18671#18672#0" expanded="true" />
+            <element signature="e#16665#17097#0" />
+            <element signature="e#17102#17787#0" />
+            <element signature="e#17792#18212#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Pairs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
         </state>
       </provider>
     </entry>

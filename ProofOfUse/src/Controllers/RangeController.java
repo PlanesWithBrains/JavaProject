@@ -38,6 +38,7 @@ public class RangeController {
 
     @FXML
     void initialize() {
+        StatisticController.flagSucRange = false;
        chkBelow.setOnAction(event -> {
            if (chkBelow.isSelected())
             fldBot.setDisable(false);
@@ -76,26 +77,31 @@ public class RangeController {
                 switch (number) {
                     case 1: {
                         StatisticController.chartNameContainer.push("pairUser");
+                        //StatisticController.chartContainer.push(Statistic.pairUser);
                         Statistic.RangeSelection(botBorder, topBorder, Statistic.pairUser);
                         break;
                     }
                     case 2: {
                         StatisticController.chartNameContainer.push("pairTU");
+                        //StatisticController.chartContainer.push(Statistic.pairTU);
                         Statistic.RangeSelection(botBorder, topBorder, Statistic.pairTU);
                         break;
                     }
                     case 3: {
                         StatisticController.chartNameContainer.push("pairAddress");
+                        //StatisticController.chartContainer.push(Statistic.pairAdress);
                         Statistic.RangeSelection(botBorderDur, topBorderDur, Statistic.pairAdress);
                         break;
                     }
                     case 4: {
                         StatisticController.chartNameContainer.push("pairTime");
+                       // StatisticController.chartContainer.push(Statistic.pairTime);
                         Statistic.RangeSelection(botBorderDur, topBorderDur, Statistic.pairTime);
                         break;
                     }
                 }
                 btnRange.getScene().getWindow().hide();
+                StatisticController.flagSucRange = true;
             });
 
 

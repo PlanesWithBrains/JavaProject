@@ -42,6 +42,8 @@ public class StatisticController  {
     public static Stack<String> chartNameContainer = new Stack<>();
 
     private static boolean flagAdmin = false;
+    private static boolean flagWrite = true;
+    public static boolean flagSucRange = false;
     private static String consoleLog = "";
     private static String str = "";
     private static int flag = 1;
@@ -116,26 +118,25 @@ public class StatisticController  {
     private MenuItem btnInfo;
 
     @FXML
+    private MenuItem btnBack;
+
+    @FXML
     private MenuItem btnAutotest;
+
     @FXML
     private Button btnOpenMap;
 
 
-    static  public Pairs<String,Pairs[]> RecoverLastChart(){
-        Pairs[] lastChart = chartContainer.pop();
-        String lastChartName = chartNameContainer.pop();
-        return new Pairs<>(lastChartName,lastChart);
-    }
-
     @FXML
     void initialize() {
+        btnSort.setDisable(true);
+        btnClose.setDisable(true);
+
         tabPane.setDisable(true);
         if (flagAdmin){
             btnAutotest.setVisible(false);
         }
-        btnSort.setDisable(true);
-        btnClose.setDisable(true);
-        //refreshStat();
+
         btnClose.setOnAction(event -> {
             tabCountUsersModuls.getChildren().remove(0);
             tabCountUsersCountry.getChildren().remove(0);
@@ -149,7 +150,60 @@ public class StatisticController  {
             btnSort.setDisable(true);
             clearPair();
             flag = 1;
+            btnBack.setVisible(false);
         });
+
+        btnBack.setOnAction(event -> {
+            Pairs<String,Pairs[]> temp = RecoverLastChart();
+            if (temp != null) {
+                switch (temp._1) {
+                    case "pairUser": {
+                        Statistic.pairUser = temp._2;
+                        module_user =  GetInstanceOfChart("Module name",
+                                "Number of users",
+                                "Number of users in modules",
+                                temp._2, 4);
+                        tabCountUsersModuls.getChildren().remove(0);
+                        tabCountUsersModuls.getChildren().add(module_user);
+                        break;
+                    }
+                    case "pairTU": {
+                        Statistic.pairTU = temp._2;
+                        module_tu =  GetInstanceOfChart("",
+                                "Hours",
+                                "The average time of usage per user",
+                                temp._2, 2);
+                        tabAvgTimeModuls.getChildren().remove(0);
+                        tabAvgTimeModuls.getChildren().add(module_tu);
+                        break;
+                    }
+                    case "pairAddress": {
+                        Statistic.pairAdress = temp._2;
+                        module_addr =  GetInstanceOfChart("",
+                                "Number of users",
+                                "Number of users in cities",
+                                temp._2, 3);
+                        tabCountUsersCountry.getChildren().remove(0);
+                        tabCountUsersCountry.getChildren().add(module_addr);
+                        break;
+                    }
+                    case "pairTime": {
+                        Statistic.pairTime = temp._2;
+                        module_time = GetInstanceOfChart("",
+                                "Hours",
+                                "Amount of time spent in the modules",
+                                temp._2, 1);
+                        tabTimeModuls.getChildren().remove(0);
+                        tabTimeModuls.getChildren().add(module_time);
+                    }
+                }
+                setSize();
+            }
+            else
+                btnBack.setVisible(false);
+           btnSort.setDisable(false);
+        });
+
         btnSort.setOnAction(event -> {
             ObservableList<Tab> tabs = tabPane.getTabs();
             int activeTab = 1;
@@ -172,11 +226,16 @@ public class StatisticController  {
             stage.setResizable(false);
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
             stage.showAndWait();
-            refreshStat(flag, true);
-            btnImportFile.setDisable(true);
-            btnImportServer.setDisable(true);
-            btnAutotest.setDisable(true);
+            refreshStat(flag, flagWrite);
+            if (flagSucRange) {
+                btnSort.setDisable(true);
+                btnImportFile.setDisable(true);
+                btnImportServer.setDisable(true);
+                btnAutotest.setDisable(true);
+                btnBack.setVisible(true);
+            }
         });
+
         btnImportServer.setOnAction(event -> {
             Parent root = null;
             try {
@@ -193,7 +252,8 @@ public class StatisticController  {
             stage.setResizable(false);
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
             stage.showAndWait();
-            if(refreshStat(flag, true))
+            flagWrite = true;
+            if(refreshStat(flag, flagWrite))
             {
                 btnSort.setDisable(false);
                 btnClose.setDisable(false);
@@ -207,7 +267,9 @@ public class StatisticController  {
                 alert.setContentText("Error 322 - error communicating with the server!");
                 alert.showAndWait();
             }
+            btnBack.setVisible(false);
         });
+
         btnImportFile.setOnAction(event -> {
             FileChooser fc = new FileChooser();
             fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON files", "*.json"));
@@ -240,7 +302,8 @@ public class StatisticController  {
                 if(temp.size() != 0)
                 {
                     tabPane.setDisable(false);
-                    refreshStat(flag, false);
+                    flagWrite = false;
+                    refreshStat(flag, flagWrite);
                     btnSort.setDisable(false);
                     btnClose.setDisable(false);
                     flag++;
@@ -252,8 +315,10 @@ public class StatisticController  {
                     alert.setContentText("Error 228 - error loading file!");
                     alert.showAndWait();
                 }
+                btnBack.setVisible(false);
             }
         });
+
         btnAutotest.setOnAction(event -> {
             File f = new File("./test.json");
             if (f!= null){
@@ -269,7 +334,8 @@ public class StatisticController  {
                     StatisticController.addConsoleLog(clients.toString() + "\n");
                 }
                 Statistic stat = new Statistic(temp);
-                if(refreshStat(flag, false))
+                flagWrite = false;
+                if(refreshStat(flag, flagWrite))
                 {
                     btnSort.setDisable(false);
                     btnClose.setDisable(false);
@@ -283,8 +349,10 @@ public class StatisticController  {
                     alert.setContentText("Error 148 error in the AutoTests!");
                     alert.showAndWait();
                 }
+                btnBack.setVisible(false);
             }
         });
+
         btnInfo.setOnAction(event -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information of developers");
@@ -297,10 +365,8 @@ public class StatisticController  {
 
 
         });
-
-
-
     }
+
     void clearPair(){
         Statistic.pairTime = null;
         Statistic.pairUser = null;
@@ -326,40 +392,16 @@ public class StatisticController  {
                 "Number of users in modules",
                 Statistic.pairUser, 4);
 
-        int prefWidth = 949, prefHeight = 488;
-//HERE SIZE OF CATEGORIES
+        setSize();
 
-        // if (count1 < 10)
-        module_time.setCategoryGap(400.0 / count1 );
-        // if (count4 < 10)
-        module_user.setCategoryGap(400.0 / count4);
-        //  if (count2 < 10)
-        module_tu.setCategoryGap(400.0 / count2);
-        //   if (count3 < 10)
-        module_addr.setCategoryGap(400.0 / count3);
-
-        tabClientsName.setPrefSize(448,478);
-
-        module_time.setPrefSize(prefWidth + (count1 > 8 ? 20*(count1-8) : 0),prefHeight);
-        tabTimeModuls.setPrefSize(prefWidth + (count1 > 8 ? 20*(count1-8) : 0),prefHeight);
-
-        module_user.setPrefSize(prefWidth + (count4 > 8 ? 20*(count4-8) : 0),prefHeight);
-        tabCountUsersModuls.setPrefSize(prefWidth + (count4 > 8 ? 20*(count4-8) : 0),prefHeight);
-
-        module_tu.setPrefSize(prefWidth + (count2 > 8 ? 20*(count2-8) : 0),prefHeight);
-        tabAvgTimeModuls.setPrefSize(prefWidth + (count2 > 8 ? 20*(count2-8) : 0),prefHeight);
-
-        module_addr.setPrefSize(prefWidth + (count3 > 8 ? 20*(count3-8) : 0),prefHeight);
-        tabCountUsersCountry.setPrefSize(prefWidth + (count3 > 8 ? 20*(count3-8) : 0),prefHeight);
-        // tabMap.setPrefSize(prefWidth,prefWidth);
 
         if (flag != 1) {
             tabCountUsersModuls.getChildren().remove(0);
             tabCountUsersCountry.getChildren().remove(0);
             tabAvgTimeModuls.getChildren().remove(0);
             tabTimeModuls.getChildren().remove(0);
-            tabClientsName.getChildren().remove(0);
-            //  tabClientsName.getChildren().remove(1);
+            if (flagWrite)
+                tabClientsName.getChildren().remove(0);
             //  tabMap.getChildren().remove(0);
 
         }
@@ -393,7 +435,6 @@ public class StatisticController  {
                 }
 
         }
-        //pane.getChildren().add(new Label("\n\nP.S. не все клиенты могут иметь распознанный адрес\nиз-за ограничений работы GeoIP\nP.s.s. при загрузке из файла/автотестах актуальность по GeoIP\n не проверяется (она уже выполнена)"));
         tabClientsName.getChildren().add(pane);
         if (!flagWrite){
             slcClients.setOnSelectionChanged(event -> {
@@ -412,6 +453,8 @@ public class StatisticController  {
 
                 }
             });
+
+
         //Maps
         //UNCOMMIT when will do all , to not to pay money Google
         //GoogleMap map = new GoogleMap();
@@ -430,6 +473,34 @@ public class StatisticController  {
 
         txtLogArea.setText(consoleLog);
         return true;
+    }
+
+    void setSize(){
+        //HERE SIZE OF CATEGORIES
+        int prefWidth = 949, prefHeight = 488;
+        // if (count1 < 10)
+        module_time.setCategoryGap(400.0 / count1 );
+        // if (count4 < 10)
+        module_user.setCategoryGap(400.0 / count4);
+        //  if (count2 < 10)
+        module_tu.setCategoryGap(400.0 / count2);
+        //   if (count3 < 10)
+        module_addr.setCategoryGap(400.0 / count3);
+
+        tabClientsName.setPrefSize(448,478);
+
+        module_time.setPrefSize(prefWidth + (count1 > 8 ? 20*(count1-8) : 0),prefHeight);
+        tabTimeModuls.setPrefSize(prefWidth + (count1 > 8 ? 20*(count1-8) : 0),prefHeight);
+
+        module_user.setPrefSize(prefWidth + (count4 > 8 ? 20*(count4-8) : 0),prefHeight);
+        tabCountUsersModuls.setPrefSize(prefWidth + (count4 > 8 ? 20*(count4-8) : 0),prefHeight);
+
+        module_tu.setPrefSize(prefWidth + (count2 > 8 ? 20*(count2-8) : 0),prefHeight);
+        tabAvgTimeModuls.setPrefSize(prefWidth + (count2 > 8 ? 20*(count2-8) : 0),prefHeight);
+
+        module_addr.setPrefSize(prefWidth + (count3 > 8 ? 20*(count3-8) : 0),prefHeight);
+        tabCountUsersCountry.setPrefSize(prefWidth + (count3 > 8 ? 20*(count3-8) : 0),prefHeight);
+        // tabMap.setPrefSize(prefWidth,prefWidth);
     }
 
     public static void setFlagUser(boolean pr) {flagAdmin = pr;}
@@ -455,6 +526,7 @@ public class StatisticController  {
             }
         }
     }
+
     String addMarker(double lan, double lon, String str) throws IOException {
         String PATH = "./map.html";
         String contents = new String(Files.readAllBytes(Paths.get(PATH)));
@@ -474,6 +546,7 @@ public class StatisticController  {
         }
         return contents;
     }
+
     static public void saveHTML() {
         if (str != ""){
             String PATH = "./map.html";
@@ -487,5 +560,19 @@ public class StatisticController  {
                 writer.close();
             }
         }
+    }
+
+    Pairs<String,Pairs[]> RecoverLastChart(){
+        if (chartContainer.empty()) {
+            btnBack.setVisible(false);
+            return null;
+        }
+        Pairs[] lastChart = chartContainer.pop();
+        String lastChartName = chartNameContainer.pop();
+
+        if (chartContainer.empty())
+            btnBack.setVisible(false);
+
+        return new Pairs<>(lastChartName,lastChart);
     }
 }
