@@ -35,26 +35,26 @@ public class Statistic {
     }
 
     void SortStatisticPairs(int n,Pairs obj[]){
-            for (int gap = n / 2; gap > 0; gap /= 2) {
-                for (int i = gap; i < n; i += 1) {
-                    if(obj[i]._2 instanceof Integer) {
-                        Pairs<String, Integer> temp;
-                        temp = obj[i];
-                        int j;
-                        for (j = i; j >= gap && (int)obj[j - gap]._2 < temp._2; j -= gap)
-                            obj[j] = obj[j - gap];
-                        obj[j] = temp;
-                    }
-                    if(obj[i]._2 instanceof Duration){
-                        Pairs<String,Duration> temp;
-                        temp = obj[i];
-                        int j;
-                        for (j = i; j >= gap && ((Duration)obj[j - gap]._2).minus(temp._2).isNegative(); j -= gap)
-                            obj[j] = obj[j - gap];
-                        obj[j] = temp;
-                    }
+        for (int gap = n / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < n; i += 1) {
+                if(obj[i]._2 instanceof Integer) {
+                    Pairs<String, Integer> temp;
+                    temp = obj[i];
+                    int j;
+                    for (j = i; j >= gap && (int)obj[j - gap]._2 < temp._2; j -= gap)
+                        obj[j] = obj[j - gap];
+                    obj[j] = temp;
+                }
+                if(obj[i]._2 instanceof Duration){
+                    Pairs<String,Duration> temp;
+                    temp = obj[i];
+                    int j;
+                    for (j = i; j >= gap && ((Duration)obj[j - gap]._2).minus(temp._2).isNegative(); j -= gap)
+                        obj[j] = obj[j - gap];
+                    obj[j] = temp;
                 }
             }
+        }
 
     }
 
@@ -107,7 +107,7 @@ public class Statistic {
                     avr = pairTime[i].div(((Integer)pairUser[i]._2).longValue());
                 }
             }
-          pairTU[i] = new Pairs<String,Duration>(((String)modulesName.toArray()[i]),avr);
+            pairTU[i] = new Pairs<String,Duration>(((String)modulesName.toArray()[i]),avr);
         }
         SortStatisticPairs(pairTU.length,pairTU);
     }
@@ -222,5 +222,4 @@ public class Statistic {
         }
     }
 }
-
 

@@ -58,7 +58,7 @@ public class RangeController {
             if (chkOver.isSelected()) {
                 doubleTBorder = Double.valueOf(fldTOP.getText());
                 topBorder = doubleTBorder.intValue();
-                topBorderDur = Duration.ofHours((int) topBorder);
+                topBorderDur = Duration.ofMinutes((int)(doubleTBorder.doubleValue() * 60.0));
             }
             else {
                 topBorder = null;
@@ -67,7 +67,7 @@ public class RangeController {
             if (chkBelow.isSelected()) {
                 doubleBBorder = Double.valueOf(fldBot.getText());
                 botBorder = doubleBBorder.intValue();
-                botBorderDur = Duration.ofHours((int) botBorder);
+                botBorderDur = Duration.ofMinutes((int)(doubleBBorder.doubleValue() * 60.0));
             }
             else {
                 botBorder = 0;
@@ -81,16 +81,16 @@ public class RangeController {
                         Statistic.RangeSelection(botBorder, topBorder, Statistic.pairUser);
                         break;
                     }
-                    case 2: {
+                    case 3: {
                         StatisticController.chartNameContainer.push("pairTU");
                         //StatisticController.chartContainer.push(Statistic.pairTU);
-                        Statistic.RangeSelection(botBorder, topBorder, Statistic.pairTU);
+                        Statistic.RangeSelection(botBorderDur, topBorderDur, Statistic.pairTU);
                         break;
                     }
-                    case 3: {
+                    case 2: {
                         StatisticController.chartNameContainer.push("pairAddress");
                         //StatisticController.chartContainer.push(Statistic.pairAdress);
-                        Statistic.RangeSelection(botBorderDur, topBorderDur, Statistic.pairAdress);
+                        Statistic.RangeSelection(botBorder, topBorder, Statistic.pairAdress);
                         break;
                     }
                     case 4: {
