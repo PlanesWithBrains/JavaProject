@@ -8,19 +8,34 @@
   <component name="ChangeListManager">
     <list default="true" id="2d545ea6-9541-4e6e-90cb-df258e548778" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../JsonServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonServer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JsonServer/.idea/workspace.xml___jb_tmp___" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonServer/out/artifacts/JsonServer_jar/JsonServer.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonServer/out/production/JsonServer/META-INF/JsonServer.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonServer/server_out_120694604.json" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonServer/server_out_120694604.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonServer/server_out_1465085305.json" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonServer/server_out_1465085305.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonServer/server_out_1519280649.json" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonServer/server_out_1519280649.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonServer/server_out_2006034581.json" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonServer/server_out_2006034581.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonServer/server_out_522764626.json" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonServer/server_out_522764626.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProofOfUse.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProofOfUse.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/FXML/load.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/FXML/load.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/FXML/range.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/FXML/range.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/FXML/start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/FXML/start.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/RangeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/RangeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ProofOfUse/ProofOfUse.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ProofOfUse/ProofOfUse.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ProofOfUse/ProofOfUse.jnlp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ProofOfUse/config.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ProofOfUse/gson-2.8.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ProofOfUse/map.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ProofOfUse/test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProofOfUse/Controllers/StatisticController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProofOfUse/Controllers/StatisticController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProofOfUse/FXML/load.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProofOfUse/FXML/load.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProofOfUse/FXML/range.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProofOfUse/FXML/range.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProofOfUse/FXML/start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProofOfUse/FXML/start.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProofOfUse/FXML/statistic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProofOfUse/FXML/statistic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProofOfUse/resources/test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProofOfUse/sample/Program.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProofOfUse/sample/Program.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/StatisticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/StatisticController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/load.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/load.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/range.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/range.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/start.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/FXML/load.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/FXML/load.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/FXML/range.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/FXML/range.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/FXML/start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/FXML/start.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Program.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -96,26 +111,44 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="401943043">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="582" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
-              <folding>
-                <element signature="e#1662#1678#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="510">
+              <caret line="203" column="18" lean-forward="true" selection-start-line="203" selection-start-column="18" selection-end-line="203" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Statistic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="144" />
+            <state relative-caret-position="51">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -132,11 +165,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/StatisticController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="219" column="57" selection-start-line="219" selection-start-column="57" selection-end-line="219" selection-end-column="57" />
+            <state relative-caret-position="363">
+              <caret line="257" column="45" selection-start-line="257" selection-start-column="45" selection-end-line="257" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controllers/LoadController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="452">
+              <caret line="40" column="79" selection-start-line="40" selection-start-column="79" selection-end-line="40" selection-end-column="79" />
               <folding>
-                <element signature="e#18626#18627#0" expanded="true" />
-                <element signature="e#18671#18672#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/GetData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+              <folding>
+                <element signature="method#Download#0;class#GetData#0" />
+                <element signature="e#3343#3344#0" expanded="true" />
+                <element signature="e#3388#3389#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -145,7 +200,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/StartController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
+            <state relative-caret-position="546">
               <caret line="79" selection-start-line="79" selection-end-line="79" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -157,8 +212,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/RangeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="68" column="53" lean-forward="true" selection-start-line="68" selection-start-column="53" selection-end-line="68" selection-end-column="53" />
+            <state relative-caret-position="469">
+              <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -189,6 +244,7 @@
       <find>Double</find>
       <find>Integer</find>
       <find>range</find>
+      <find>322</find>
     </findStrings>
     <replaceStrings>
       <replace>log</replace>
@@ -237,19 +293,19 @@
         <option value="$PROJECT_DIR$/src/Map/GoogleMap.java" />
         <option value="$PROJECT_DIR$/src/Controllers/StartController.java" />
         <option value="$PROJECT_DIR$/src/sample/GetData.java" />
-        <option value="$PROJECT_DIR$/src/sample/Program.java" />
         <option value="$PROJECT_DIR$/src/Controllers/LoadController.java" />
         <option value="$PROJECT_DIR$/src/sample/Pairs.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/StatisticController.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/RangeController.java" />
         <option value="$PROJECT_DIR$/src/sample/Statistic.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/RangeController.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/StatisticController.java" />
+        <option value="$PROJECT_DIR$/src/sample/Program.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="952" />
+    <option name="width" value="975" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -257,7 +313,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -269,6 +324,36 @@
               <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProofOfUse" type="47feb1d3:ProjectViewModuleNode" />
               <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProofOfUse" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProofOfUse" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProofOfUse" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProofOfUse" type="47feb1d3:ProjectViewModuleNode" />
+              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="ProofOfUse" type="462c0819:PsiDirectoryNode" />
+              <item name="FXML" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ProofOfUse" type="b2602c69:ProjectViewProjectNode" />
@@ -329,12 +414,13 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549823820157" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../JsonServer" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="com.intellij.jarRepository.settings.RemoteRepositoriesConfigurable" />
@@ -404,23 +490,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="922" extended-state="6" />
+    <frame x="952" y="0" width="975" height="1047" extended-state="0" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.29690832" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.18907104" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.10012674" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5138593" side_tool="true" weight="0.36659437" />
-      <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.4946695" weight="0.23067173" />
+      <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.4946695" weight="0.22891566" />
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" sideWeight="0.4978678" weight="0.32446134" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.47867805" weight="0.27376425" />
-      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.48614073" weight="0.31939164" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.47867805" visible="true" weight="0.1007667" />
+      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.48614073" weight="0.318872" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32953104" />
@@ -485,16 +571,16 @@
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sample/GetData.java</url>
-          <line>101</line>
-          <properties />
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Controllers/RangeController.java</url>
           <line>76</line>
           <properties />
           <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Controllers/StatisticController.java</url>
+          <line>254</line>
+          <properties />
+          <option name="timeStamp" value="69" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -669,30 +755,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controllers/LoadController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/JsonWork.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/GetData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
-          <folding>
-            <element signature="method#Download#0;class#GetData#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -707,71 +773,43 @@
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/Scene.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/Scene.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/control/MenuItem.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/event/Event.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/css/PseudoClass.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/chart/Axis.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/chart/CategoryAxis.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/stage/Stage.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/stage/Window.java" />
+    <entry file="file://$PROJECT_DIR$/src/sample/Pairs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60010">
-          <caret line="3765" selection-start-line="3765" selection-end-line="3765" />
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/control/MenuItem.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/GetData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6154">
-          <caret line="462" selection-start-line="462" selection-end-line="462" />
+        <state relative-caret-position="172">
+          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
           <folding>
-            <element signature="e#15741#15742#0" expanded="true" />
+            <element signature="method#Download#0;class#GetData#0" />
+            <element signature="e#3343#3344#0" expanded="true" />
+            <element signature="e#3388#3389#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/event/Event.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Statistic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="196" lean-forward="true" selection-start-line="196" selection-end-line="196" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/css/PseudoClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/chart/Axis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="1221" selection-start-line="1221" selection-end-line="1221" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/chart/CategoryAxis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
-          <folding>
-            <element signature="e#1702#1710#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/stage/Stage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="487" column="6" lean-forward="true" selection-start-line="487" selection-start-column="6" selection-end-line="487" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/stage/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/StartController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
+        <state relative-caret-position="546">
           <caret line="79" selection-start-line="79" selection-end-line="79" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -781,43 +819,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/RangeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="68" column="53" lean-forward="true" selection-start-line="68" selection-start-column="53" selection-end-line="68" selection-end-column="53" />
+        <state relative-caret-position="469">
+          <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
+    <entry file="file://$PROJECT_DIR$/src/Controllers/LoadController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+        <state relative-caret-position="452">
+          <caret line="40" column="79" selection-start-line="40" selection-start-column="79" selection-end-line="40" selection-end-column="79" />
           <folding>
-            <element signature="e#1662#1678#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/StatisticController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="219" column="57" selection-start-line="219" selection-start-column="57" selection-end-line="219" selection-end-column="57" />
-          <folding>
-            <element signature="e#18626#18627#0" expanded="true" />
-            <element signature="e#18671#18672#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="363">
+          <caret line="257" column="45" selection-start-line="257" selection-start-column="45" selection-end-line="257" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Pairs.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Program.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Statistic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="144" />
+        <state relative-caret-position="510">
+          <caret line="203" column="18" lean-forward="true" selection-start-line="203" selection-start-column="18" selection-end-line="203" selection-end-column="18" />
         </state>
       </provider>
     </entry>

@@ -9,6 +9,8 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -158,6 +160,7 @@ public class Program extends Application {
 	/* Функция проверяет на соответствие введенные пользователем данные
 	 * и возвращает доступную ему привелегию*/
 	public static void recieveJson(String IP, int Port){
+		final boolean[] endofRecieving = {false};
 		Runnable recieve_data = () -> {
 
 			boolean[] result_of_conversation;
@@ -186,10 +189,30 @@ public class Program extends Application {
 				if(result_of_conversation[1])
 					System.err.println("Object " + lclient.hashCode() + " recieved correctly");
 			} while (result_of_conversation[0]);
+			endofRecieving[0] = true;
 		};
 		new Thread(recieve_data).start();
 
 
+		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		alert.setTitle("Loading dialog");
+		alert.setHeaderText("Loading in progress...");
+		alert.setContentText("(please wait, process may take several minutes)");
+		alert.getDialogPane().lookupButton(ButtonType.OK).setDisable(true);
+		Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image(Program.class.getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
+		alert.show();
+
+		while(!endofRecieving[0]){
+			System.out.println("#Loading files...");
+			try{
+				Thread.sleep(3000);
+			} catch (InterruptedException e){
+				e.printStackTrace();
+			}
+		}
+
+		stage.hide();
 		for (int i = 0;i < Program.gen_collection.getCollection().size();i++){
 			String log = Program.gen_collection.getCollection().values().toArray()[i].toString() + "\n";
 			/*Image img = new ClientData().
@@ -197,6 +220,7 @@ public class Program extends Application {
 			System.out.println(log);
 			StatisticController.addConsoleLog(log);
 		}
+
 
 
 		GetData.BreakConnection();

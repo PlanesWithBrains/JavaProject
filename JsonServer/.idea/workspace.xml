@@ -6,7 +6,36 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d5822dc-bc56-463b-98ad-4e70b9ce8139" name="Default Changelist" comment="" />
+    <list default="true" id="3d5822dc-bc56-463b-98ad-4e70b9ce8139" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/JsonServer_jar/JsonServer.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JsonServer/META-INF/JsonServer.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_out_120694604.json" beforeDir="false" afterPath="$PROJECT_DIR$/server_out_120694604.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_out_1465085305.json" beforeDir="false" afterPath="$PROJECT_DIR$/server_out_1465085305.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_out_1519280649.json" beforeDir="false" afterPath="$PROJECT_DIR$/server_out_1519280649.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_out_2006034581.json" beforeDir="false" afterPath="$PROJECT_DIR$/server_out_2006034581.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_out_522764626.json" beforeDir="false" afterPath="$PROJECT_DIR$/server_out_522764626.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/ProofOfUse.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/ProofOfUse.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/artifacts/ProofOfUse/ProofOfUse.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/artifacts/ProofOfUse/ProofOfUse.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/artifacts/ProofOfUse/ProofOfUse.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/artifacts/ProofOfUse/ProofOfUse.jnlp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/artifacts/ProofOfUse/config.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/artifacts/ProofOfUse/map.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/artifacts/ProofOfUse/test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/Controllers/StatisticController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/Controllers/StatisticController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/FXML/load.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/FXML/load.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/FXML/range.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/FXML/range.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/FXML/start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/FXML/start.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/FXML/statistic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/FXML/statistic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/resources/test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/sample/Program.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/out/production/ProofOfUse/sample/Program.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/src/Controllers/StatisticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/src/Controllers/StatisticController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProofOfUse/src/sample/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProofOfUse/src/sample/Program.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +49,14 @@
         <counts>
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.31" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="2096750621">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
@@ -48,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+            <state relative-caret-position="330">
+              <caret line="39" column="9" lean-forward="true" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
               <folding>
                 <element signature="method#SendJson#0;class#Server#0" />
                 <element signature="method#ServerClose#0;class#Server#0" />
@@ -88,9 +125,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+    <option name="x" value="952" />
+    <option name="width" value="975" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -98,7 +135,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -133,12 +169,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547644991314" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ProofOfUse" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -198,8 +235,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16044776" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16204691" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -208,7 +246,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5565032" weight="0.28328612" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5565032" visible="true" weight="0.28308025" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49413645" weight="0.29886687" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -314,8 +352,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+        <state relative-caret-position="330">
+          <caret line="39" column="9" lean-forward="true" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
           <folding>
             <element signature="method#SendJson#0;class#Server#0" />
             <element signature="method#ServerClose#0;class#Server#0" />
