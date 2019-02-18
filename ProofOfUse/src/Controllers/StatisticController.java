@@ -226,7 +226,7 @@ public class StatisticController  {
             stage.setResizable(false);
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/ImagesAndFonts/LOGOJAVA.png")));
             stage.showAndWait();
-            refreshStat(flag, flagWrite);
+            refreshStat(2, flagWrite);
             if (flagSucRange) {
                 btnSort.setDisable(true);
                 btnImportFile.setDisable(true);
@@ -255,7 +255,6 @@ public class StatisticController  {
             flagWrite = false;
             if(refreshStat(flag, flagWrite))
             {
-                refreshStat(flag, flagWrite);
                 btnSort.setDisable(false);
                 btnClose.setDisable(false);
                 tabPane.setDisable(false);
